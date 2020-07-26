@@ -1,0 +1,14 @@
+
+
+MasterViewControllerクラス内での、「セルの文字を再設定する用のデータ配列」を保存する「UserDefaults」のキーワード・・・"DATA_of_CELL"
+
+
+COREDATAの使い方
+http://www.2nd-walker.com/2020/03/05/swift-basic-how-to-use-coredata/#Core_Data_no_shi_yong_zhun_bei
+
+
+MasterViewControllerでのcellの作られ方
+cell is created 0
+cell is created 1
+cell is created 2
+数字はindexPath.rowに対応する
