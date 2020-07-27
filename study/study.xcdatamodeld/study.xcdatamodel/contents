@@ -4,7 +4,12 @@
         <attribute name="timestamp" optional="YES" attributeType="Date"/>
         <userInfo/>
     </entity>
+    <entity name="Past_Data" representedClassName="Past_Data" syncable="YES" codeGenerationType="class">
+        <attribute name="is_this_challenged" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="is_this_cleared" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
     <elements>
         <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
+        <element name="Past_Data" positionX="261" positionY="198" width="128" height="73"/>
     </elements>
 </model>

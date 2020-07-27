@@ -157,6 +157,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
     }
 
+    func configureCell(_ cell: UITableViewCell, withEvent event: Event, _ cell_data: NSManagedObject) {
+        
+        cell.textLabel!.text = "UNCLEARED"
+        
+    }
+    
     func configureCell(_ cell: UITableViewCell, withEvent event: Event) {
         
         cell.textLabel!.text = "UNCLEARED"

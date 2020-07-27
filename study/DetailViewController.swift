@@ -268,6 +268,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
         /********************テキストフィールドの設定********************/
         
+        NotificationCenter.default.addObserver(self, selector: #selector(showKeyBoard), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
         textfield1.frame = CGRect(x: (screen.width - textfield_size.x)/2 , y: (screen.height * 1.0 * label_space)/screen_slasher.y, width: textfield_size.x, height: textfield_size.y)
         textfield1.placeholder = "和（たし算の答え）"
         textfield1.keyboardType = .numberPad
@@ -312,6 +314,21 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
         configureView()
     }
+    
+    
+    @objc func showKeyBoard(notification: Notification){
+        let keyboardFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+        
+        guard let keyboardMinY = keyboardFrame?.minY else{return}
+        let minY_Button_s_MaxY = self.button4.frame.maxY
+        let distance = minY_Button_s_MaxY - keyboardMinY + 20
+        let tranceform = CGAffineTransform(translationX: 0, y: -distance)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: {
+            self.view.transform = tranceform
+        })
+    }
+    
 
     var detailItem: Event? {
         didSet {
@@ -347,4 +364,3 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     
 
 }
-
