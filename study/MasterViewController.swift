@@ -62,7 +62,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         print("\(data_of_cells_cellcheck)")
         
-        save()
         
         /**DetailViewControllerから戻った時に呼ばれる**/
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
