@@ -60,9 +60,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             
         }
         
-        print("\(data_of_cells_cellcheck)")
-        
-        
         /**DetailViewControllerから戻った時に呼ばれる**/
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
@@ -262,45 +259,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     // MARK: - Core Data stack
     
-    func new_PastDatas() -> Past_Datas {
-        let context = MasterViewController.persistentContainer.viewContext
-        
-        let a_past_data = NSEntityDescription.insertNewObject(forEntityName: "Past_Datas", into: context) as! Past_Datas
-        
-        return a_past_data
-    }
-    
-    func save(){
-        MasterViewController.persistentContainer.saveContext()
-    }
-    
-    func get_All_PastDatas()->[Past_Datas]{
-        let context = MasterViewController.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Past_Datas")
-        
-        do {
-            let past_datas:[Past_Datas] = try context.fetch(request) as! [Past_Datas]
-            
-            for data in past_datas {
-                self.data_of_cells_cellcheck.append(CoreData_to_enumCell(data: data))
-            }
-            
-            return past_datas
-            
-        } catch  {
-            fatalError()
-        }
-    }
-    
-    func delete_PastData(datas: [Past_Datas]) {
-        
-        let context = MasterViewController.persistentContainer.viewContext
-        
-        for data in datas {
-            context.delete(data)
-        }
-        
-    }
     
 }
 

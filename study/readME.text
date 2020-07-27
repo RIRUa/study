@@ -12,3 +12,10 @@ cell is created 0
 cell is created 1
 cell is created 2
 数字はindexPath.rowに対応する
+
+GithubのToken:3c14d70d6e7fcd463e235901d1a259fa330a7419
+
+
+var willBePastDatas = self.new_PastDatas()
+willBePastDatas = enumCell_to_CoreData(cell_state: data_of_cells_cellcheck[0])
+self.save()
