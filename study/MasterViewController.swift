@@ -15,14 +15,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var managedObjectContext: NSManagedObjectContext? = nil
     
     
-    private static var persistentContainer: NSPersistentContainer! = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
-    
     /**セルのタイトルを変えるか確認するcell_check値**/
     var title_changer_checker:cell_check = .None
     
     /**セルに対するクリアしたかどうかの情報を保存する配列**/
     var data_of_cells_cellcheck:[cell_check] = []
-    var data_of_cells_PastDatas:[Past_Datas] = []
     
     /**セルの数字を保存**/
     var cell_row_num : IndexPath?
@@ -30,9 +27,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        data_of_cells_PastDatas = get_All_PastDatas()
-        delete_PastData(datas: data_of_cells_PastDatas)
         
         // Do any additional setup after loading the view.
         navigationItem.leftBarButtonItem = editButtonItem

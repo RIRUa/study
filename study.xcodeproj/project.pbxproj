@@ -17,8 +17,6 @@
 		5A0E686524C515720095D605 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A0E686324C515720095D605 /* LaunchScreen.storyboard */; };
 		5A0E686D24C515FF0095D605 /* NewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E686C24C515FF0095D605 /* NewObject.swift */; };
 		5A0E689424C79BA80095D605 /* readME.text in Resources */ = {isa = PBXBuildFile; fileRef = 5A0E689324C79BA80095D605 /* readME.text */; };
-		5A0E68A524CA64C90095D605 /* Past_Datas+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E68A324CA64C90095D605 /* Past_Datas+CoreDataClass.swift */; };
-		5A0E68A624CA64C90095D605 /* Past_Datas+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E68A424CA64C90095D605 /* Past_Datas+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +32,6 @@
 		5A0E686624C515720095D605 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A0E686C24C515FF0095D605 /* NewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewObject.swift; sourceTree = "<group>"; };
 		5A0E689324C79BA80095D605 /* readME.text */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readME.text; sourceTree = "<group>"; };
-		5A0E68A324CA64C90095D605 /* Past_Datas+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Past_Datas+CoreDataClass.swift"; path = "study/CoreDataFolder/Past_Datas+CoreDataClass.swift"; sourceTree = "<group>"; };
-		5A0E68A424CA64C90095D605 /* Past_Datas+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Past_Datas+CoreDataProperties.swift"; path = "study/CoreDataFolder/Past_Datas+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +48,6 @@
 		5A0E684724C515700095D605 = {
 			isa = PBXGroup;
 			children = (
-				5A0E68A324CA64C90095D605 /* Past_Datas+CoreDataClass.swift */,
-				5A0E68A424CA64C90095D605 /* Past_Datas+CoreDataProperties.swift */,
 				5A0E685224C515700095D605 /* study */,
 				5A0E685124C515700095D605 /* Products */,
 			);
@@ -157,12 +151,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A0E68A524CA64C90095D605 /* Past_Datas+CoreDataClass.swift in Sources */,
 				5A0E685B24C515700095D605 /* MasterViewController.swift in Sources */,
 				5A0E685424C515700095D605 /* AppDelegate.swift in Sources */,
 				5A0E685D24C515700095D605 /* DetailViewController.swift in Sources */,
 				5A0E685724C515700095D605 /* study.xcdatamodeld in Sources */,
-				5A0E68A624CA64C90095D605 /* Past_Datas+CoreDataProperties.swift in Sources */,
 				5A0E685924C515700095D605 /* SceneDelegate.swift in Sources */,
 				5A0E686D24C515FF0095D605 /* NewObject.swift in Sources */,
 			);

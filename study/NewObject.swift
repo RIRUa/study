@@ -31,7 +31,7 @@ protocol send_any_data {
     func send_bool(data:cell_check)
 }
 
-
+/**
 func enumCell_to_CoreData(cell_state: cell_check)->Past_Datas {
     
     let data : Past_Datas = Past_Datas()
@@ -61,7 +61,7 @@ func CoreData_to_enumCell(data:Past_Datas)->cell_check {
     return .None
 }
 
-
+**/
 
 // MARK: -use COREDATA
 
