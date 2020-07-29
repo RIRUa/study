@@ -62,10 +62,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     @objc
     func insertNewObject(_ sender: Any) {
         let context = self.fetchedResultsController.managedObjectContext
-        let newEvent = Event(context: context)
+        let newPastData = Past_Data(context: context)
              
         // If appropriate, configure the new managed object.
-        newEvent.timestamp = Date()
+        newPastData.enum_CellCheck = 0
 
         // Save the context.
         do {
@@ -93,7 +93,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 next_controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 next_controller.navigationItem.leftItemsSupplementBackButton = true
                 detailViewController = next_controller
-                next_controller.bool_sender = self
+                next_controller.cell_check_sender = self
             }
         }
     }
@@ -111,13 +111,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let event = fetchedResultsController.object(at: indexPath)
+        let object = fetchedResultsController.object(at: indexPath)
         
         data_of_cells_cellcheck.insert(.None, at: 0)
         
-        configureCell(cell, withEvent: event)
+        configureCell(cell, withData: object)
         
-        print("\(indexPath.row)")
+        print("\(data_of_cells_cellcheck)")
         
         return cell
     }
@@ -156,33 +156,31 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         cell?.textLabel?.text = "Chosen"
         
     }
-
-    func configureCell(_ cell: UITableViewCell, withEvent event: Event, _ cell_data: NSManagedObject) {
-        
-        cell.textLabel!.text = "UNCLEARED"
-        
-    }
     
-    func configureCell(_ cell: UITableViewCell, withEvent event: Event) {
+    func configureCell(_ cell: UITableViewCell, withData Data: Past_Data) {
         
         cell.textLabel!.text = "UNCLEARED"
+        
+        if Data.enum_CellCheck == 0 {
+            print("called")
+        }
         
     }
 
     // MARK: - Fetched results controller
 
-    var fetchedResultsController: NSFetchedResultsController<Event> {
+    var fetchedResultsController: NSFetchedResultsController<Past_Data> {
         if _fetchedResultsController != nil {
             return _fetchedResultsController!
         }
         
-        let fetchRequest: NSFetchRequest<Event> = Event.fetchRequest()
+        let fetchRequest: NSFetchRequest<Past_Data> = Past_Data.fetchRequest()
         
         // バッチサイズを適切な数値に設定します。
         fetchRequest.fetchBatchSize = 20
         
         // 必要に応じてソートキーを編集します。
-        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "enum_CellCheck", ascending: false)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -203,7 +201,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         return _fetchedResultsController!
     }    
-    var _fetchedResultsController: NSFetchedResultsController<Event>? = nil
+    var _fetchedResultsController: NSFetchedResultsController<Past_Data>? = nil
 
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
@@ -228,9 +226,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             case .delete:
                 tableView.deleteRows(at: [indexPath!], with: .fade)
             case .update:
-                configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Event)
+                configureCell(tableView.cellForRow(at: indexPath!)!, withData: anObject as! Past_Data)
             case .move:
-                configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Event)
+                configureCell(tableView.cellForRow(at: indexPath!)!, withData: anObject as! Past_Data)
                 tableView.moveRow(at: indexPath!, to: newIndexPath!)
             default:
                 return
@@ -255,10 +253,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func send_bool(data: cell_check) {
         title_changer_checker = data
     }
-    
-    
-    // MARK: - Core Data stack
-    
     
 }
 

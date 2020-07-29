@@ -10,7 +10,9 @@ import UIKit
 
 class DetailViewController: UIViewController, UITextFieldDelegate {
     
-    var bool_sender : send_any_data?
+    var cell_check_sender : send_any_data?
+    
+    var selectedTextField : UITextField?
     
     /**計算問題用変数**/
     var a1 = Int.random(in: 1 ... 100)
@@ -169,7 +171,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
         if (check1 == true && check2 == true && check3 == true && check4 == true) {
             
-            bool_sender?.send_bool(data: .Clear)
+            cell_check_sender?.send_bool(data: .Clear)
         }
         
     }
@@ -178,6 +180,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.selectedTextField = textfield1
         
         label1.textAlignment = NSTextAlignment.center;//ラベルを中央揃えにする
         label1.font = label1.font.withSize(screen.height/screen_slasher.y*10)
@@ -268,7 +272,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
         /********************テキストフィールドの設定********************/
         
-        NotificationCenter.default.addObserver(self, selector: #selector(showKeyBoard), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showKeyBoard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyBoard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         textfield1.frame = CGRect(x: (screen.width - textfield_size.x)/2 , y: (screen.height * 1.0 * label_space)/screen_slasher.y, width: textfield_size.x, height: textfield_size.y)
         textfield1.placeholder = "和（たし算の答え）"
@@ -320,7 +326,17 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         let keyboardFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
         
         guard let keyboardMinY = keyboardFrame?.minY else{return}
-        let minY_Button_s_MaxY = self.button4.frame.maxY
+        
+        var minY_Button_s_MaxY:CGFloat = 0.00
+        
+        if self.selectedTextField == textfield3 {
+            minY_Button_s_MaxY = self.button3.frame.maxY
+        }else if (self.selectedTextField == textfield4_sho || self.selectedTextField == textfield4_amari) {
+            minY_Button_s_MaxY = self.button4.frame.maxY
+        }else{
+            return
+        }
+        
         let distance = minY_Button_s_MaxY - keyboardMinY + 20
         let tranceform = CGAffineTransform(translationX: 0, y: -distance)
         
@@ -329,8 +345,19 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
-
-    var detailItem: Event? {
+    @objc func hideKeyBoard(notification: Notification){
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: {
+            self.view.transform = .identity
+        })
+    }
+    
+    /**選択されたテキストフィールドを保存**/
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.selectedTextField = textField
+    }
+    
+    var detailItem: Past_Data? {
         didSet {
             // Update the view.
             configureView()
