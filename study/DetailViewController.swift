@@ -102,6 +102,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @objc func check_ans1(sender:UIButton){
         if Int(textfield1.text!) == a1+b1 {
             button1.setTitle("cleared", for: .normal)
+            button1.backgroundColor = UIColor.blue
             check1 = true
             textfield1.isUserInteractionEnabled = false
             textfield1.textColor = UIColor.blue
@@ -115,6 +116,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @objc func check_ans2(sender:UIButton){
         if Int(textfield2.text!) == a2-b2 {
             button2.setTitle("cleared", for: .normal)
+            button2.backgroundColor = UIColor.blue
             check2 = true
             textfield2.isUserInteractionEnabled = false
             textfield2.textColor = UIColor.blue
@@ -128,6 +130,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @objc func check_ans3(sender:UIButton){
         if Int(textfield3.text!) == a3*b3 {
             button3.setTitle("cleared", for: .normal)
+            button3.backgroundColor = UIColor.blue
             check3 = true
             textfield3.isUserInteractionEnabled = false
             textfield3.textColor = UIColor.blue
@@ -139,8 +142,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func check_ans4(sender:UIButton){
-        if (Int(textfield4_sho.text!) == a4/b4 && Int(textfield4_amari.text!) == a4%b4) {
+        if ((Int(textfield4_sho.text!) == a4/b4 && Int(textfield4_amari.text!) == a4%b4) || (Int(textfield4_sho.text!) == a4/b4 && a4%b4 == 0)) {
             button4.setTitle("cleared", for: .normal)
+            button4.backgroundColor = UIColor.blue
             check4 = true
             textfield4_sho.isUserInteractionEnabled = false
             textfield4_sho.textColor = UIColor.blue

@@ -57,6 +57,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // If appropriate, configure the new managed object.
         newPastData.enum_CellCheck = 0
         newPastData.day = Date()
+        newPastData.cellTouchEnable = true
         
         // Save the context.
         do {
@@ -134,9 +135,48 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         /**セルを選択した時呼ばれる**/
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.textLabel?.text = "Chosen"
         
+        /**検索条件のDATE情報の取得とnilデータの排除**/
+        let object = fetchedResultsController.object(at: indexPath)
+        let Date_DATA = object.day
+        if (Date_DATA == nil) {
+            return
+        }
+        /**検索条件のDATE情報の取得とnilデータの排除**/
+            // 読み込むエンティティを指定
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Past_Data")
+            //条件指定
+            fetchRequest.predicate = NSPredicate(format: "day == %@", Date_DATA! as CVarArg)
+            
+            do {
+                if managedObjectContext == nil {
+                    return
+                }
+                
+                let myResult = try managedObjectContext!.fetch(fetchRequest)
+                
+                let mydata = myResult[0]
+                
+                mydata.setValue(false, forKey: "cellTouchEnable")
+                mydata.setValue(1, forKey: "enum_CellCheck")
+                
+                try managedObjectContext!.save()
+            } catch {
+                print("ERROR")
+            }
+    }
+        
+    
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        
+        /**検索条件のDATE情報の取得とnilデータの排除**/
+        let object = fetchedResultsController.object(at: indexPath)
+        let cell_change_enable = object.cellTouchEnable
+        if cell_change_enable == false {
+            return false
+        }
+        
+        return true
     }
     
     func configureCell(_ cell: UITableViewCell, withData Data: Past_Data) {
