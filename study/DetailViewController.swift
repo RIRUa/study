@@ -171,7 +171,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
         if (check1 == true && check2 == true && check3 == true && check4 == true) {
             
-            cell_check_sender?.send_bool(data: .Clear)
+            cell_check_sender?.send_data(data: .Clear)
         }
         
     }

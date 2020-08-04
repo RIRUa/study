@@ -18,9 +18,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     /**セルのタイトルを変えるか確認するcell_check値**/
     var title_changer_checker:cell_check = .None
     
-    /**セルに対するクリアしたかどうかの情報を保存する配列**/
-    var data_of_cells_cellcheck:[cell_check] = []
-    
     /**セルの数字を保存**/
     var cell_row_num : IndexPath?
     
@@ -40,18 +37,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        
-        var cell:UITableViewCell
-        
         if cell_row_num != nil {
-            cell = tableView.cellForRow(at: cell_row_num!)!
             
             if title_changer_checker == .Clear {
-                cell.textLabel?.text = "Cleared"
-                data_of_cells_cellcheck[cell_row_num!.row] = .Clear
                 title_changer_checker = .None
             }
-            
         }
         
         /**DetailViewControllerから戻った時に呼ばれる**/
@@ -66,7 +56,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
              
         // If appropriate, configure the new managed object.
         newPastData.enum_CellCheck = 0
-
+        newPastData.day = Date()
+        
         // Save the context.
         do {
             try context.save()
@@ -87,6 +78,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 cell_row_num = indexPath
                 
                 let object = fetchedResultsController.object(at: indexPath)
+                print(object)
                 //次のコントローラーの定義
                 let next_controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 next_controller.detailItem = object
@@ -113,11 +105,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let object = fetchedResultsController.object(at: indexPath)
         
-        data_of_cells_cellcheck.insert(.None, at: 0)
-        
         configureCell(cell, withData: object)
-        
-        print("\(data_of_cells_cellcheck)")
         
         return cell
     }
@@ -132,12 +120,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if editingStyle == .delete {
             let context = fetchedResultsController.managedObjectContext
             context.delete(fetchedResultsController.object(at: indexPath))
-            
-            /**自作部分**/
-            
-            data_of_cells_cellcheck.remove(at: indexPath.row)
-            
-            /**自作部分終了**/
             
             do {
                 try context.save()
@@ -162,7 +144,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         cell.textLabel!.text = "UNCLEARED"
         
         if Data.enum_CellCheck == 0 {
-            print("called")
+            cell.textLabel!.text = "UNCLEARED"
+        }else if Data.enum_CellCheck == 1 {
+            cell.textLabel!.text = "Fail"
+        }else if Data.enum_CellCheck == 2 {
+            cell.textLabel!.text = "CLEARED"
+        }else{
+            cell.textLabel!.text = "「ERROR」 OR 「HUCKED NOW」"
         }
         
     }
@@ -180,7 +168,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         fetchRequest.fetchBatchSize = 20
         
         // 必要に応じてソートキーを編集します。
-        let sortDescriptor = NSSortDescriptor(key: "enum_CellCheck", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "day", ascending: false)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -250,8 +238,38 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     // MARK: -DetailViewControllerクラスからのデータの遷移
     
-    func send_bool(data: cell_check) {
+    func send_data(data: cell_check) {
         title_changer_checker = data
+        
+        let A_data:NSNumber = NSNumber(value: data.rawValue)
+        
+        /**検索条件のDATE情報の取得とnilデータの排除**/
+        let object = fetchedResultsController.object(at: cell_row_num!)
+        let Date_DATA = object.day
+        if (Date_DATA == nil) {
+            return
+        }
+        /**検索条件のDATE情報の取得とnilデータの排除**/
+        // 読み込むエンティティを指定
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Past_Data")
+        //条件指定
+        fetchRequest.predicate = NSPredicate(format: "day == %@", Date_DATA! as CVarArg)
+        
+        do {
+            if managedObjectContext == nil {
+                return
+            }
+            
+            let myResult = try managedObjectContext!.fetch(fetchRequest)
+            
+            let mydata = myResult[0]
+            
+            mydata.setValue(A_data, forKey: "enum_CellCheck")
+            
+            try managedObjectContext!.save()
+        } catch {
+            print("ERROR")
+        }
     }
     
 }

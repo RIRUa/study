@@ -21,12 +21,12 @@ struct Vec2 {
     
 }
 
-enum cell_check {
-    case None       //未選択
-    case Fail       //非クリア
-    case Clear      //クリア
+enum cell_check: Int {
+    case None   = 0       //未選択
+    case Fail   = 1       //非クリア
+    case Clear  = 2      //クリア
 }
 
 protocol send_any_data {
-    func send_bool(data:cell_check)
+    func send_data(data:cell_check)
 }
