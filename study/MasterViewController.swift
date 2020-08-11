@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate, send_any_data {
+class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate, send_any_data, UIPopoverPresentationControllerDelegate, UIViewControllerTransitioningDelegate{
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
@@ -26,7 +26,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        navigationItem.leftBarButtonItem = editButtonItem
+        
+        self.isEditing = false
+        
+        create_EditButton()
+        
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         navigationItem.rightBarButtonItem = addButton
         /**detailViewController変数にDetailViewControllerクラスを代入**/
@@ -179,6 +183,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return true
     }
     
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if tableView.isEditing {
+            return .delete
+        }
+        return .none
+    }
+    
     func configureCell(_ cell: UITableViewCell, withData Data: Past_Data) {
         
         cell.textLabel!.text = "UNCLEARED"
@@ -310,6 +321,42 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         } catch {
             print("ERROR")
         }
+    }
+    
+    // MARK:- popup用関数群
+    
+    // iPhoneで表示させる場合に必要
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return CustomPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+    
+    private func makePopupView() {
+        
+        let storyBoard = UIStoryboard(name: "popup", bundle: nil)
+        let PopupViewController = storyBoard.instantiateViewController(identifier: "popupViewController") as! popupViewController
+        PopupViewController.modalPresentationStyle = .custom
+        PopupViewController.transitioningDelegate = self
+        PopupViewController.masterViewController = self
+        present(PopupViewController, animated: true, completion: nil)
+        
+    }
+    
+    //Editが押された時
+    @objc func tuppedEditButton() {
+        makePopupView()
+        
+    }
+    
+    //Doneが押された時
+    @objc func tuppedEdit_In_MasterVC(){
+        print("tupped")
+        create_EditButton()
+        self.isEditing = false
+    }
+    
+    private func create_EditButton(){
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(tuppedEditButton))
+        navigationItem.leftBarButtonItem = editButton
     }
     
 }
