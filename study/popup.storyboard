@@ -97,6 +97,7 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VF4-0k-r2c">
                                         <rect key="frame" x="0.0" y="95" width="280" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GU9-03-TSn">
@@ -137,6 +138,7 @@
                         <outlet property="passwordText4" destination="r7S-C3-FkZ" id="ZOs-sZ-GBK"/>
                         <outlet property="passwordText5" destination="WoL-3m-yvv" id="ba4-Ng-Mk2"/>
                         <outlet property="passwordText6" destination="8RD-Db-Ch3" id="wzC-74-6II"/>
+                        <outlet property="pw_CheckButton" destination="VF4-0k-r2c" id="Kyt-El-lk2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpN-kC-Hxi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

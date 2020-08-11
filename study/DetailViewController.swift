@@ -171,7 +171,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     }
 
     
-    func data_send_func() {
+    private func data_send_func() {
         
         if (check1 == true && check2 == true && check3 == true && check4 == true) {
             
@@ -180,13 +180,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        self.selectedTextField = textfield1
-        
+    private func labelSetting(){
         label1.textAlignment = NSTextAlignment.center;//ラベルを中央揃えにする
         label1.font = label1.font.withSize(screen.height/screen_slasher.y*10)
         label1.center = CGPoint(x: screen.width/2, y: screen.height*0.7*label_space/screen_slasher.y)//位置の設定
@@ -207,8 +201,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         label4.center = CGPoint(x: screen.width/2, y: screen.height*3.7*label_space/screen_slasher.y)//位置の設定
         self.view.addSubview(label4)
         
-        /********************問題の設定********************/
-        
+    }
+    
+    private func QuestionCreater(){
         question1.textAlignment = NSTextAlignment.center
         question1.font = question1.font.withSize(screen.height/screen_slasher.y*10)
         question1.center = CGPoint(x: screen.width/2, y: screen.height*0.85*label_space/screen_slasher.y)//位置の設定
@@ -229,10 +224,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         question4.center = CGPoint(x: screen.width/2, y: screen.height*3.85*label_space/screen_slasher.y)//位置の設定
         self.view.addSubview(question4)
         
-        /********************ボタンの設定********************/
+    }
+    
+    private func buttonSetting(){
         
         button1.titleLabel?.textAlignment = NSTextAlignment.center
         button1.sizeToFit()
+        button1.layer.cornerRadius = 5
         button1.center = CGPoint(x: screen.width/2, y: screen.height * 1.3 * label_space/screen_slasher.y)//ボタンを中央揃え
         button1.titleLabel?.font = button1.titleLabel?.font.withSize(screen.height/screen_slasher.y*10)//フォントサイズ
         button1.backgroundColor = UIColor.red//ボタンの色
@@ -240,10 +238,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         button1.addTarget(self, action: #selector(check_ans1), for: .touchUpInside)
         self.view.addSubview(button1)
         
-        
-        
         button2.titleLabel?.textAlignment = NSTextAlignment.center
         button2.sizeToFit()
+        button2.layer.cornerRadius = 5
         button2.center = CGPoint(x: screen.width/2, y: screen.height * 2.3 * label_space/screen_slasher.y)//ボタンを中央揃え
         button2.titleLabel?.font = button2.titleLabel?.font.withSize(screen.height/screen_slasher.y*10)//フォントサイズ
         button2.backgroundColor = UIColor.red//ボタンの色
@@ -251,10 +248,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         button2.addTarget(self, action: #selector(check_ans2), for: .touchUpInside)
         self.view.addSubview(button2)
         
-        
-        
         button3.titleLabel?.textAlignment = NSTextAlignment.center
         button3.sizeToFit()
+        button3.layer.cornerRadius = 5
         button3.center = CGPoint(x: screen.width/2, y: screen.height * 3.3 * label_space/screen_slasher.y)//ボタンを中央揃え
         button3.titleLabel?.font = button3.titleLabel?.font.withSize(screen.height/screen_slasher.y*10)//フォントサイズ
         button3.backgroundColor = UIColor.red//ボタンの色
@@ -262,10 +258,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         button3.addTarget(self, action: #selector(check_ans3), for: .touchUpInside)
         self.view.addSubview(button3)
         
-        
-        
         button4.titleLabel?.textAlignment = NSTextAlignment.center
         button4.sizeToFit()
+        button4.layer.cornerRadius = 5
         button4.center = CGPoint(x: screen.width/2, y: screen.height * 4.3 * label_space/screen_slasher.y)//ボタンを中央揃え
         button4.titleLabel?.font = button4.titleLabel?.font.withSize(screen.height/screen_slasher.y*10)//フォントサイズ
         button4.backgroundColor = UIColor.red//ボタンの色
@@ -273,12 +268,14 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         button4.addTarget(self, action: #selector(check_ans4), for: .touchUpInside)
         self.view.addSubview(button4)
         
-        
-        /********************テキストフィールドの設定********************/
+    }
+    
+    private func textfieldSetting(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(showKeyBoard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(hideKeyBoard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         
         textfield1.frame = CGRect(x: (screen.width - textfield_size.x)/2 , y: (screen.height * 1.0 * label_space)/screen_slasher.y, width: textfield_size.x, height: textfield_size.y)
         textfield1.placeholder = "和（たし算の答え）"
@@ -320,7 +317,24 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(textfield4_amari)
         textfield4_amari.delegate = self
         
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
         
+        self.selectedTextField = textfield1
+        
+        labelSetting()
+        /********************問題の設定********************/
+        QuestionCreater()
+        
+        /********************ボタンの設定********************/
+        buttonSetting()
+        
+        /********************テキストフィールドの設定********************/
+        textfieldSetting()
         
         configureView()
     }

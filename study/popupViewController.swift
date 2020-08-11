@@ -18,6 +18,8 @@ class popupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordText5: UITextField!
     @IBOutlet weak var passwordText6: UITextField!
     
+    @IBOutlet weak var pw_CheckButton: UIButton!
+    
     @IBOutlet weak var otherSettingButton: UIButton!
     
     var masterViewController:MasterViewController!
@@ -31,6 +33,14 @@ class popupViewController: UIViewController, UITextFieldDelegate {
         masterViewController.isEditing = true
         
         /**テキストフィールドの文字数制限用設定**/
+        settingNotificate()
+    }
+    
+    
+    // MARK: -テキストフィールドの文字数制限用プロパティの定義
+    
+    /**テキストフィールドの文字数制限用設定プロパティ**/
+    private func settingNotificate(){
         NotificationCenter.default.addObserver(self, selector: #selector(textField1DidChange(notification:)), name: UITextField.textDidChangeNotification, object: passwordText1)
         NotificationCenter.default.addObserver(self, selector: #selector(textField2DidChange(notification:)), name: UITextField.textDidChangeNotification, object: passwordText2)
         NotificationCenter.default.addObserver(self, selector: #selector(textField3DidChange(notification:)), name: UITextField.textDidChangeNotification, object: passwordText3)
@@ -38,9 +48,6 @@ class popupViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(textField5DidChange(notification:)), name: UITextField.textDidChangeNotification, object: passwordText5)
         NotificationCenter.default.addObserver(self, selector: #selector(textField6DidChange(notification:)), name: UITextField.textDidChangeNotification, object: passwordText6)
     }
-    
-    
-    // MARK: -テキストフィールドの文字数制限用プロパティの定義
     
     // オブザーバの破棄
     deinit {
