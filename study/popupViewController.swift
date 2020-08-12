@@ -27,19 +27,26 @@ class popupViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let editButton = UIBarButtonItem(title: "Done", style: .done, target: masterViewController, action: #selector(masterViewController.tuppedEdit_In_MasterVC))
-        masterViewController.navigationItem.leftBarButtonItem = editButton
-        
-        masterViewController.isEditing = true
+        pw_CheckButton.layer.cornerRadius = 10
+        pw_CheckButton.backgroundColor = .systemOrange
+        pw_CheckButton.tintColor = .white
         
         /**テキストフィールドの文字数制限用設定**/
         settingNotificate()
     }
     
+    @IBAction func touchPWcheckButtton(_ sender: Any) {
+        
+        let editButton = UIBarButtonItem(title: "Done", style: .done, target: masterViewController, action: #selector(masterViewController.tuppedEdit_In_MasterVC))
+        masterViewController.navigationItem.leftBarButtonItem = editButton
+        
+        masterViewController.isEditing = true
+        
+    }
     
-    // MARK: -テキストフィールドの文字数制限用プロパティの定義
+    // MARK: -テキストフィールドの文字数制限用メソッドの定義
     
-    /**テキストフィールドの文字数制限用設定プロパティ**/
+    /**テキストフィールドの文字数制限用設定メソッド**/
     private func settingNotificate(){
         NotificationCenter.default.addObserver(self, selector: #selector(textField1DidChange(notification:)), name: UITextField.textDidChangeNotification, object: passwordText1)
         NotificationCenter.default.addObserver(self, selector: #selector(textField2DidChange(notification:)), name: UITextField.textDidChangeNotification, object: passwordText2)

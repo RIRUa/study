@@ -22,7 +22,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yxn-Qr-UVc">
-                                <rect key="frame" x="10" y="92" width="280" height="170"/>
+                                <rect key="frame" x="10" y="92" width="280" height="180"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PNi-qP-HNz">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="80"/>
@@ -96,12 +96,18 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VF4-0k-r2c">
-                                        <rect key="frame" x="0.0" y="95" width="280" height="30"/>
+                                        <rect key="frame" x="0.0" y="95" width="280" height="40"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Ykf-ka-yqH"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="touchPWcheckButtton:" destination="C1j-NT-hWa" eventType="touchUpInside" id="Ock-mY-uqK"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GU9-03-TSn">
-                                        <rect key="frame" x="0.0" y="140" width="280" height="30"/>
+                                        <rect key="frame" x="0.0" y="150" width="280" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="その他の設定：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5m-Su-Neg">
                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="30"/>
