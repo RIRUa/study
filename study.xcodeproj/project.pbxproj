@@ -18,8 +18,11 @@
 		5A0E689424C79BA80095D605 /* readME.text in Resources */ = {isa = PBXBuildFile; fileRef = 5A0E689324C79BA80095D605 /* readME.text */; };
 		5A1048AA24E125D90023DDFE /* popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A1048A924E125D90023DDFE /* popup.storyboard */; };
 		5A1048AC24E126790023DDFE /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1048AB24E126790023DDFE /* popupViewController.swift */; };
+		5A1048DF24ECC5270023DDFE /* password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1048DE24ECC5270023DDFE /* password.swift */; };
+		5A151767250359400075E8D8 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A151766250359400075E8D8 /* settingViewController.swift */; };
 		5AABF88424DBFE5600F096A8 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF88324DBFE5600F096A8 /* CustomPresentationController.swift */; };
 		5ABF907024CF946F00878070 /* study.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF906E24CF946F00878070 /* study.xcdatamodeld */; };
+		5ACD0344250A309E0099E695 /* SETTING.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACD0343250A309E0099E695 /* SETTING.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +39,11 @@
 		5A0E689324C79BA80095D605 /* readME.text */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readME.text; sourceTree = "<group>"; };
 		5A1048A924E125D90023DDFE /* popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = popup.storyboard; sourceTree = "<group>"; };
 		5A1048AB24E126790023DDFE /* popupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupViewController.swift; sourceTree = "<group>"; };
+		5A1048DE24ECC5270023DDFE /* password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = password.swift; sourceTree = "<group>"; };
+		5A151766250359400075E8D8 /* settingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
 		5AABF88324DBFE5600F096A8 /* CustomPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		5ABF906F24CF946F00878070 /* study.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = study.xcdatamodel; sourceTree = "<group>"; };
+		5ACD0343250A309E0099E695 /* SETTING.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SETTING.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,22 +76,41 @@
 		5A0E685224C515700095D605 /* study */ = {
 			isa = PBXGroup;
 			children = (
-				5A0E685324C515700095D605 /* AppDelegate.swift */,
-				5A0E685824C515700095D605 /* SceneDelegate.swift */,
-				5A0E685A24C515700095D605 /* MasterViewController.swift */,
-				5A0E685C24C515700095D605 /* DetailViewController.swift */,
-				5AABF88324DBFE5600F096A8 /* CustomPresentationController.swift */,
-				5A1048AB24E126790023DDFE /* popupViewController.swift */,
+				5A1517632503503C0075E8D8 /* settingPart */,
+				5A15176125034FEB0075E8D8 /* MainPart */,
 				5A0E686C24C515FF0095D605 /* NewObject.swift */,
-				5A0E685E24C515700095D605 /* Main.storyboard */,
-				5A1048A924E125D90023DDFE /* popup.storyboard */,
+				5A1048DE24ECC5270023DDFE /* password.swift */,
 				5A0E686124C515720095D605 /* Assets.xcassets */,
-				5A0E686324C515720095D605 /* LaunchScreen.storyboard */,
 				5A0E686624C515720095D605 /* Info.plist */,
 				5ABF906E24CF946F00878070 /* study.xcdatamodeld */,
 				5A0E689324C79BA80095D605 /* readME.text */,
 			);
 			path = study;
+			sourceTree = "<group>";
+		};
+		5A15176125034FEB0075E8D8 /* MainPart */ = {
+			isa = PBXGroup;
+			children = (
+				5A0E685324C515700095D605 /* AppDelegate.swift */,
+				5A0E685824C515700095D605 /* SceneDelegate.swift */,
+				5A0E685A24C515700095D605 /* MasterViewController.swift */,
+				5A0E685C24C515700095D605 /* DetailViewController.swift */,
+				5A0E685E24C515700095D605 /* Main.storyboard */,
+				5A0E686324C515720095D605 /* LaunchScreen.storyboard */,
+			);
+			path = MainPart;
+			sourceTree = "<group>";
+		};
+		5A1517632503503C0075E8D8 /* settingPart */ = {
+			isa = PBXGroup;
+			children = (
+				5AABF88324DBFE5600F096A8 /* CustomPresentationController.swift */,
+				5A1048AB24E126790023DDFE /* popupViewController.swift */,
+				5A151766250359400075E8D8 /* settingViewController.swift */,
+				5A1048A924E125D90023DDFE /* popup.storyboard */,
+				5ACD0343250A309E0099E695 /* SETTING.storyboard */,
+			);
+			path = settingPart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +175,7 @@
 				5A0E686524C515720095D605 /* LaunchScreen.storyboard in Resources */,
 				5A0E686224C515720095D605 /* Assets.xcassets in Resources */,
 				5A0E686024C515700095D605 /* Main.storyboard in Resources */,
+				5ACD0344250A309E0099E695 /* SETTING.storyboard in Resources */,
 				5A1048AA24E125D90023DDFE /* popup.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +195,8 @@
 				5A0E686D24C515FF0095D605 /* NewObject.swift in Sources */,
 				5AABF88424DBFE5600F096A8 /* CustomPresentationController.swift in Sources */,
 				5A1048AC24E126790023DDFE /* popupViewController.swift in Sources */,
+				5A151767250359400075E8D8 /* settingViewController.swift in Sources */,
+				5A1048DF24ECC5270023DDFE /* password.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +272,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -298,7 +326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

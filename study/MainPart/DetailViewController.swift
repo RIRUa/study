@@ -57,6 +57,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     var textfield4_sho = UITextField()
     var textfield4_amari = UITextField()
     
+    var time:Date!
+    
     
     func configureView() {
         // Update the user interface for the detail item.
@@ -175,7 +177,12 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
         if (check1 == true && check2 == true && check3 == true && check4 == true) {
             
-            cell_check_sender?.send_data(data: .Clear)
+            if time.distance(to: Date()) <= 60.0 {
+                cell_check_sender?.send_data(data: .Clear)
+            }else{
+                cell_check_sender?.send_data(data: .Fail)
+            }
+            
         }
         
     }
@@ -325,6 +332,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         
         self.selectedTextField = textfield1
+        
+        time = Date()
         
         labelSetting()
         /********************問題の設定********************/
