@@ -83,7 +83,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 cell_row_num = indexPath
                 
                 let object = fetchedResultsController.object(at: indexPath)
-                print(object)
                 //次のコントローラーの定義
                 let next_controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 next_controller.detailItem = object

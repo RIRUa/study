@@ -63,7 +63,6 @@ class popupViewController: UIViewController, UITextFieldDelegate {
         
         if ((passwordText1.text == pass1) && (passwordText2.text == pass2) && (passwordText3.text == pass3) && (passwordText4.text == pass4) && (passwordText5.text == pass5) && (passwordText6.text == pass6)){
             PW_Check_Is_Cleared()
-            print("called")
             dismiss(animated: true, completion: nil)
         }
         
