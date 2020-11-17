@@ -27,6 +27,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         // Do any additional setup after loading the view.
         
+        //I want to save this screenSize
+        
+        let APPDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        APPDelegate.screen_size = self.view.frame.size
+        
         self.isEditing = false
         
         create_EditButton()

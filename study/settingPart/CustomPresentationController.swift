@@ -11,6 +11,13 @@ import UIKit
 class CustomPresentationController: UIPresentationController {
     // 呼び出し元のView Controller の上に重ねるオーバレイView
     var overlayView = UIView()
+    
+    var screen_size:CGSize{
+        get{
+            let appDelefate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            return appDelefate.screen_size!
+        }
+    }
 
     // 表示トランジション開始前に呼ばれる
     override func presentationTransitionWillBegin() {
@@ -43,7 +50,11 @@ class CustomPresentationController: UIPresentationController {
         }
     }
 
-    let margin = (x: CGFloat(114), y: CGFloat(646.0))
+    var margin:Vec2{
+        get{
+            return Vec2(x: (screen_size.width - 300.0), y: (screen_size.height - 250.0))
+        }
+    }
     
     // 子のコンテナサイズを返す
     override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
