@@ -30,3 +30,22 @@ enum cell_check: Int {
 protocol send_any_data {
     func send_data(data:cell_check)
 }
+
+func determine_grade(sliderValue val:Int)-> String{
+    
+    var chugaku:Bool = false
+    var grade = val
+    
+    if grade >= 7 {
+        grade -= 6
+        chugaku = true
+    }
+    
+    if chugaku == true {
+        return "中学" + String(grade) + "年"
+    }
+    
+    return "小学" + String(grade) + "年"
+    
+}
+
