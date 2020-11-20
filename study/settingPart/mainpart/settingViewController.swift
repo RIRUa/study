@@ -101,10 +101,23 @@ class settingViewController:UIViewController{
         userdefault.set(Int(timeSlider.value), forKey: time_data_Name)
     }
     
-    // MARK: -ホーム画面への遷移
+    // MARK: -画面遷移
     
+    //ホームへの遷移
     @IBAction func GO_Home(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    //プライバシーポリシーへの遷移
+    @IBAction func privacy_policyButton(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "Extras", bundle: nil)
+        let PPVC = storyBoard.instantiateViewController(identifier: "privacy_policyViewController") as! privacy_policyViewController//privacy_policyViewControllerのインスタンスの作成
+        
+        let navVC = UINavigationController(rootViewController: PPVC)
+        
+        navVC.modalPresentationStyle = .fullScreen
+        
+        present(navVC, animated: true, completion: nil)
     }
     
 }

@@ -9,19 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="FtG-9g-WOz">
-            <objects>
-                <navigationController id="XMR-RO-suJ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PWN-zn-nrU">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OH9-aI-DlE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2220" y="-416"/>
-        </scene>
         <!--Setting View Controller-->
         <scene sceneID="pkU-YA-pqy">
             <objects>
@@ -270,6 +257,9 @@
                                         <state key="normal" title="プライバシーポリシー">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="privacy_policyButton:" destination="nJI-ax-YWj" eventType="touchUpInside" id="vtD-3s-Scp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyt-bV-c93">
                                         <rect key="frame" x="107" y="475" width="200" height="40"/>
@@ -311,7 +301,7 @@
                                         </state>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwz-WD-uLE">
-                                        <rect key="frame" x="70" y="778" width="274.5" height="30"/>
+                                        <rect key="frame" x="80" y="778" width="254.5" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdo-vT-kN0">
                                                 <rect key="frame" x="0.0" y="0.0" width="56" height="30"/>
@@ -319,13 +309,13 @@
                                                     <constraint firstAttribute="width" constant="56" id="hmL-8j-Byn"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <state key="normal" title="Button" image="arrowshape.turn.up.forward" catalog="system"/>
+                                                <state key="normal" title="Button" image="arrowshape.turn.up.left.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="GO_Home:" destination="nJI-ax-YWj" eventType="touchUpInside" id="fQP-0B-4PI"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="反映してアプリを閉じる" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhh-Gh-nef">
-                                                <rect key="frame" x="56" y="0.0" width="218.5" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="反映して１つ前に戻る" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhh-Gh-nef">
+                                                <rect key="frame" x="56" y="0.0" width="198.5" height="30"/>
                                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -382,7 +372,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.turn.up.forward" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

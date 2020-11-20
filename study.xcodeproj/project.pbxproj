@@ -20,6 +20,8 @@
 		5A1048AC24E126790023DDFE /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1048AB24E126790023DDFE /* popupViewController.swift */; };
 		5A1048DF24ECC5270023DDFE /* password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1048DE24ECC5270023DDFE /* password.swift */; };
 		5A151767250359400075E8D8 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A151766250359400075E8D8 /* settingViewController.swift */; };
+		5A297DDF2566F67100CB8192 /* privacy_policyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A297DDE2566F67100CB8192 /* privacy_policyViewController.swift */; };
+		5A297DE22566F6DC00CB8192 /* Extras.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A297DE12566F6DC00CB8192 /* Extras.storyboard */; };
 		5AABF88424DBFE5600F096A8 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF88324DBFE5600F096A8 /* CustomPresentationController.swift */; };
 		5ABF907024CF946F00878070 /* study.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF906E24CF946F00878070 /* study.xcdatamodeld */; };
 		5ACD0344250A309E0099E695 /* SETTING.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACD0343250A309E0099E695 /* SETTING.storyboard */; };
@@ -41,6 +43,8 @@
 		5A1048AB24E126790023DDFE /* popupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupViewController.swift; sourceTree = "<group>"; };
 		5A1048DE24ECC5270023DDFE /* password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = password.swift; sourceTree = "<group>"; };
 		5A151766250359400075E8D8 /* settingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
+		5A297DDE2566F67100CB8192 /* privacy_policyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacy_policyViewController.swift; sourceTree = "<group>"; };
+		5A297DE12566F6DC00CB8192 /* Extras.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Extras.storyboard; sourceTree = "<group>"; };
 		5AABF88324DBFE5600F096A8 /* CustomPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		5ABF906F24CF946F00878070 /* study.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = study.xcdatamodel; sourceTree = "<group>"; };
 		5ACD0343250A309E0099E695 /* SETTING.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SETTING.storyboard; sourceTree = "<group>"; };
@@ -104,13 +108,39 @@
 		5A1517632503503C0075E8D8 /* settingPart */ = {
 			isa = PBXGroup;
 			children = (
+				5A297DDC2566F55E00CB8192 /* extras */,
+				5A297DD62566697200CB8192 /* Login */,
+				5A297DD32566108000CB8192 /* mainpart */,
+			);
+			path = settingPart;
+			sourceTree = "<group>";
+		};
+		5A297DD32566108000CB8192 /* mainpart */ = {
+			isa = PBXGroup;
+			children = (
 				5AABF88324DBFE5600F096A8 /* CustomPresentationController.swift */,
 				5A1048AB24E126790023DDFE /* popupViewController.swift */,
 				5A151766250359400075E8D8 /* settingViewController.swift */,
 				5A1048A924E125D90023DDFE /* popup.storyboard */,
 				5ACD0343250A309E0099E695 /* SETTING.storyboard */,
 			);
-			path = settingPart;
+			path = mainpart;
+			sourceTree = "<group>";
+		};
+		5A297DD62566697200CB8192 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		5A297DDC2566F55E00CB8192 /* extras */ = {
+			isa = PBXGroup;
+			children = (
+				5A297DDE2566F67100CB8192 /* privacy_policyViewController.swift */,
+				5A297DE12566F6DC00CB8192 /* Extras.storyboard */,
+			);
+			path = extras;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A0E689424C79BA80095D605 /* readME.text in Resources */,
+				5A297DE22566F6DC00CB8192 /* Extras.storyboard in Resources */,
 				5A0E686524C515720095D605 /* LaunchScreen.storyboard in Resources */,
 				5A0E686224C515720095D605 /* Assets.xcassets in Resources */,
 				5A0E686024C515700095D605 /* Main.storyboard in Resources */,
@@ -189,6 +220,7 @@
 			files = (
 				5A0E685B24C515700095D605 /* MasterViewController.swift in Sources */,
 				5A0E685424C515700095D605 /* AppDelegate.swift in Sources */,
+				5A297DDF2566F67100CB8192 /* privacy_policyViewController.swift in Sources */,
 				5A0E685D24C515700095D605 /* DetailViewController.swift in Sources */,
 				5ABF907024CF946F00878070 /* study.xcdatamodeld in Sources */,
 				5A0E685924C515700095D605 /* SceneDelegate.swift in Sources */,
