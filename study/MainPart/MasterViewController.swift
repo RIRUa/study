@@ -27,6 +27,17 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         // Do any additional setup after loading the view.
         
+        let time = UserDefaults.standard.integer(forKey: "TIME")
+        let grade = UserDefaults.standard.integer(forKey: "GRADE")
+        
+        if time < 30 || time > 120 {
+            UserDefaults.standard.setValue(75, forKey: "TIME")
+        }
+        
+        if grade < 1 || grade > 9 {
+            UserDefaults.standard.setValue(5, forKey: "GRADE")
+        }
+        
         //I want to save this screenSize
         
         let APPDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate

@@ -104,6 +104,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         /********************timeLabelに表示する文字の決定********************/
         timeLabel.text = "残り時間" + String(timecount) + "秒"
         timeLabel.sizeToFit()
+        
+        
     }
     
     @objc func check_ans1(sender:UIButton){
@@ -341,6 +343,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         time = Date()
         timecount = UserDefaults.standard.integer(forKey: "TIME")
         
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.change_timeLabel), userInfo: nil, repeats: true)
         
         labelSetting()
         /********************問題の設定********************/
@@ -354,7 +357,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
         timeLabel.textAlignment = NSTextAlignment.center;//ラベルを中央揃えにする
         timeLabel.font = timeLabel.font.withSize(screen.height/screen_slasher.y*7.5)
-        timeLabel.center = CGPoint(x: screen.width - timeLabel.frame.width/2, y: screen.height - timeLabel.frame.height/2 - 75)//位置の設定
         self.view.addSubview(timeLabel)
         
         configureView()
@@ -428,5 +430,14 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    //カウントダウン関数
+    
+    @objc func change_timeLabel(){
+        
+        timeLabel.text = "残り時間 " + String(timecount) + "秒"
+        timeLabel.center = CGPoint(x: screen.width - timeLabel.frame.width/2 - 10, y: screen.height - timeLabel.frame.height/2 - 75)//位置の設定
+        timeLabel.sizeToFit()
+        timecount -= 1
+    }
 
 }
