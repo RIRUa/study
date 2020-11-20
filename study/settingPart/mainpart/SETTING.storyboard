@@ -273,6 +273,9 @@
                                         <state key="normal" title="制作理念">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="product_philosophyButton:" destination="nJI-ax-YWj" eventType="touchUpInside" id="OIg-ru-agh"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiP-Nv-ANT">
                                         <rect key="frame" x="107" y="525" width="200" height="40"/>

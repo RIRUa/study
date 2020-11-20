@@ -58,6 +58,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     var textfield4_amari = UITextField()
     
     var time:Date!
+    var timecount = Int()
+    var timeLabel = UILabel()
     
     
     func configureView() {
@@ -99,6 +101,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         button3.setTitle("CHECK", for: .normal)
         button4.setTitle("CHECK", for: .normal)
         
+        /********************timeLabelに表示する文字の決定********************/
+        timeLabel.text = "残り時間" + String(timecount) + "秒"
+        timeLabel.sizeToFit()
     }
     
     @objc func check_ans1(sender:UIButton){
@@ -177,7 +182,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
         if (check1 == true && check2 == true && check3 == true && check4 == true) {
             
-            if time.distance(to: Date()) <= 60.0 {
+            if time.distance(to: Date()) <= TimeInterval(timecount) {
                 cell_check_sender?.send_data(data: .Clear)
             }else{
                 cell_check_sender?.send_data(data: .Fail)
@@ -334,6 +339,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         self.selectedTextField = textfield1
         
         time = Date()
+        timecount = UserDefaults.standard.integer(forKey: "TIME")
+        
         
         labelSetting()
         /********************問題の設定********************/
@@ -344,6 +351,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
         /********************テキストフィールドの設定********************/
         textfieldSetting()
+        
+        timeLabel.textAlignment = NSTextAlignment.center;//ラベルを中央揃えにする
+        timeLabel.font = timeLabel.font.withSize(screen.height/screen_slasher.y*7.5)
+        timeLabel.center = CGPoint(x: screen.width - timeLabel.frame.width/2, y: screen.height - timeLabel.frame.height/2 - 75)//位置の設定
+        self.view.addSubview(timeLabel)
         
         configureView()
     }

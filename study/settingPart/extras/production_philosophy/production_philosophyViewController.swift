@@ -1,5 +1,5 @@
 //
-//  privacy_policyViewController.swift
+//  production_philosophyViewController.swift
 //  study
 //
 //  Created by 渡辺奈央騎 on 2020/11/20.
@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import WebKit
 
-class privacy_policyViewController: UIViewController {
+class production_philosophyViewController: UIViewController {
+    
+    @IBOutlet weak var webview: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +20,18 @@ class privacy_policyViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = backbutton
         
+        guard let url = Bundle.main.url(forResource: "production_philosophy", withExtension: "html") else {
+            return
+        }
+        
+        //print(url)
+        
+        self.webview.loadFileURL(url, allowingReadAccessTo: url)
+        
     }
     
     @objc func pushBackButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+    
 }

@@ -110,7 +110,7 @@ class settingViewController:UIViewController{
     
     //プライバシーポリシーへの遷移
     @IBAction func privacy_policyButton(_ sender: Any) {
-        let storyBoard = UIStoryboard(name: "Extras", bundle: nil)
+        let storyBoard = UIStoryboard(name: "privacy_policy", bundle: nil)
         let PPVC = storyBoard.instantiateViewController(identifier: "privacy_policyViewController") as! privacy_policyViewController//privacy_policyViewControllerのインスタンスの作成
         
         let navVC = UINavigationController(rootViewController: PPVC)
@@ -120,4 +120,16 @@ class settingViewController:UIViewController{
         present(navVC, animated: true, completion: nil)
     }
     
+    @IBAction func product_philosophyButton(_ sender: Any) {
+        
+        let storyBoard = UIStoryboard(name: "production_philosophy", bundle: nil)
+        let PPVC = storyBoard.instantiateViewController(identifier: "production_philosophyViewController") as! production_philosophyViewController//production_philosophyViewControllerのインスタンスの作成
+        
+        let navVC = UINavigationController(rootViewController: PPVC)
+        
+        navVC.modalPresentationStyle = .fullScreen
+        
+        present(navVC, animated: true, completion: nil)
+        
+    }
 }
