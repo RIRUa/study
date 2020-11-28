@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yM-Hf-izz">
-                                <rect key="frame" x="132" y="15" width="36" height="18"/>
+                                <rect key="frame" x="132" y="59" width="36" height="18"/>
                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="18"/>
                                 <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yxn-Qr-UVc">
-                                <rect key="frame" x="10" y="48" width="280" height="180"/>
+                                <rect key="frame" x="10" y="92" width="280" height="180"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PNi-qP-HNz">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="80"/>
@@ -56,37 +56,37 @@
                                                         <rect key="frame" x="0.0" y="30" width="280" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DyG-Y7-e5W">
-                                                                <rect key="frame" x="0.0" y="0.0" width="42.5" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="42.666666666666664" height="50"/>
                                                                 <color key="backgroundColor" red="0.95840548349999999" green="0.96880411259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y37-1K-7lL">
-                                                                <rect key="frame" x="47.5" y="0.0" width="42.5" height="50"/>
+                                                                <rect key="frame" x="47.666666666666657" y="0.0" width="42.333333333333343" height="50"/>
                                                                 <color key="backgroundColor" red="0.95840548349999999" green="0.96880411259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IYb-pE-F8C">
-                                                                <rect key="frame" x="95" y="0.0" width="42.5" height="50"/>
+                                                                <rect key="frame" x="95" y="0.0" width="42.666666666666657" height="50"/>
                                                                 <color key="backgroundColor" red="0.95840548349999999" green="0.96880411259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r7S-C3-FkZ">
-                                                                <rect key="frame" x="142.5" y="0.0" width="42.5" height="50"/>
+                                                                <rect key="frame" x="142.66666666666666" y="0.0" width="42.333333333333343" height="50"/>
                                                                 <color key="backgroundColor" red="0.95840548349999999" green="0.96880411259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WoL-3m-yvv">
-                                                                <rect key="frame" x="190" y="0.0" width="42.5" height="50"/>
+                                                                <rect key="frame" x="190" y="0.0" width="42.666666666666657" height="50"/>
                                                                 <color key="backgroundColor" red="0.95840548349999999" green="0.96880411259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8RD-Db-Ch3">
-                                                                <rect key="frame" x="237.5" y="0.0" width="42.5" height="50"/>
+                                                                <rect key="frame" x="237.66666666666666" y="0.0" width="42.333333333333343" height="50"/>
                                                                 <color key="backgroundColor" red="0.95840548349999999" green="0.96880411259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits"/>

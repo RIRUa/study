@@ -120,6 +120,7 @@ class settingViewController:UIViewController{
         present(navVC, animated: true, completion: nil)
     }
     
+    //制作理念への遷移
     @IBAction func product_philosophyButton(_ sender: Any) {
         
         let storyBoard = UIStoryboard(name: "production_philosophy", bundle: nil)
@@ -127,6 +128,43 @@ class settingViewController:UIViewController{
         
         let navVC = UINavigationController(rootViewController: PPVC)
         
+        navVC.modalPresentationStyle = .fullScreen
+        
+        present(navVC, animated: true, completion: nil)
+        
+    }
+    
+    //利用規約への遷移
+    @IBAction func terms_of_serviceButton(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "terms_of_service", bundle: nil)
+        let ToS_VC = storyBoard.instantiateViewController(identifier: "terms_of_serviceViewController") as! terms_of_serviceViewController
+        
+        let navVC = UINavigationController(rootViewController: ToS_VC)
+        
+        navVC.modalPresentationStyle = .fullScreen
+        
+        present(navVC, animated: true, completion: nil)
+        
+    }
+    
+    //お問い合わせへの遷移
+    @IBAction func inquiryButton(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "inquiry", bundle: nil)
+        
+        let inquiryVC = storyBoard.instantiateViewController(identifier: "inquiryViewController") as! inquiryViewController
+        
+        let navVC = UINavigationController(rootViewController: inquiryVC)
+        
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func LoginButton(_ sender: Any) {
+        
+        let storyBoard = UIStoryboard(name: "LogIO", bundle: nil)
+        let LoginVC = storyBoard.instantiateViewController(identifier: "LoginViewController") as LoginViewController
+        let navVC = UINavigationController(rootViewController: LoginVC)
         navVC.modalPresentationStyle = .fullScreen
         
         present(navVC, animated: true, completion: nil)

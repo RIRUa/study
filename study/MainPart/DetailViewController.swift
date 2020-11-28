@@ -57,10 +57,38 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     var textfield4_sho = UITextField()
     var textfield4_amari = UITextField()
     
-    var time:Date!
     var timecount = Int()
     var timeLabel = UILabel()
     
+    var datasendfunc_is_called:Bool = false
+    var is_cleared:Bool = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        self.selectedTextField = textfield1
+        
+        timecount = UserDefaults.standard.integer(forKey: "TIME") + 1
+        
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.change_timeLabel), userInfo: nil, repeats: true)
+        
+        labelSetting()
+        /********************問題の設定********************/
+        QuestionCreater()
+        
+        /********************ボタンの設定********************/
+        buttonSetting()
+        
+        /********************テキストフィールドの設定********************/
+        textfieldSetting()
+        
+        timeLabel.textAlignment = NSTextAlignment.center;//ラベルを中央揃えにする
+        timeLabel.font = timeLabel.font.withSize(screen.height/screen_slasher.y*7.5)
+        self.view.addSubview(timeLabel)
+        
+        configureView()
+    }
     
     func configureView() {
         // Update the user interface for the detail item.
@@ -179,13 +207,18 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         data_send_func()
     }
 
-    
+    //　masterViewControllerにデータを送るメソッド
     private func data_send_func() {
         
-        if (check1 == true && check2 == true && check3 == true && check4 == true) {
+        if (check1 == true && check2 == true && check3 == true && check4 == true && datasendfunc_is_called == false) {
             
-            if time.distance(to: Date()) <= TimeInterval(timecount) {
+            print(TimeInterval(timecount))
+            
+            datasendfunc_is_called = true
+            
+            if TimeInterval(timecount) > 0 {
                 cell_check_sender?.send_data(data: .Clear)
+                is_cleared = true
             }else{
                 cell_check_sender?.send_data(data: .Fail)
             }
@@ -194,6 +227,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    // label_の設定
     private func labelSetting(){
         label1.textAlignment = NSTextAlignment.center;//ラベルを中央揃えにする
         label1.font = label1.font.withSize(screen.height/screen_slasher.y*10)
@@ -217,6 +251,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    // 問題文の設定
     private func QuestionCreater(){
         question1.textAlignment = NSTextAlignment.center
         question1.font = question1.font.withSize(screen.height/screen_slasher.y*10)
@@ -240,6 +275,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    // ボタンの設定
     private func buttonSetting(){
         
         button1.titleLabel?.textAlignment = NSTextAlignment.center
@@ -284,6 +320,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    // テキストフィールドの設定
     private func textfieldSetting(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(showKeyBoard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -333,36 +370,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        self.selectedTextField = textfield1
-        
-        time = Date()
-        timecount = UserDefaults.standard.integer(forKey: "TIME")
-        
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.change_timeLabel), userInfo: nil, repeats: true)
-        
-        labelSetting()
-        /********************問題の設定********************/
-        QuestionCreater()
-        
-        /********************ボタンの設定********************/
-        buttonSetting()
-        
-        /********************テキストフィールドの設定********************/
-        textfieldSetting()
-        
-        timeLabel.textAlignment = NSTextAlignment.center;//ラベルを中央揃えにする
-        timeLabel.font = timeLabel.font.withSize(screen.height/screen_slasher.y*7.5)
-        self.view.addSubview(timeLabel)
-        
-        configureView()
-    }
-    
-    
+    // キーボードの表示
     @objc func showKeyBoard(notification: Notification){
         let keyboardFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
         
@@ -386,6 +394,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
+    // キーボードを隠す
     @objc func hideKeyBoard(notification: Notification){
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: {
@@ -406,6 +415,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // onTouchBeganと同じ
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if (self.textfield1.isFirstResponder) {
@@ -434,10 +444,17 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     
     @objc func change_timeLabel(){
         
-        timeLabel.text = "残り時間 " + String(timecount) + "秒"
-        timeLabel.center = CGPoint(x: screen.width - timeLabel.frame.width/2 - 10, y: screen.height - timeLabel.frame.height/2 - 75)//位置の設定
-        timeLabel.sizeToFit()
-        timecount -= 1
+        if timecount == 5{
+            timeLabel.textColor = .red
+        }
+        
+        if timecount > 0 && is_cleared == false{
+            timecount -= 1
+            timeLabel.text = "残り時間 " + String(timecount) + "秒"
+            timeLabel.center = CGPoint(x: screen.width - timeLabel.frame.width/2 - 10, y: screen.height - timeLabel.frame.height/2 - 75)//位置の設定
+            timeLabel.sizeToFit()
+        }
+        
     }
 
 }

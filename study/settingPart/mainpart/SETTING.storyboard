@@ -227,6 +227,9 @@
                                                 <rect key="frame" x="229" y="0.0" width="38" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Login"/>
+                                                <connections>
+                                                    <action selector="LoginButton:" destination="nJI-ax-YWj" eventType="touchUpInside" id="u0G-hO-FQw"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -289,6 +292,9 @@
                                         <state key="normal" title="利用規約">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="terms_of_serviceButton:" destination="nJI-ax-YWj" eventType="touchUpInside" id="vFf-kM-XLS"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLD-Oz-e4C">
                                         <rect key="frame" x="107" y="575" width="200" height="40"/>
@@ -302,14 +308,17 @@
                                         <state key="normal" title="お問い合わせ">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="inquiryButton:" destination="nJI-ax-YWj" eventType="touchUpInside" id="zgI-mJ-d3T"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwz-WD-uLE">
-                                        <rect key="frame" x="80" y="778" width="254.5" height="30"/>
+                                        <rect key="frame" x="95.5" y="768" width="223.5" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdo-vT-kN0">
-                                                <rect key="frame" x="0.0" y="0.0" width="56" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="25" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="56" id="hmL-8j-Byn"/>
+                                                    <constraint firstAttribute="width" constant="25" id="hmL-8j-Byn"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="Button" image="arrowshape.turn.up.left.fill" catalog="system"/>
@@ -318,12 +327,15 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="反映して１つ前に戻る" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhh-Gh-nef">
-                                                <rect key="frame" x="56" y="0.0" width="198.5" height="30"/>
+                                                <rect key="frame" x="25" y="0.0" width="198.5" height="40"/>
                                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="O9H-nn-Htg"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>

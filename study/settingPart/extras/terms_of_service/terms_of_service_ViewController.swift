@@ -1,15 +1,15 @@
 //
-//  privacy_policyViewController.swift
+//  terms_of_service_ViewController.swift
 //  study
 //
-//  Created by 渡辺奈央騎 on 2020/11/20.
+//  Created by 渡辺奈央騎 on 2020/11/24.
 //  Copyright © 2020 渡辺奈央騎. All rights reserved.
 //
 
 import UIKit
 import WebKit
 
-class privacy_policyViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
+class terms_of_serviceViewController: UIViewController {
     
     @IBOutlet weak var webview: WKWebView!
     
@@ -20,29 +20,19 @@ class privacy_policyViewController: UIViewController, WKNavigationDelegate, WKUI
         
         navigationItem.leftBarButtonItem = backbutton
         
-        guard let url = Bundle.main.url(forResource: "privacy_policy", withExtension: "html") else {
+        guard let url = Bundle.main.url(forResource: "terms_of_service", withExtension: "html") else {
             return
         }
         
         //print(url)
         
-        webview.uiDelegate = self
-        webview.navigationDelegate = self
-        
         self.webview.loadFileURL(url, allowingReadAccessTo: url)
-        
+        //webview.load(url)
     }
+    
+    
     
     @objc func pushBackButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-}
-
-extension production_philosophyViewController{
-    
-//    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-//        webview.evaluateJavaScript("") { (any, error) in
-//            print("hello")
-//        }
-//    }
 }
