@@ -215,16 +215,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="35w-r6-m8E">
-                                        <rect key="frame" x="73.5" y="335" width="267" height="30"/>
+                                        <rect key="frame" x="118.5" y="335" width="177" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログイン・ログアウトはこちら→" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Woj-I9-O2h">
-                                                <rect key="frame" x="0.0" y="0.0" width="224" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログインはこちら→" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Woj-I9-O2h">
+                                                <rect key="frame" x="0.0" y="0.0" width="134" height="30"/>
                                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyy-S3-lgb">
-                                                <rect key="frame" x="229" y="0.0" width="38" height="30"/>
+                                                <rect key="frame" x="139" y="0.0" width="38" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Login"/>
                                                 <connections>
@@ -234,22 +234,43 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YO4-2S-GlU">
-                                        <rect key="frame" x="77" y="375" width="260" height="30"/>
+                                        <rect key="frame" x="105.5" y="375" width="203" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アカウント情報の変更はこちら→" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jf2-NH-nnU">
-                                                <rect key="frame" x="0.0" y="0.0" width="225" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログアウトはこちら→" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jf2-NH-nnU">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
                                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sa-WQ-P6L">
+                                                <rect key="frame" x="155" y="0.0" width="48" height="30"/>
+                                                <state key="normal" title="Logout"/>
+                                                <connections>
+                                                    <action selector="LogoutButton:" destination="nJI-ax-YWj" eventType="touchUpInside" id="iiQ-vk-zYt"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="x33-LH-HCQ">
+                                        <rect key="frame" x="77" y="415" width="260" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アカウント情報の変更はこちら→" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egR-im-ih0">
+                                                <rect key="frame" x="0.0" y="0.0" width="225" height="30"/>
+                                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGb-jH-n8W">
                                                 <rect key="frame" x="230" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="Info"/>
+                                                <connections>
+                                                    <action selector="infoButton:" destination="nJI-ax-YWj" eventType="touchUpInside" id="v1a-6R-nHQ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDS-e4-nGe">
-                                        <rect key="frame" x="107" y="425" width="200" height="40"/>
+                                        <rect key="frame" x="107" y="465" width="200" height="40"/>
                                         <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="HXj-zB-PVD"/>
@@ -265,7 +286,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyt-bV-c93">
-                                        <rect key="frame" x="107" y="475" width="200" height="40"/>
+                                        <rect key="frame" x="107" y="515" width="200" height="40"/>
                                         <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="OEj-gt-4jb"/>
@@ -281,7 +302,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiP-Nv-ANT">
-                                        <rect key="frame" x="107" y="525" width="200" height="40"/>
+                                        <rect key="frame" x="107" y="565" width="200" height="40"/>
                                         <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="abW-aq-KxV"/>
@@ -297,7 +318,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLD-Oz-e4C">
-                                        <rect key="frame" x="107" y="575" width="200" height="40"/>
+                                        <rect key="frame" x="107" y="615" width="200" height="40"/>
                                         <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="Hh8-L2-fFZ"/>
@@ -339,13 +360,14 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="UDS-e4-nGe" firstAttribute="top" secondItem="YO4-2S-GlU" secondAttribute="bottom" constant="20" id="4MV-3k-vUS"/>
                                     <constraint firstItem="KiP-Nv-ANT" firstAttribute="top" secondItem="dyt-bV-c93" secondAttribute="bottom" constant="10" id="AyT-Wc-E5s"/>
                                     <constraint firstItem="xqI-rk-QmS" firstAttribute="top" secondItem="Igz-mn-62k" secondAttribute="bottom" constant="20" id="BdX-fl-O5g"/>
                                     <constraint firstAttribute="bottom" secondItem="dwz-WD-uLE" secondAttribute="bottom" id="CEY-sp-qpj"/>
                                     <constraint firstItem="Igz-mn-62k" firstAttribute="top" secondItem="qSM-Ao-n4Z" secondAttribute="bottom" constant="10" id="L7V-0L-lj3"/>
                                     <constraint firstItem="bLD-Oz-e4C" firstAttribute="top" secondItem="KiP-Nv-ANT" secondAttribute="bottom" constant="10" id="Pvq-kI-5aX"/>
                                     <constraint firstItem="YO4-2S-GlU" firstAttribute="top" secondItem="35w-r6-m8E" secondAttribute="bottom" constant="10" id="XSP-0l-Ob6"/>
+                                    <constraint firstItem="UDS-e4-nGe" firstAttribute="top" secondItem="x33-LH-HCQ" secondAttribute="bottom" constant="20" id="Yge-ZX-yP0"/>
+                                    <constraint firstItem="x33-LH-HCQ" firstAttribute="top" secondItem="YO4-2S-GlU" secondAttribute="bottom" constant="10" id="Zff-5s-mlK"/>
                                     <constraint firstItem="35w-r6-m8E" firstAttribute="top" secondItem="ajw-vW-sQJ" secondAttribute="bottom" constant="20" id="fBZ-tl-Nad"/>
                                     <constraint firstItem="dyt-bV-c93" firstAttribute="top" secondItem="UDS-e4-nGe" secondAttribute="bottom" constant="10" id="hii-xJ-yy4"/>
                                     <constraint firstItem="ajw-vW-sQJ" firstAttribute="top" secondItem="xqI-rk-QmS" secondAttribute="bottom" constant="15" id="lTK-Bi-6gG"/>
@@ -367,9 +389,7 @@
                         <outlet property="age" destination="JKh-Rh-QG0" id="IjQ-aX-omN"/>
                         <outlet property="gradeLabel" destination="Nix-jY-rbs" id="lmp-AK-h79"/>
                         <outlet property="gradeSlider" destination="VOv-s6-Aby" id="Ktg-ER-4Rm"/>
-                        <outlet property="infoButton" destination="9Sa-WQ-P6L" id="E2R-PZ-9qy"/>
                         <outlet property="inquiry" destination="bLD-Oz-e4C" id="mDq-KP-S9m"/>
-                        <outlet property="loginButton" destination="35w-r6-m8E" id="xDD-Cr-Auj"/>
                         <outlet property="mailAddress" destination="JA7-Tw-CFI" id="c8w-A0-WM8"/>
                         <outlet property="privacy_policy" destination="UDS-e4-nGe" id="Nex-yy-rTq"/>
                         <outlet property="production_philosophy" destination="dyt-bV-c93" id="GvO-Bo-dkX"/>

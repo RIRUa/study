@@ -28,6 +28,7 @@
 		5A297DFD2567988A00CB8192 /* production_philosophy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A297DFC2567988A00CB8192 /* production_philosophy.storyboard */; };
 		5A297E0225679B7600CB8192 /* production_philosophy.html in Resources */ = {isa = PBXBuildFile; fileRef = 5A297E0125679B7600CB8192 /* production_philosophy.html */; };
 		5A297E0625679B8600CB8192 /* production_philosophy.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A297E0525679B8600CB8192 /* production_philosophy.css */; };
+		5A711E9D257673AC00E2A6B6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A711E9C257673AC00E2A6B6 /* SignUpViewController.swift */; };
 		5AABF88424DBFE5600F096A8 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF88324DBFE5600F096A8 /* CustomPresentationController.swift */; };
 		5ABF907024CF946F00878070 /* study.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF906E24CF946F00878070 /* study.xcdatamodeld */; };
 		5ACD0344250A309E0099E695 /* SETTING.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACD0343250A309E0099E695 /* SETTING.storyboard */; };
@@ -43,7 +44,7 @@
 		5AE43E65256DB36500F27F5A /* inquiry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43E64256DB36500F27F5A /* inquiry.storyboard */; };
 		5AE43E68256DB37E00F27F5A /* inquiryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43E67256DB37E00F27F5A /* inquiryViewController.swift */; };
 		5AE43E6B256DB63D00F27F5A /* inquiry.js in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43E6A256DB63D00F27F5A /* inquiry.js */; };
-		5AE43E6E256FA85C00F27F5A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43E6D256FA85B00F27F5A /* SignUpViewController.swift */; };
+		5AE43E6E256FA85C00F27F5A /* infoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43E6D256FA85B00F27F5A /* infoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		5A297DFC2567988A00CB8192 /* production_philosophy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = production_philosophy.storyboard; sourceTree = "<group>"; };
 		5A297E0125679B7600CB8192 /* production_philosophy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = production_philosophy.html; sourceTree = "<group>"; };
 		5A297E0525679B8600CB8192 /* production_philosophy.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = production_philosophy.css; sourceTree = "<group>"; };
+		5A711E9C257673AC00E2A6B6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5AABF88324DBFE5600F096A8 /* CustomPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		5ABF906F24CF946F00878070 /* study.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = study.xcdatamodel; sourceTree = "<group>"; };
 		5ACD0343250A309E0099E695 /* SETTING.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SETTING.storyboard; sourceTree = "<group>"; };
@@ -85,7 +87,7 @@
 		5AE43E64256DB36500F27F5A /* inquiry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = inquiry.storyboard; sourceTree = "<group>"; };
 		5AE43E67256DB37E00F27F5A /* inquiryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inquiryViewController.swift; sourceTree = "<group>"; };
 		5AE43E6A256DB63D00F27F5A /* inquiry.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = inquiry.js; sourceTree = "<group>"; };
-		5AE43E6D256FA85B00F27F5A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		5AE43E6D256FA85B00F27F5A /* infoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +174,8 @@
 				5AE43DFB2568476600F27F5A /* LogIO.storyboard */,
 				5AE43DFE2568478300F27F5A /* LoginViewController.swift */,
 				5AE43E05256847E500F27F5A /* LogoutViewController.swift */,
-				5AE43E6D256FA85B00F27F5A /* SignUpViewController.swift */,
+				5AE43E6D256FA85B00F27F5A /* infoViewController.swift */,
+				5A711E9C257673AC00E2A6B6 /* SignUpViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -365,7 +368,8 @@
 				5A297DDF2566F67100CB8192 /* privacy_policyViewController.swift in Sources */,
 				5A0E685D24C515700095D605 /* DetailViewController.swift in Sources */,
 				5AE43E06256847E500F27F5A /* LogoutViewController.swift in Sources */,
-				5AE43E6E256FA85C00F27F5A /* SignUpViewController.swift in Sources */,
+				5AE43E6E256FA85C00F27F5A /* infoViewController.swift in Sources */,
+				5A711E9D257673AC00E2A6B6 /* SignUpViewController.swift in Sources */,
 				5A297DF92567984F00CB8192 /* production_philosophyViewController.swift in Sources */,
 				5AE43E68256DB37E00F27F5A /* inquiryViewController.swift in Sources */,
 				5ABF907024CF946F00878070 /* study.xcdatamodeld in Sources */,

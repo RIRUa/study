@@ -11,5 +11,13 @@ import UIKit
 class LogoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backbutton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: #selector(pushBackButton(_:)))
+        
+        navigationItem.leftBarButtonItem = backbutton
+    }
+    
+    @objc func pushBackButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -33,10 +33,6 @@ class settingViewController:UIViewController{
     @IBOutlet weak var mailAddress: UILabel!
     @IBOutlet weak var telephoneNo: UILabel!
     
-    //ログイン・ログアウト／アカウント情報の変更
-    @IBOutlet weak var loginButton: UIStackView!
-    @IBOutlet weak var infoButton: UIButton!
-    
     //プライバシーポリシー
     @IBOutlet weak var privacy_policy: UIButton!
     
@@ -169,5 +165,25 @@ class settingViewController:UIViewController{
         
         present(navVC, animated: true, completion: nil)
         
+    }
+    
+    @IBAction func LogoutButton(_ sender: Any) {
+        
+        let storyBoard = UIStoryboard(name: "LogIO", bundle: nil)
+        let LogoutVC = storyBoard.instantiateViewController(identifier: "LogoutViewController") as LogoutViewController
+        let navVC = UINavigationController(rootViewController: LogoutVC)
+        
+        navVC.modalPresentationStyle = .fullScreen
+        
+        present(navVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func infoButton(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "LogIO", bundle: nil)
+        let infoVC = storyBoard.instantiateViewController(identifier: "infoViewController") as! infoViewController
+        let navVC = UINavigationController(rootViewController: infoVC)
+        navVC.modalPresentationStyle = .fullScreen
+        
+        present(navVC, animated: true, completion: nil)
     }
 }

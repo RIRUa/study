@@ -25,8 +25,8 @@ class LoginViewController: UIViewController {
     @IBAction func signUpButton(_ sender: Any) {
         
         let storyBoard = UIStoryboard(name: "LogIO", bundle: nil)
-        let signUpVC = storyBoard.instantiateViewController(identifier: "SignUpViewController") as! SignUpViewController
-        let navVC = UINavigationController(rootViewController: signUpVC)
+        let SignUpVC = storyBoard.instantiateViewController(identifier: "SignUpViewController") as! SignUpViewController
+        let navVC = UINavigationController(rootViewController: SignUpVC)
         navVC.modalPresentationStyle = .fullScreen
         
         present(navVC, animated: true, completion: nil)
