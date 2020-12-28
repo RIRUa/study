@@ -79,8 +79,11 @@ class infoViewController: UIViewController {
         
         nameLabel.text = "名前"
         nameLabel.font = nameLabel.font.withSize(self.view.frame.height/screenSlasher.y*20)
-        nameLabel.center = CGPoint(x: 10*self.contentView.frame.width/screenSlasher.x, y: 10*self.contentView.frame.height/screenSlasher.y)
         nameLabel.sizeToFit()
+        nameLabel.center = CGPoint(
+            x: 20*self.contentView.frame.width/screenSlasher.x,
+            y: 10*self.contentView.frame.height/screenSlasher.y
+        )
         self.contentView.addSubview(nameLabel)
         
     }

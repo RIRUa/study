@@ -10,12 +10,22 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    
+    @IBOutlet weak var userNameTextfield: UITextField!
+    @IBOutlet weak var passwordTextfield: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let backbutton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: #selector(pushBackButton(_:)))
         
         navigationItem.leftBarButtonItem = backbutton
+        
+        userNameTextfield.placeholder = "アカウント名"
+        passwordTextfield.placeholder = "パスワード"
+        loginButton.layer.cornerRadius = 5
     }
     
     @objc func pushBackButton(_ sender: UIBarButtonItem) {

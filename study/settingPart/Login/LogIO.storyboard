@@ -26,8 +26,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user-id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74u-Hg-GGt">
-                                <rect key="frame" x="20" y="333" width="85" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザー名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74u-Hg-GGt">
+                                <rect key="frame" x="20" y="333" width="123" height="25"/>
                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,8 +40,8 @@
                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eW-Cy-EPW">
-                                <rect key="frame" x="20" y="462" width="118.5" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eW-Cy-EPW">
+                                <rect key="frame" x="20" y="462" width="124.5" height="25"/>
                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -109,6 +109,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uc6-Ko-Xtk"/>
+                    <connections>
+                        <outlet property="loginButton" destination="5Gh-l2-uIP" id="nVv-wn-uPI"/>
+                        <outlet property="passwordTextfield" destination="t9w-XK-H0c" id="yRy-S6-rTN"/>
+                        <outlet property="userNameTextfield" destination="mqQ-yN-ZPc" id="8W6-tj-UFE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTr-wX-FgZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,7 +210,7 @@
         <!--Navigation Controller-->
         <scene sceneID="3CD-NZ-XRa">
             <objects>
-                <navigationController storyboardIdentifier="SignUP_NavVC" automaticallyAdjustsScrollViewInsets="NO" id="hpX-QW-ofe" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="infoNavVC" automaticallyAdjustsScrollViewInsets="NO" id="hpX-QW-ofe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="asy-qt-AU1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -259,7 +264,7 @@
         <!--Navigation Controller-->
         <scene sceneID="uI7-ep-bx5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jML-Jy-bD1" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SignUP_NavVC" automaticallyAdjustsScrollViewInsets="NO" id="jML-Jy-bD1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yaT-Xz-9KI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

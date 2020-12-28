@@ -3,23 +3,99 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="inquiry.css">
     <script src="inquiry.js"></script>
     <title>お問い合わせ</title>
 </head>
 
-<body>
-    
-    <h1>お問い合わせについて</h1>
+<body onTouchStart = "">
+    <div class="inquiryTitle">
+        <h1 id="title">お問い合わせについて</h1>
+    </div>
 
-    <h2>お問い合わせ先</h2>
-    メール：
-    <span class="mail-link">
-        <a id="askSomeQuestion" onclick="accessToComsMailAddress()" href="mailto:mathlearn.watanaocompany@gmail.com">
-            mathlearn.watanaocompany@gmail.com
-        </a>
-    </span>
+    <h2>目次</h2>
+
+    <p>
+        <a href="#Bug">不具合の修正に関する窓口</a>
+    </p>
+
+    <p>
+        <a href="#support">支援に関する窓口</a>
+    </p>
+
+    <p>
+        <a href="#commercial_Using">商業使用の相談窓口</a>
+    </p>
+
+    <p>
+        <a href="#improvement">改善案の提案用窓口</a>
+    </p>
+
+
+    <hr>
+
+    <div id="BugSheet">
+        <h2 id="Bug">不具合についてはこちらから</h2>
+
+        
+        <p>
+            アカウント名：<input type="text" id="accountName">
+        </p>
+
+        <p>
+            お問い合わせの種類：
+            <select id="inquiryAbout" onchange="changed_inquiryAbout(this.value)">
+                <option value="not_chosen" selected id="not_chosen">未選択</option>
+                <option value="Forced＿Closed">強制終了された</option>
+                <option value="clear_become_fail">正解が不正解になった</option>
+                <option value="fail_become_clear">不正解が正解になった</option>
+                <option value="not_response_by_button">ボタンを押したが反応しない</option>
+                <option value="other">その他</option>
+                <option value="unknown">わからない</option>
+            </select>
+        </p>
+            
+        <p>
+            詳細：<br>
+            <textarea id="inquiryDetail"></textarea>
+        </p>
+
+        
+        <p id="send_position_setting">
+            <button type="button" id="send" onclick="put_sendButton()">送信</button>
+        </p>
+        
+
+
+    </div>
+
+    <hr>
+
+    <h2 id="support">支援についてはこちらから</h2>
+
+    <p>
+        支援者の形態：<select name="type_of_support" id="type_of_support">
+            <option value="company">会社・法人</option>
+            <option value="indivisual">個人</option>
+        </select>
+    </p>
+
+    <p>
+        支援理由：<textarea name="reason_of_support_us" id="reason_of_support_us"></textarea>
+    </p>
+
+    <hr>
+
+    <h2 id="commercial_Using">商業使用のご相談についてはこちらから</h2>
+
+    <p>
+        企業名：<input type="text" id="company_name">
+    </p>
+
+    <hr>
+
+    <h2 id="improvement">改善案の提案についてはこちらから</h2>
 
 </body>
 

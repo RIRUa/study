@@ -20,6 +20,7 @@
 		5A1048AC24E126790023DDFE /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1048AB24E126790023DDFE /* popupViewController.swift */; };
 		5A1048DF24ECC5270023DDFE /* password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1048DE24ECC5270023DDFE /* password.swift */; };
 		5A151767250359400075E8D8 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A151766250359400075E8D8 /* settingViewController.swift */; };
+		5A18CC322590F99F0016AB5A /* ReadME_for_Resource.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A18CC312590F99F0016AB5A /* ReadME_for_Resource.txt */; };
 		5A297DDF2566F67100CB8192 /* privacy_policyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A297DDE2566F67100CB8192 /* privacy_policyViewController.swift */; };
 		5A297DE22566F6DC00CB8192 /* privacy_policy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A297DE12566F6DC00CB8192 /* privacy_policy.storyboard */; };
 		5A297DEA25678A6400CB8192 /* privacy_policy.html in Resources */ = {isa = PBXBuildFile; fileRef = 5A297DE925678A6400CB8192 /* privacy_policy.html */; };
@@ -63,6 +64,7 @@
 		5A1048AB24E126790023DDFE /* popupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupViewController.swift; sourceTree = "<group>"; };
 		5A1048DE24ECC5270023DDFE /* password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = password.swift; sourceTree = "<group>"; };
 		5A151766250359400075E8D8 /* settingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
+		5A18CC312590F99F0016AB5A /* ReadME_for_Resource.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadME_for_Resource.txt; sourceTree = "<group>"; };
 		5A297DDE2566F67100CB8192 /* privacy_policyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacy_policyViewController.swift; sourceTree = "<group>"; };
 		5A297DE12566F6DC00CB8192 /* privacy_policy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = privacy_policy.storyboard; sourceTree = "<group>"; };
 		5A297DE925678A6400CB8192 /* privacy_policy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy_policy.html; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				5AE43E50256CF27600F27F5A /* terms_of_service */,
 				5A297E0025679B2900CB8192 /* privacy_policy */,
 				5A297DFF25679B1B00CB8192 /* production_philosophy */,
+				5A18CC312590F99F0016AB5A /* ReadME_for_Resource.txt */,
 			);
 			path = resource;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				5AE43E4D256CF10B00F27F5A /* terms_of_service.storyboard in Resources */,
 				5A297E0625679B8600CB8192 /* production_philosophy.css in Resources */,
 				5A297E0225679B7600CB8192 /* production_philosophy.html in Resources */,
+				5A18CC322590F99F0016AB5A /* ReadME_for_Resource.txt in Resources */,
 				5A297DEA25678A6400CB8192 /* privacy_policy.html in Resources */,
 				5AE43E52256CF28D00F27F5A /* terms_of_service.html in Resources */,
 				5AE43E65256DB36500F27F5A /* inquiry.storyboard in Resources */,

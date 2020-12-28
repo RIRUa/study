@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+/*　body全体に対する内容　*/
+body{
+    background-color:rgb(185, 255, 255);
+    margin: 15px;
+    -webkit-text-size-adjust: 100%;
+}
+
+/*　h１タイトル「お問い合わせについて」を入れる箱（div）に対する内容　*/
+div.inquiryTitle{
+    margin-left: auto;  /*中央よせ*/
+    margin-right: auto; /*中央よせ*/
+    background-color: rgb(255, 255, 213);
+    width: 90vw;
+}
+
+/*　h１タイトル「お問い合わせについて」に対する内容　*/
+h1#title{
+    text-align: center;
+    color: rgb(185, 44, 185);
+}
+
+/*　aタグ全部に対する内容　*/
+a{
+    /*color: mediumblue;*/
+    color: rgb(83, 0, 0);
+}
+
+/*　「不具合についてはこちら」の内容を入れる箱（div）に対する内容　*/
+div#BugSheet{
+    background-color: white;/**　背景色　**/
+    border-radius: 10px;/**　丸角の半径　**/
+    border-style: solid;/**　境目の線の形状　**/
+    border-width: medium;/**　境目の線の太さ　**/
+    border-color: indigo;/**　境目の線の色　**/
+    padding: 10px;
+    padding-top: 0px;
+    filter: drop-shadow(0px 0px 10px rgb(69, 92, 92));
+}
+
+/*　アカウント名を入れる箱（input）に対する内容　*/
+input#accountName{
+    width: calc( 1.3em * 10 );
+    height: 1.3em;
+    line-height: 1.3em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rebeccapurple;
+    filter: drop-shadow(0px 0px 10px rgb(179, 179, 179));
+}
+
+/*　お問い合わせの種類を選択する箱（select）に対する内容　*/
+select#inquiryAbout{
+    background-color: white;
+}
+
+/*　詳細を入力する用の箱（textarea）に対する内容　*/
+textarea#inquiryDetail{
+    width: 80vw;                /**　vw・・・画面の大きさ，100vwで画面の横幅いっぱい　**/
+    height: calc( 1.3em * 6 );  /**　字の大きさ　x　行数　**/
+    line-height: 1.3em;         /**　字の大きさ　**/
+}
+
+/*　送信ボタンの位置を決定するpタグに対する内容　*/
+p#send_position_setting{
+    text-align: center;
+}
+
+/*　送信ボタンに対する内容　*/
+button#send{
+    -webkit-appearance: none;
+    font-size: 1.3em;
+    text-align: center;
+    color: rgb(153, 0, 255);
+    background-color: rgb(251, 255, 0);
+    border-radius: 10px;
+    border-style: outset;
+    /*filter: drop-shadow(0px 5px 5px rgb(70, 70, 70));*/
+    font-weight: bold;
+    transition: all .3s;
+}
+
+button#send:active{
+    filter: none;
+    border-style: inset;
+}
+
+/**/
+select#type_of_support{
+    background-color: white;
+}
+
+/**/
+textarea#reason_of_support_us{
+    width: 90vw;                /**　vw・・・画面の大きさ，100vwで画面の横幅いっぱい　**/
+    height: calc( 1.3em * 3 );  /**　字の大きさ　x　行数　**/
+    line-height: 1.3em;         /**　字の大きさ　**/
+}

@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class DetailViewController: UIViewController, UITextFieldDelegate {
     
     var cell_check_sender : send_any_data?
     
     var selectedTextField : UITextField?
+    
+    let soundIdRing : SystemSoundID = 1304
+    
     
     /**計算問題用変数**/
     var a1 = Int.random(in: 1 ... 100)
@@ -62,6 +66,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     
     var datasendfunc_is_called:Bool = false
     var is_cleared:Bool = false
+    var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +76,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
         timecount = UserDefaults.standard.integer(forKey: "TIME") + 1
         
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.change_timeLabel), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.change_timeLabel), userInfo: nil, repeats: true)
         
         labelSetting()
         /********************問題の設定********************/
@@ -90,6 +95,14 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         configureView()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super .viewWillDisappear(animated)
+        
+        if let WorkingTimer = self.timer {
+            WorkingTimer.invalidate()
+        }
+        
+    }
     func configureView() {
         // Update the user interface for the detail item.
         
@@ -179,7 +192,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func check_ans4(sender:UIButton){
-        if ((Int(textfield4_sho.text!) == a4/b4 && Int(textfield4_amari.text!) == a4%b4) || (Int(textfield4_sho.text!) == a4/b4 && a4%b4 == 0)) {
+        
+        if ((Int(textfield4_sho.text!) == a4/b4 && Int(textfield4_amari.text!) == a4%b4) || (Int(textfield4_sho.text!) == a4/b4 && a4%b4 == 0 )) {/*************************完全正解の場合*************************/
             button4.setTitle("cleared", for: .normal)
             button4.backgroundColor = UIColor.blue
             check4 = true
@@ -188,19 +202,27 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             textfield4_amari.isUserInteractionEnabled = false
             textfield4_amari.textColor = UIColor.blue
         }else{
+            /**********************それ以外の場合**********************/
             
-            if Int(textfield4_sho.text!) == a4/b4 {
-                textfield4_sho.isUserInteractionEnabled = false
-                textfield4_sho.textColor = UIColor.blue
-                
-                textfield4_amari.textColor = UIColor.red
-            }
-            
-            if Int(textfield4_amari.text!) == a4%b4 {
-                textfield4_amari.isUserInteractionEnabled = false
-                textfield4_amari.textColor = UIColor.blue
-                
-                textfield4_sho.textColor = UIColor.red
+            if let textfield4_sho_text = self.textfield4_sho.text { // textfield4_sho.textのアンラップ
+                if let textfield4_amari_text = self.textfield4_amari.text  { //textfield4_amari.textのアンラップ
+
+                    if Int(textfield4_sho_text) == a4/b4 && Int(textfield4_amari_text) != a4%b4 {
+                        textfield4_sho.isUserInteractionEnabled = false
+                        textfield4_sho.textColor = UIColor.blue
+
+                        textfield4_amari.textColor = UIColor.red
+                    }else if Int(textfield4_sho_text) != a4/b4 && Int(textfield4_amari_text) == a4%b4 {
+                        textfield4_amari.isUserInteractionEnabled = false
+                        textfield4_amari.textColor = UIColor.blue
+
+                        textfield4_sho.textColor = UIColor.red
+                    }else{
+                        textfield4_sho.textColor = UIColor.red
+                        textfield4_amari.textColor = UIColor.red
+                    }
+
+                }
             }
         }
         
@@ -453,6 +475,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             timeLabel.text = "残り時間 " + String(timecount) + "秒"
             timeLabel.center = CGPoint(x: screen.width - timeLabel.frame.width/2 - 10, y: screen.height - timeLabel.frame.height/2 - 75)//位置の設定
             timeLabel.sizeToFit()
+        }else{
+            AudioServicesPlaySystemSound(soundIdRing)
         }
         
     }

@@ -27,6 +27,7 @@ class inquiryViewController: UIViewController {
         //print(url)
         
         webview.navigationDelegate = self
+        webview.uiDelegate = self
         
         self.webview.loadFileURL(url, allowingReadAccessTo: url)
         //webview.load(url)
@@ -60,7 +61,7 @@ enum URLSchemeType: String {
 }
 
 
-extension inquiryViewController:WKNavigationDelegate{
+extension inquiryViewController:WKNavigationDelegate, WKUIDelegate{
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let url = navigationAction.request.url,
@@ -77,5 +78,26 @@ extension inquiryViewController:WKNavigationDelegate{
         }
         decisionHandler(.allow)
     }
+    
+    
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        
+        let alertController = UIAlertController(
+            title: "",
+            message: message,
+            preferredStyle: .alert
+        )
+        
+        let otherAction = UIAlertAction(
+            title: "OK",
+            style: .default
+        ) { (action) in
+            completionHandler()
+        }
+        
+        alertController.addAction(otherAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
 }
 
