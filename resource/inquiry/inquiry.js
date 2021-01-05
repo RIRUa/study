@@ -4,7 +4,7 @@
  * @param selectedValue selectで選択されたoptionの文字列
  * @author watanao
  * 
- * もし，selectedValueが未選択の「"not_chosen"」に変わったなら，未選択を選択できなくする．
+ * もし、selectedValueが未選択の「"not_chosen"」に変わったなら，未選択を選択できなくする．
  * 
  */
 
@@ -82,9 +82,9 @@ function put_sendButton() {
             break;
     }
 
-    /**　replace(置き換え前の文字列, 置き換え後の文字列) 
+    /**　replace(置き換え前の文字列、置き換え後の文字列) 
      * 
-     *        / 文字 /g ・・・正規表現での指定．gのもじで全てという意味になる．
+     *        / 文字 /g ・・・正規表現での指定、gのもじで全てという意味になる。
      * 
      **/
 

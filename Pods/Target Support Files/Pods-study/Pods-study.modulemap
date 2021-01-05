@@ -1,0 +1,6 @@
+framework module Pods_study {
+  umbrella header "Pods-study-umbrella.h"
+
+  export *
+  module * { export * }
+}

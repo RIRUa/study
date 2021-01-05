@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1220"
+   LastUpgradeVersion = "1230"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5A0E684F24C515700095D605"
-               BuildableName = "study.app"
+               BuildableName = "&#x307e;&#x3059;&#x30e9;&#x30f3;.app"
                BlueprintName = "study"
                ReferencedContainer = "container:study.xcodeproj">
             </BuildableReference>
@@ -34,7 +34,7 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5A0E684F24C515700095D605"
-            BuildableName = "study.app"
+            BuildableName = "&#x307e;&#x3059;&#x30e9;&#x30f3;.app"
             BlueprintName = "study"
             ReferencedContainer = "container:study.xcodeproj">
          </BuildableReference>
@@ -69,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5A0E684F24C515700095D605"
-            BuildableName = "study.app"
+            BuildableName = "&#x307e;&#x3059;&#x30e9;&#x30f3;.app"
             BlueprintName = "study"
             ReferencedContainer = "container:study.xcodeproj">
          </BuildableReference>

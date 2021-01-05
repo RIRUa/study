@@ -11,6 +11,10 @@ import CoreData
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate, send_any_data, UIPopoverPresentationControllerDelegate, UIViewControllerTransitioningDelegate{
 
+    /**CoreData用**/
+    var _fetchedResultsController: NSFetchedResultsController<Past_Data>? = nil
+    
+    /**次のビュー**/
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
     
@@ -27,16 +31,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         // Do any additional setup after loading the view.
         
-        let time = UserDefaults.standard.integer(forKey: "TIME")
-        let grade = UserDefaults.standard.integer(forKey: "GRADE")
-        
-        if time < 30 || time > 120 {
-            UserDefaults.standard.setValue(75, forKey: "TIME")
-        }
-        
-        if grade < 1 || grade > 9 {
-            UserDefaults.standard.setValue(5, forKey: "GRADE")
-        }
+        setting_UserDefault()
         
         //I want to save this screenSize
         
@@ -57,6 +52,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
         if cell_row_num != nil {
             
             if title_changer_checker == .Clear {
@@ -66,11 +64,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         /**DetailViewControllerから戻った時に呼ばれる**/
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
-        super.viewWillAppear(animated)
     }
 
-    @objc
-    func insertNewObject(_ sender: Any) {
+    @objc func insertNewObject(_ sender: Any) {
         let context = self.fetchedResultsController.managedObjectContext
         let newPastData = Past_Data(context: context)
              
@@ -109,8 +105,101 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             }
         }
     }
+    
+    // MARK: -DetailViewControllerクラスからのデータの遷移
+    
+    func send_data(data: cell_check) {
+        title_changer_checker = data
+        
+        let A_data:NSNumber = NSNumber(value: data.rawValue)
+        
+        /**検索条件のDATE情報の取得とnilデータの排除**/
+        let object = fetchedResultsController.object(at: cell_row_num!)
+        let Date_DATA = object.day
+        if (Date_DATA == nil) {
+            return
+        }
+        /**検索条件のDATE情報の取得とnilデータの排除**/
+        // 読み込むエンティティを指定
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Past_Data")
+        //条件指定
+        fetchRequest.predicate = NSPredicate(format: "day == %@", Date_DATA! as CVarArg)
+        
+        do {
+            if managedObjectContext == nil {
+                return
+            }
+            
+            let myResult = try managedObjectContext!.fetch(fetchRequest)
+            
+            let mydata = myResult[0]
+            
+            mydata.setValue(A_data, forKey: "enum_CellCheck")
+            
+            try managedObjectContext!.save()
+        } catch {
+            print("ERROR")
+        }
+    }
+    
+    // MARK:- popup用関数群
+    
+    // iPhoneで表示させる場合に必要
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return CustomPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+    
+    private func makePopupView() {
+        
+        let storyBoard = UIStoryboard(name: "popup", bundle: nil)
+        let PopupViewController = storyBoard.instantiateViewController(identifier: "popupViewController") as! popupViewController
+        PopupViewController.modalPresentationStyle = .custom
+        PopupViewController.transitioningDelegate = self
+        PopupViewController.masterViewController = self
+        PopupViewController.presentationController?.delegate = self
+        present(PopupViewController, animated: true, completion: nil)
+        
+    }
+    
+    // MARK:- その他設定
+    
+    //Editが押された時
+    @objc func tuppedEditButton() {
+        makePopupView()
+        
+    }
+    
+    //Doneが押された時
+    @objc func tuppedEdit_In_MasterVC(){
+        print("tupped")
+        create_EditButton()
+        self.isEditing = false
+    }
+    
+    private func create_EditButton(){
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(tuppedEditButton))
+        navigationItem.leftBarButtonItem = editButton
+    }
+    
+    private func setting_UserDefault(){
+        
+        let time = UserDefaults.standard.integer(forKey: "TIME")
+        let grade = UserDefaults.standard.integer(forKey: "GRADE")
+        
+        if time < 30 || time > 120 {
+            UserDefaults.standard.setValue(75, forKey: "TIME")
+        }
+        
+        if grade < 1 || grade > 9 {
+            UserDefaults.standard.setValue(5, forKey: "GRADE")
+        }
+        
+    }
+    
+}
 
-    // MARK: - Table View
+extension MasterViewController{
+    /** Table View  **/
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 0
@@ -220,7 +309,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
         
     }
+}
 
+extension MasterViewController{
     // MARK: - Fetched results controller
 
     var fetchedResultsController: NSFetchedResultsController<Past_Data> {
@@ -254,8 +345,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
         
         return _fetchedResultsController!
-    }    
-    var _fetchedResultsController: NSFetchedResultsController<Past_Data>? = nil
+    }
 
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
@@ -301,78 +391,4 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
          tableView.reloadData()
      }
      */
-    
-    // MARK: -DetailViewControllerクラスからのデータの遷移
-    
-    func send_data(data: cell_check) {
-        title_changer_checker = data
-        
-        let A_data:NSNumber = NSNumber(value: data.rawValue)
-        
-        /**検索条件のDATE情報の取得とnilデータの排除**/
-        let object = fetchedResultsController.object(at: cell_row_num!)
-        let Date_DATA = object.day
-        if (Date_DATA == nil) {
-            return
-        }
-        /**検索条件のDATE情報の取得とnilデータの排除**/
-        // 読み込むエンティティを指定
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Past_Data")
-        //条件指定
-        fetchRequest.predicate = NSPredicate(format: "day == %@", Date_DATA! as CVarArg)
-        
-        do {
-            if managedObjectContext == nil {
-                return
-            }
-            
-            let myResult = try managedObjectContext!.fetch(fetchRequest)
-            
-            let mydata = myResult[0]
-            
-            mydata.setValue(A_data, forKey: "enum_CellCheck")
-            
-            try managedObjectContext!.save()
-        } catch {
-            print("ERROR")
-        }
-    }
-    
-    // MARK:- popup用関数群
-    
-    // iPhoneで表示させる場合に必要
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return CustomPresentationController(presentedViewController: presented, presenting: presenting)
-    }
-    
-    private func makePopupView() {
-        
-        let storyBoard = UIStoryboard(name: "popup", bundle: nil)
-        let PopupViewController = storyBoard.instantiateViewController(identifier: "popupViewController") as! popupViewController
-        PopupViewController.modalPresentationStyle = .custom
-        PopupViewController.transitioningDelegate = self
-        PopupViewController.masterViewController = self
-        present(PopupViewController, animated: true, completion: nil)
-        
-    }
-    
-    //Editが押された時
-    @objc func tuppedEditButton() {
-        makePopupView()
-        
-    }
-    
-    //Doneが押された時
-    @objc func tuppedEdit_In_MasterVC(){
-        print("tupped")
-        create_EditButton()
-        self.isEditing = false
-    }
-    
-    private func create_EditButton(){
-        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(tuppedEditButton))
-        navigationItem.leftBarButtonItem = editButton
-    }
-    
 }
-

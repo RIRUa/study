@@ -156,17 +156,6 @@ class settingViewController:UIViewController{
         
     }
     
-    @IBAction func LoginButton(_ sender: Any) {
-        
-        let storyBoard = UIStoryboard(name: "LogIO", bundle: nil)
-        let LoginVC = storyBoard.instantiateViewController(identifier: "LoginViewController") as LoginViewController
-        let navVC = UINavigationController(rootViewController: LoginVC)
-        navVC.modalPresentationStyle = .fullScreen
-        
-        present(navVC, animated: true, completion: nil)
-        
-    }
-    
     @IBAction func LogoutButton(_ sender: Any) {
         
         let storyBoard = UIStoryboard(name: "LogIO", bundle: nil)

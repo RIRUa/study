@@ -1,3 +1,40 @@
-h1.practice{
+
+/*************************基本設定部*****************************/
+
+/**　bodyについて　**/
+body{
+    margin: 10px;
+}
+
+header{
+    height: 100px;
+    background-color: rgb(255, 243, 221);
+}
+
+/**　aタグについて　**/
+a{
+    color: teal;
+}
+
+a:hover{
+    color: tomato;
+}
+
+a:active{
+    color: tomato;
+}
+
+
+/*************************個別設定部*****************************/
+
+h1#title{
     color: purple;
+    text-align: center;
+}
+
+
+
+
+p#createdAt{
+    text-align: right;
 }

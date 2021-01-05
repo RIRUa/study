@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,13 +12,13 @@
         <!--Login View Controller-->
         <scene sceneID="vuK-nt-nLZ">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rnf-1c-MlC" customClass="LoginViewController" customModule="study" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rnf-1c-MlC" customClass="LoginViewController" customModule="ますラン" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8pS-Cn-5x6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9i-zx-ZfP">
-                                <rect key="frame" x="126.5" y="138" width="161.5" height="80"/>
+                                <rect key="frame" x="126.5" y="94" width="161.5" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="nHq-Fm-blO"/>
                                 </constraints>
@@ -26,14 +26,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザー名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74u-Hg-GGt">
-                                <rect key="frame" x="20" y="333" width="123" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74u-Hg-GGt">
+                                <rect key="frame" x="20" y="289" width="170" height="25"/>
                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mqQ-yN-ZPc">
-                                <rect key="frame" x="32" y="388" width="350" height="34"/>
+                                <rect key="frame" x="32" y="344" width="350" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="d8j-RA-oG7"/>
                                 </constraints>
@@ -41,13 +41,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eW-Cy-EPW">
-                                <rect key="frame" x="20" y="462" width="124.5" height="25"/>
+                                <rect key="frame" x="20" y="418" width="124.5" height="25"/>
                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t9w-XK-H0c">
-                                <rect key="frame" x="32" y="517" width="350" height="34"/>
+                                <rect key="frame" x="32" y="473" width="350" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="ugX-Rs-AZa"/>
                                 </constraints>
@@ -55,7 +55,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Gh-l2-uIP">
-                                <rect key="frame" x="132" y="581" width="150" height="60"/>
+                                <rect key="frame" x="132" y="537" width="150" height="60"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="X34-9Z-dyB"/>
@@ -65,9 +65,12 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="pushLoginButton:" destination="Rnf-1c-MlC" eventType="touchUpInside" id="pJJ-NB-oxY"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3l-5k-T9R">
-                                <rect key="frame" x="107" y="651" width="200" height="30"/>
+                                <rect key="frame" x="107" y="607" width="200" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新規登録者の方は" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbU-Vl-x3r">
                                         <rect key="frame" x="0.0" y="0.0" width="139" height="30"/>
@@ -111,8 +114,8 @@
                     <navigationItem key="navigationItem" id="uc6-Ko-Xtk"/>
                     <connections>
                         <outlet property="loginButton" destination="5Gh-l2-uIP" id="nVv-wn-uPI"/>
+                        <outlet property="mailAddressTextfield" destination="mqQ-yN-ZPc" id="PGE-E9-jdL"/>
                         <outlet property="passwordTextfield" destination="t9w-XK-H0c" id="yRy-S6-rTN"/>
-                        <outlet property="userNameTextfield" destination="mqQ-yN-ZPc" id="8W6-tj-UFE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTr-wX-FgZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -122,7 +125,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="ci7-ni-rde">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vni-RC-W4Z" customClass="SignUpViewController" customModule="study" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vni-RC-W4Z" customClass="SignUpViewController" customModule="ますラン" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FNk-b9-uqj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,7 +141,7 @@
         <!--Info View Controller-->
         <scene sceneID="97H-hq-Ouz">
             <objects>
-                <viewController storyboardIdentifier="infoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zn2-9v-oEr" customClass="infoViewController" customModule="study" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="infoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zn2-9v-oEr" customClass="infoViewController" customModule="ますラン" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e8h-Dk-tdU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -165,7 +168,7 @@
         <!--Logout View Controller-->
         <scene sceneID="QK1-wm-xeS">
             <objects>
-                <viewController storyboardIdentifier="LogoutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="u2i-EU-Enc" customClass="LogoutViewController" customModule="study" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogoutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="u2i-EU-Enc" customClass="LogoutViewController" customModule="ますラン" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Bp-ws-9hD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,6 +205,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tL5-GF-498"/>
+                    <connections>
+                        <outlet property="LogOUT_Button" destination="17i-Bm-O1F" id="FHf-yK-LTx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Rt-Rq-QLZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -224,24 +230,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOh-2X-0tQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3015.9420289855075" y="39.508928571428569"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="x7s-D1-jqk">
-            <objects>
-                <navigationController storyboardIdentifier="LoginNavVC" automaticallyAdjustsScrollViewInsets="NO" id="5IT-mm-mEw" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="r5p-kd-QV1">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Rnf-1c-MlC" kind="relationship" relationship="rootViewController" id="HU3-S9-KDb"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eOo-my-XUu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="421.73913043478262" y="39.508928571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DLO-SC-8a3">

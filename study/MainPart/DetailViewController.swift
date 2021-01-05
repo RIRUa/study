@@ -9,7 +9,7 @@
 import UIKit
 import AudioToolbox
 
-class DetailViewController: UIViewController, UITextFieldDelegate {
+class DetailViewController: UIViewController {
     
     var cell_check_sender : send_any_data?
     
@@ -103,6 +103,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
+    
     func configureView() {
         // Update the user interface for the detail item.
         
@@ -149,86 +150,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @objc func check_ans1(sender:UIButton){
-        if Int(textfield1.text!) == a1+b1 {
-            button1.setTitle("cleared", for: .normal)
-            button1.backgroundColor = UIColor.blue
-            check1 = true
-            textfield1.isUserInteractionEnabled = false
-            textfield1.textColor = UIColor.blue
-        }else{
-            textfield1.textColor = UIColor.red
-        }
-        
-        data_send_func()
-    }
-    
-    @objc func check_ans2(sender:UIButton){
-        if Int(textfield2.text!) == a2-b2 {
-            button2.setTitle("cleared", for: .normal)
-            button2.backgroundColor = UIColor.blue
-            check2 = true
-            textfield2.isUserInteractionEnabled = false
-            textfield2.textColor = UIColor.blue
-        }else{
-            textfield2.textColor = UIColor.red
-        }
-        
-        data_send_func()
-    }
-
-    @objc func check_ans3(sender:UIButton){
-        if Int(textfield3.text!) == a3*b3 {
-            button3.setTitle("cleared", for: .normal)
-            button3.backgroundColor = UIColor.blue
-            check3 = true
-            textfield3.isUserInteractionEnabled = false
-            textfield3.textColor = UIColor.blue
-        }else{
-            textfield3.textColor = UIColor.red
-        }
-        
-        data_send_func()
-    }
-    
-    @objc func check_ans4(sender:UIButton){
-        
-        if ((Int(textfield4_sho.text!) == a4/b4 && Int(textfield4_amari.text!) == a4%b4) || (Int(textfield4_sho.text!) == a4/b4 && a4%b4 == 0 )) {/*************************完全正解の場合*************************/
-            button4.setTitle("cleared", for: .normal)
-            button4.backgroundColor = UIColor.blue
-            check4 = true
-            textfield4_sho.isUserInteractionEnabled = false
-            textfield4_sho.textColor = UIColor.blue
-            textfield4_amari.isUserInteractionEnabled = false
-            textfield4_amari.textColor = UIColor.blue
-        }else{
-            /**********************それ以外の場合**********************/
-            
-            if let textfield4_sho_text = self.textfield4_sho.text { // textfield4_sho.textのアンラップ
-                if let textfield4_amari_text = self.textfield4_amari.text  { //textfield4_amari.textのアンラップ
-
-                    if Int(textfield4_sho_text) == a4/b4 && Int(textfield4_amari_text) != a4%b4 {
-                        textfield4_sho.isUserInteractionEnabled = false
-                        textfield4_sho.textColor = UIColor.blue
-
-                        textfield4_amari.textColor = UIColor.red
-                    }else if Int(textfield4_sho_text) != a4/b4 && Int(textfield4_amari_text) == a4%b4 {
-                        textfield4_amari.isUserInteractionEnabled = false
-                        textfield4_amari.textColor = UIColor.blue
-
-                        textfield4_sho.textColor = UIColor.red
-                    }else{
-                        textfield4_sho.textColor = UIColor.red
-                        textfield4_amari.textColor = UIColor.red
-                    }
-
-                }
-            }
-        }
-        
-        data_send_func()
-    }
-
     //　masterViewControllerにデータを送るメソッド
     private func data_send_func() {
         
@@ -392,6 +313,20 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    var detailItem: Past_Data? {
+        didSet {
+            // Update the view.
+            configureView()
+            
+        }
+    }
+    
+
+}
+
+// MARK: - テキストフィールド関連の処理
+extension DetailViewController:UITextFieldDelegate{
+    
     // キーボードの表示
     @objc func showKeyBoard(notification: Notification){
         let keyboardFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
@@ -429,16 +364,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         self.selectedTextField = textField
     }
     
-    var detailItem: Past_Data? {
-        didSet {
-            // Update the view.
-            configureView()
-            
-        }
-    }
-    
-    // onTouchBeganと同じ
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    /**キーボードを閉じる処理**/
+    private func closeKeyBoard() {
         
         if (self.textfield1.isFirstResponder) {
             self.textfield1.resignFirstResponder()
@@ -462,8 +389,100 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    //カウントダウン関数
+}
+
+// MARK: - @objcなどの行動時の処理シリーズ
+extension DetailViewController{
     
+    // onTouchBeganと同じ
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        closeKeyBoard()
+        
+    }
+    
+    /*************************************答え確認メソッドたち***********************************/
+    @objc func check_ans1(sender:UIButton){
+        if Int(textfield1.text!) == a1+b1 {
+            button1.setTitle("cleared", for: .normal)
+            button1.backgroundColor = UIColor.blue
+            check1 = true
+            textfield1.isUserInteractionEnabled = false
+            textfield1.textColor = UIColor.blue
+        }else{
+            textfield1.textColor = UIColor.red
+        }
+        
+        data_send_func()
+    }
+    
+    @objc func check_ans2(sender:UIButton){
+        if Int(textfield2.text!) == a2-b2 {
+            button2.setTitle("cleared", for: .normal)
+            button2.backgroundColor = UIColor.blue
+            check2 = true
+            textfield2.isUserInteractionEnabled = false
+            textfield2.textColor = UIColor.blue
+        }else{
+            textfield2.textColor = UIColor.red
+        }
+        
+        data_send_func()
+    }
+
+    @objc func check_ans3(sender:UIButton){
+        if Int(textfield3.text!) == a3*b3 {
+            button3.setTitle("cleared", for: .normal)
+            button3.backgroundColor = UIColor.blue
+            check3 = true
+            textfield3.isUserInteractionEnabled = false
+            textfield3.textColor = UIColor.blue
+        }else{
+            textfield3.textColor = UIColor.red
+        }
+        
+        data_send_func()
+    }
+    
+    @objc func check_ans4(sender:UIButton){
+        
+        if ((Int(textfield4_sho.text!) == a4/b4 && Int(textfield4_amari.text!) == a4%b4) || (Int(textfield4_sho.text!) == a4/b4 && a4%b4 == 0 )) {/*************************完全正解の場合*************************/
+            button4.setTitle("cleared", for: .normal)
+            button4.backgroundColor = UIColor.blue
+            check4 = true
+            textfield4_sho.isUserInteractionEnabled = false
+            textfield4_sho.textColor = UIColor.blue
+            textfield4_amari.isUserInteractionEnabled = false
+            textfield4_amari.textColor = UIColor.blue
+        }else{
+            /**********************それ以外の場合**********************/
+            
+            if let textfield4_sho_text = self.textfield4_sho.text { // textfield4_sho.textのアンラップ
+                if let textfield4_amari_text = self.textfield4_amari.text  { //textfield4_amari.textのアンラップ
+
+                    if Int(textfield4_sho_text) == a4/b4 && Int(textfield4_amari_text) != a4%b4 {
+                        textfield4_sho.isUserInteractionEnabled = false
+                        textfield4_sho.textColor = UIColor.blue
+
+                        textfield4_amari.textColor = UIColor.red
+                    }else if Int(textfield4_sho_text) != a4/b4 && Int(textfield4_amari_text) == a4%b4 {
+                        textfield4_amari.isUserInteractionEnabled = false
+                        textfield4_amari.textColor = UIColor.blue
+
+                        textfield4_sho.textColor = UIColor.red
+                    }else{
+                        textfield4_sho.textColor = UIColor.red
+                        textfield4_amari.textColor = UIColor.red
+                    }
+
+                }
+            }
+        }
+        
+        data_send_func()
+    }
+    
+    //カウントダウン関数
     @objc func change_timeLabel(){
         
         if timecount == 5{
@@ -475,7 +494,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             timeLabel.text = "残り時間 " + String(timecount) + "秒"
             timeLabel.center = CGPoint(x: screen.width - timeLabel.frame.width/2 - 10, y: screen.height - timeLabel.frame.height/2 - 75)//位置の設定
             timeLabel.sizeToFit()
-        }else{
+        }else if is_cleared == false {
             AudioServicesPlaySystemSound(soundIdRing)
         }
         

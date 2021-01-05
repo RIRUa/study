@@ -9,6 +9,36 @@
 import UIKit
 import CoreData
 
+struct user {
+    let userName:String
+    let mailAddress:String
+    let age:Int
+    let sex:Bool/**True:男, False:女**/
+    let tellNo:String
+    let userId:String
+    
+    init(mailaddress:String) {
+        self.userName = ""
+        self.mailAddress = mailaddress
+        self.age = 10
+        self.sex = true
+        self.tellNo = ""
+        self.userId = ""
+        
+    }
+    
+    init(data:[String:Any]) {
+        self.userName = data["userName"] as! String
+        self.mailAddress = data["mailAdress"] as! String
+        self.age = data["age"] as! Int
+        self.sex = data["sex"] as! Bool
+        self.tellNo = data["tellNo"] as! String
+        self.userId = data["uid"] as! String
+    }
+    
+    
+}
+
 struct Vec2 {
     
     var x:CGFloat

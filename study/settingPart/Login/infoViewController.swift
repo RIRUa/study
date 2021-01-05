@@ -24,9 +24,9 @@ class infoViewController: UIViewController {
     let passwordLabel = UILabel()
     let passwordTextfield = UITextField()
     
-    //パスワード確認
-    let passwordCheckLabel = UILabel()
-    let passwordCheckTextfield = UITextField()
+    //年齢
+    let ageLabel = UILabel()
+    let ageTextField = UITextField()
     
     //メールアドレス
     let mailaddressLabel = UILabel()
