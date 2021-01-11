@@ -26,14 +26,42 @@ class LoginViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = backbutton
         
-        mailAddressTextfield.text = ""
-        passwordTextfield.text = ""
         mailAddressTextfield.placeholder = "メールアドレス"
         passwordTextfield.placeholder = "パスワード"
         loginButton.layer.cornerRadius = 5
         
         mailAddressTextfield.delegate = self
         passwordTextfield.delegate = self
+        
+        mailAddressTextfield.textContentType = .emailAddress
+        passwordTextfield.textContentType = .password
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        /*************************************　アプリ起動時の画面遷移の書き込み　***************************/
+        
+        if Auth.auth().currentUser != nil {
+            GoToMasterVC()
+        }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        /**ログアウトから戻ってきたときにテキストをからにする用**/
+        mailAddressTextfield.text = ""
+        passwordTextfield.text = ""
+        /**パスワードを見られないようにする用**/
+        passwordTextfield.isSecureTextEntry = true
+        
+//        /**パスワードの自動入力に対応**/
+//        mailAddressTextfield.textContentType = .emailAddress
+//        passwordTextfield.textContentType = .password
+        
     }
     
     @objc func pushBackButton(_ sender: UIBarButtonItem) {
@@ -60,14 +88,18 @@ class LoginViewController: UIViewController {
             return
         }
         
-        HUD.show(.progress, onView: self.view)
-        
         if ( mailAddress == "" || password == "" ) {
             alertBy_Mail_and_Pass(mailaddress: mailAddress, password: password)
+            return
         }else{
             
+            /**　グルグルを開始　**/
+            HUD.show(.progress, onView: self.view)
+            
+            /**　ログイン処理開始　**/
             Auth.auth().signIn(withEmail: mailAddress, password: password) { [self] (result, error) in
                 
+                /**　ログインに失敗　**/
                 if let error = error {
                     HUD.hide { (_) in
                         alertBy_Error_From_Firebase(error: error)
@@ -75,20 +107,33 @@ class LoginViewController: UIViewController {
                     return
                 }
                 
+                /**　ログインに成功　**/
                 HUD.hide { (_) in
                     HUD.flash(.labeledSuccess(title: "ログインに成功しました", subtitle: nil),
                               onView: self.view,
                               delay: 1.0
                     ) { (_) in
-                        UserDefaults.standard.setValue(true, forKey: "Login")
-                        dismiss(animated: true, completion: nil)
+                        GoToMasterVC()
                     }
                 }
                 
             }
             
+            
         }
         
+    }
+    
+    private func GoToMasterVC() {
+        let StoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let MasterVC = StoryBoard.instantiateViewController(withIdentifier: "MasterViewController") as! MasterViewController
+        
+        MasterVC.managedObjectContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+        
+        let navVC = UINavigationController(rootViewController: MasterVC)
+        navVC.modalPresentationStyle = .fullScreen
+        
+        present(navVC, animated: true, completion: nil)
     }
     
 }
@@ -153,6 +198,7 @@ extension LoginViewController: UITextFieldDelegate{
     
 }
 
+// MARK:- アラートの処理
 extension LoginViewController {
     
     private func alertBy_Mail_and_Pass(mailaddress:String?,password:String? ) {

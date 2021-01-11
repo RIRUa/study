@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import PKHUD
 
 class DetailViewController: UIViewController {
     
@@ -16,7 +17,7 @@ class DetailViewController: UIViewController {
     var selectedTextField : UITextField?
     
     let soundIdRing : SystemSoundID = 1304
-    
+    var timeOver:Bool = false
     
     /**計算問題用変数**/
     var a1 = Int.random(in: 1 ... 100)
@@ -95,15 +96,6 @@ class DetailViewController: UIViewController {
         configureView()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super .viewWillDisappear(animated)
-        
-        if let WorkingTimer = self.timer {
-            WorkingTimer.invalidate()
-        }
-        
-    }
-    
     func configureView() {
         // Update the user interface for the detail item.
         
@@ -155,7 +147,12 @@ class DetailViewController: UIViewController {
         
         if (check1 == true && check2 == true && check3 == true && check4 == true && datasendfunc_is_called == false) {
             
-            print(TimeInterval(timecount))
+            HUD.flash(.labeledSuccess(title: "CLEAR",subtitle: nil),
+                      onView: self.view,
+                      delay: 2.0
+            ) { [self] (_) in
+                dismiss(animated: true, completion: nil)
+            }
             
             datasendfunc_is_called = true
             
@@ -397,6 +394,21 @@ extension DetailViewController{
     // onTouchBeganと同じ
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+        /**　音を消す　**/
+        if let WorkingTimer = self.timer {
+            WorkingTimer.invalidate()
+        }
+        
+        /**　バツマークを出す　**/
+        if timeOver == true {
+            HUD.flash(.labeledError(title: "Fail", subtitle: nil),
+                      onView: self.view,
+                      delay: 2.0
+            ) { [self] (_) in
+                dismiss(animated: true, completion: nil)
+            }
+        }
+        
         closeKeyBoard()
         
     }
@@ -496,6 +508,7 @@ extension DetailViewController{
             timeLabel.sizeToFit()
         }else if is_cleared == false {
             AudioServicesPlaySystemSound(soundIdRing)
+            timeOver = true
         }
         
     }

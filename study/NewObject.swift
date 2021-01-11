@@ -17,13 +17,13 @@ struct user {
     let tellNo:String
     let userId:String
     
-    init(mailaddress:String) {
+    init(mailaddress:String, userid uid:String) {
         self.userName = ""
         self.mailAddress = mailaddress
         self.age = 10
         self.sex = true
         self.tellNo = ""
-        self.userId = ""
+        self.userId = uid
         
     }
     
@@ -36,6 +36,18 @@ struct user {
         self.userId = data["uid"] as! String
     }
     
+    func getUserData() -> [String:Any] {
+        let datas: [String:Any] = [
+            "userName":self.userName,
+            "mailAddress":self.mailAddress,
+            "age":self.age,
+            "sex":self.sex,
+            "tellNo":self.tellNo,
+            "uid":self.userId
+        ]
+        
+        return datas
+    }
     
 }
 

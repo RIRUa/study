@@ -7,8 +7,16 @@ body{
 }
 
 header{
-    height: 100px;
+    height: 50px;
     background-color: rgb(255, 243, 221);
+}
+
+main{
+    margin-top: 30px;
+}
+
+footer{
+    margin-top: 50px;
 }
 
 /**　aタグについて　**/
@@ -26,6 +34,10 @@ a:active{
 
 
 /*************************個別設定部*****************************/
+
+div#titleCentering{
+    text-align: center;
+}
 
 h1#title{
     color: purple;

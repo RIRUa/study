@@ -335,7 +335,6 @@
 		5A0E684824C515700095D605 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = NO;
 				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "渡辺奈央騎";

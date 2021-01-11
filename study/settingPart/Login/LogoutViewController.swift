@@ -48,12 +48,12 @@ class LogoutViewController: UIViewController {
             HUD.flash(.success,
                       onView: self.view,
                       delay: 1.0
-            )
+            ) { (_) in
+                /**戻る時の処理  (要変更)**/
+                self.navigationController?.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true,completion: nil)
+            }
         }
         
-        /**戻る時の処理  (要変更)**/
-        UserDefaults.standard.setValue(false, forKey: "Login")
-        self.navigationController?.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true,completion: nil)
         
     }
     

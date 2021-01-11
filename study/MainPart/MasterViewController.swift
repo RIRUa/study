@@ -44,11 +44,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         navigationItem.rightBarButtonItem = addButton
-        /**detailViewController変数にDetailViewControllerクラスを代入**/
-        if let split = splitViewController {
-            let controllers = split.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -62,8 +58,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             }
         }
         
-        /**DetailViewControllerから戻った時に呼ばれる**/
-        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
     }
 
     @objc func insertNewObject(_ sender: Any) {
@@ -98,7 +92,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 //次のコントローラーの定義
                 let next_controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 next_controller.detailItem = object
-                next_controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 next_controller.navigationItem.leftItemsSupplementBackButton = true
                 detailViewController = next_controller
                 next_controller.cell_check_sender = self
@@ -171,7 +164,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     //Doneが押された時
     @objc func tuppedEdit_In_MasterVC(){
-        print("tupped")
         create_EditButton()
         self.isEditing = false
     }
@@ -251,27 +243,29 @@ extension MasterViewController{
             return
         }
         /**検索条件のDATE情報の取得とnilデータの排除**/
-            // 読み込むエンティティを指定
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Past_Data")
-            //条件指定
-            fetchRequest.predicate = NSPredicate(format: "day == %@", Date_DATA! as CVarArg)
-            
-            do {
-                if managedObjectContext == nil {
-                    return
-                }
-                
-                let myResult = try managedObjectContext!.fetch(fetchRequest)
-                
-                let mydata = myResult[0]
-                
-                mydata.setValue(false, forKey: "cellTouchEnable")
-                mydata.setValue(1, forKey: "enum_CellCheck")
-                
-                try managedObjectContext!.save()
-            } catch {
-                print("ERROR")
+        // 読み込むエンティティを指定
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Past_Data")
+        //条件指定
+        fetchRequest.predicate = NSPredicate(format: "day == %@", Date_DATA! as CVarArg)
+        
+        do {
+            if managedObjectContext == nil {
+                return
             }
+                
+            let myResult = try managedObjectContext!.fetch(fetchRequest)
+                
+            let mydata = myResult[0]
+                
+            mydata.setValue(false, forKey: "cellTouchEnable")
+            mydata.setValue(1, forKey: "enum_CellCheck")
+                
+            try managedObjectContext!.save()
+        } catch {
+            print("ERROR")
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
         
     

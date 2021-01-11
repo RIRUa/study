@@ -30,6 +30,13 @@ class SignUpViewController: UIViewController {
     
     let screenSlasher = Vec2(x: 400, y: 800)
     
+    /**利用規約への遷移**/
+    let term = UIButton()
+    
+    /**プライバシーポリシーへの遷移**/
+    let privacy = UIButton()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +49,143 @@ class SignUpViewController: UIViewController {
         makeView()
     }
     
+    
+    private func makeView() {
+        let Screen_Size = self.view.frame.size
+        let textfieldSize:CGFloat = 25.0
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showKeyBoard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyBoard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        //タイトル：”SignUp”
+        titleLabel.text = "アカウント作成"
+        titleLabel.font = titleLabel.font.withSize(self.view.frame.height/screenSlasher.y*50)
+        titleLabel.sizeToFit()
+        titleLabel.center = CGPoint(
+            x: Screen_Size.width/2,
+            y: Screen_Size.height/screenSlasher.y*175
+        )
+        self.view.addSubview(self.titleLabel)
+        
+        
+        //メールアドレス
+        mailaddressLabel.text = "メールアドレス"
+        mailaddressLabel.font = mailaddressLabel.font.withSize(self.view.frame.height/screenSlasher.y*20)
+        mailaddressLabel.sizeToFit()
+        mailaddressLabel.center = CGPoint(
+            x: Screen_Size.width/screenSlasher.x*0 + mailaddressLabel.frame.size.width/2 + 20,
+            y: Screen_Size.height/screenSlasher.y*325
+        )
+        self.view.addSubview(mailaddressLabel)
+        
+        
+        mailaddressTextfield.frame.size = CGSize(
+            width: Screen_Size.width - Screen_Size.width/screenSlasher.x*50,
+            height: Screen_Size.height/screenSlasher.y*textfieldSize
+        )
+        mailaddressTextfield.frame = CGRect(
+            x: (Screen_Size.width - mailaddressTextfield.frame.size.width)/2,
+            y: Screen_Size.height/screenSlasher.y*360,
+            width: Screen_Size.width - Screen_Size.width/screenSlasher.x*50,
+            height: Screen_Size.height/screenSlasher.y*textfieldSize
+        )
+        mailaddressTextfield.placeholder = "メールアドレス"
+        mailaddressTextfield.keyboardType = .alphabet
+        mailaddressTextfield.borderStyle = .roundedRect
+        mailaddressTextfield.clearButtonMode = .always
+        mailaddressTextfield.textContentType = .emailAddress
+        self.view.addSubview(mailaddressTextfield)
+        
+        
+        //パスワード
+        passwordLabel.text = "パスワード"
+        passwordLabel.font = passwordLabel.font.withSize(self.view.frame.height/screenSlasher.y*20)
+        passwordLabel.sizeToFit()
+        passwordLabel.center = CGPoint(
+            x: Screen_Size.width/screenSlasher.x*0 + passwordLabel.frame.size.width/2 + 20,
+            y: Screen_Size.height/screenSlasher.y*425
+        )
+        self.view.addSubview(passwordLabel)
+        
+        passwordTextfield.frame.size = CGSize(
+            width: Screen_Size.width - Screen_Size.width/screenSlasher.x*50,
+            height: Screen_Size.height/screenSlasher.y*textfieldSize
+            )
+        passwordTextfield.frame = CGRect(
+            x: (Screen_Size.width - mailaddressTextfield.frame.size.width)/2,
+            y: Screen_Size.height/screenSlasher.y*460,
+            width: Screen_Size.width - Screen_Size.width/screenSlasher.x*50,
+            height: Screen_Size.height/screenSlasher.y*textfieldSize
+        )
+        passwordTextfield.placeholder = "パスワード"
+        passwordTextfield.keyboardType = .alphabet
+        passwordTextfield.borderStyle = .roundedRect
+        passwordTextfield.clearButtonMode = .always
+        passwordTextfield.textContentType = .newPassword
+        self.view.addSubview(passwordTextfield)
+        
+        let height:CGFloat = 530.0
+        //利用規約
+        term.setTitle("利用規約", for: .normal)
+        term.backgroundColor = .purple
+        term.frame.size = CGSize(
+            width: Screen_Size.width/screenSlasher.x*80,
+            height: Screen_Size.height/screenSlasher.y*30
+        )
+        term.frame = CGRect(
+            x: (Screen_Size.width/2 - term.frame.width)/2 - 5,
+            y: Screen_Size.height/screenSlasher.y*height,
+            width: Screen_Size.width/screenSlasher.x*80,
+            height: Screen_Size.height/screenSlasher.y*30
+        )
+        term.layer.cornerRadius = 5
+        term.addTarget(self, action: #selector(GotoTermOfService(sender:)), for: .touchUpInside)
+        self.view.addSubview(term)
+        
+        //プライバシーポリシー
+        privacy.setTitle("プライバシーポリシー", for: .normal)
+        privacy.backgroundColor = .systemPurple
+        privacy.frame.size = CGSize(
+            width: Screen_Size.width/screenSlasher.x*200,
+            height: Screen_Size.height/screenSlasher.y*30
+        )
+        privacy.frame = CGRect(
+            x: term.frame.maxX + 10,
+            y: Screen_Size.height/screenSlasher.y*height,
+            width: Screen_Size.width/screenSlasher.x*200,
+            height: Screen_Size.height/screenSlasher.y*30
+        )
+        privacy.layer.cornerRadius = 5
+        privacy.addTarget(self, action: #selector(GotoPrivacyPolicy(sender:)), for: .touchUpInside)
+        self.view.addSubview(privacy)
+        
+        //認証ボタン
+        
+        authorizeButton.setTitle("SignUp", for: .normal)
+        authorizeButton.titleLabel?.textColor = .white
+        authorizeButton.frame.size = CGSize(
+            width: Screen_Size.width/screenSlasher.x*150,
+            height: Screen_Size.height/screenSlasher.y*40
+        )
+        authorizeButton.frame = CGRect(
+            x: (Screen_Size.width - authorizeButton.frame.width)/2,
+            y: Screen_Size.height/screenSlasher.y*600,
+            width: Screen_Size.width/screenSlasher.x*150,
+            height: Screen_Size.height/screenSlasher.y*40
+        )
+        authorizeButton.backgroundColor = .orange
+        authorizeButton.layer.cornerRadius = 5
+        authorizeButton.titleLabel?.font = authorizeButton.titleLabel?.font.withSize(Screen_Size.height/screenSlasher.y*30)
+        authorizeButton.addTarget(self, action: #selector(authorize(sender:)), for: .touchUpInside)
+        self.view.addSubview(authorizeButton)
+        
+    }
+    
+}
+
+// MARK:- @objc関数
+extension SignUpViewController{
     
     @objc func pushBackButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -56,6 +200,7 @@ class SignUpViewController: UIViewController {
         }
         
         if ( mailAddress == "" || password == "" ) {
+            /**mailAddressもpasswordもnilでなくても空である可能性があるから**/
             alertBy_Mail_and_Pass(mailaddress: mailAddress, password: password)
         }else{
             HUD.show(.progress, onView: self.view)
@@ -80,30 +225,32 @@ class SignUpViewController: UIViewController {
                     return
                 }
                 
-                let initialData = user(mailaddress: mailAddress)
+                let initialData = user(mailaddress: mailAddress, userid: uid)
                 
-                let datas: [String:Any] = [
-                    "userName":initialData.userName,
-                    "mailAddress":initialData.mailAddress,
-                    "age":initialData.age,
-                    "sex":initialData.sex,
-                    "tellNo":initialData.tellNo,
-                    "uid":uid
-                ]
+                let datas: [String:Any] = initialData.getUserData()
                 
                 Firestore.firestore().collection("Users").document(uid).setData(datas) { (errorBy_setData) in
                     
-                    if let error = errorBy_setData{
-                        print("情報の保存に失敗しました．\n\n\(String(describing: error))")
+                    /***************************　情報の保存に失敗した場合　**********************/
+                    if errorBy_setData != nil{
                         HUD.hide { (_) in
-                            HUD.flash(.error, delay: 1.0)
+                            HUD.flash(.labeledError(title: "情報の保存に失敗しました", subtitle: nil),
+                                      delay: 1.0
+                            )
+                            return
                         }
                     }
                 }
                 
+                /***************************　情報の保存に成功した場合　**********************/
                 HUD.hide { (_) in
-                    HUD.flash(.success, onView: self.view, delay: 1.0) { (_) in
+                    HUD.flash(.labeledSuccess(title: "情報の保存に成功しました", subtitle: nil),
+                              onView: self.view,
+                              delay: 1.0
+                    ) { (_) in
+                        //アカウント情報を端末に保存
                         dismiss(animated: true, completion: nil)
+                        
                     }
                 }
                 
@@ -112,101 +259,21 @@ class SignUpViewController: UIViewController {
         
     }
     
-    private func makeView() {
-        let size = self.view.frame.size
-        let textfieldSize:CGFloat = 25.0
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(showKeyBoard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyBoard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        //タイトル：”SignUp”
-        titleLabel.text = "SignUp"
-        titleLabel.font = titleLabel.font.withSize(self.view.frame.height/screenSlasher.y*65)
-        titleLabel.sizeToFit()
-        titleLabel.center = CGPoint(
-            x: size.width/2,
-            y: size.height/screenSlasher.y*175
-        )
-        self.view.addSubview(self.titleLabel)
-        
-        
-        //メールアドレス
-        mailaddressLabel.text = "メールアドレス"
-        mailaddressLabel.font = mailaddressLabel.font.withSize(self.view.frame.height/screenSlasher.y*20)
-        mailaddressLabel.sizeToFit()
-        mailaddressLabel.center = CGPoint(
-            x: size.width/screenSlasher.x*0 + mailaddressLabel.frame.size.width/2 + 20,
-            y: size.height/screenSlasher.y*325
-        )
-        self.view.addSubview(mailaddressLabel)
-        
-        
-        mailaddressTextfield.frame.size = CGSize(
-            width: size.width - size.width/screenSlasher.x*50,
-            height: size.height/screenSlasher.y*textfieldSize
-        )
-        mailaddressTextfield.frame = CGRect(
-            x: (size.width - mailaddressTextfield.frame.size.width)/2,
-            y: size.height/screenSlasher.y*360,
-            width: size.width - size.width/screenSlasher.x*50,
-            height: size.height/screenSlasher.y*textfieldSize
-        )
-        mailaddressTextfield.placeholder = "メールアドレス"
-        mailaddressTextfield.keyboardType = .alphabet
-        mailaddressTextfield.borderStyle = .roundedRect
-        mailaddressTextfield.clearButtonMode = .always
-        self.view.addSubview(mailaddressTextfield)
-        
-        
-        //パスワード
-        passwordLabel.text = "パスワード"
-        passwordLabel.font = passwordLabel.font.withSize(self.view.frame.height/screenSlasher.y*20)
-        passwordLabel.sizeToFit()
-        passwordLabel.center = CGPoint(
-            x: size.width/screenSlasher.x*0 + passwordLabel.frame.size.width/2 + 20,
-            y: size.height/screenSlasher.y*425
-        )
-        self.view.addSubview(passwordLabel)
-        
-        passwordTextfield.frame.size = CGSize(
-            width: size.width - size.width/screenSlasher.x*50,
-            height: size.height/screenSlasher.y*textfieldSize
-            )
-        passwordTextfield.frame = CGRect(
-            x: (size.width - mailaddressTextfield.frame.size.width)/2,
-            y: size.height/screenSlasher.y*460,
-            width: size.width - size.width/screenSlasher.x*50,
-            height: size.height/screenSlasher.y*textfieldSize
-        )
-        passwordTextfield.placeholder = "パスワード"
-        passwordTextfield.keyboardType = .alphabet
-        passwordTextfield.borderStyle = .roundedRect
-        passwordTextfield.clearButtonMode = .always
-        self.view.addSubview(passwordTextfield)
-        
-        //認証ボタン
-        
-        authorizeButton.setTitle("SignUp", for: .normal)
-        authorizeButton.titleLabel?.textColor = .white
-        authorizeButton.frame.size = CGSize(
-            width: size.width/screenSlasher.x*150,
-            height: size.height/screenSlasher.y*40
-        )
-        authorizeButton.frame = CGRect(
-            x: (size.width - authorizeButton.frame.width)/2,
-            y: size.height/screenSlasher.y*550,
-            width: size.width/screenSlasher.x*150,
-            height: size.height/screenSlasher.y*40
-        )
-        authorizeButton.backgroundColor = .orange
-        authorizeButton.layer.cornerRadius = 5
-        authorizeButton.titleLabel?.font = authorizeButton.titleLabel?.font.withSize(size.height/screenSlasher.y*30)
-        authorizeButton.addTarget(self, action: #selector(authorize(sender:)), for: .touchUpInside)
-        self.view.addSubview(authorizeButton)
-        
+    @objc func GotoTermOfService(sender: UIButton) {
+        let StoryBoard = UIStoryboard(name: "terms_of_service", bundle: nil)
+        let termVC = StoryBoard.instantiateViewController(identifier: "terms_of_serviceViewController")
+        let navVC = UINavigationController(rootViewController: termVC)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true, completion: nil)
     }
     
+    @objc func GotoPrivacyPolicy(sender:UIButton) {
+        let StoryBoard = UIStoryboard(name: "privacy_policy", bundle: nil)
+        let PPVC = StoryBoard.instantiateViewController(identifier: "privacy_policyViewController")
+        let navVC = UINavigationController(rootViewController: PPVC)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true, completion: nil)
+    }
 }
 
 // MARK:- テキストフィールド関連
