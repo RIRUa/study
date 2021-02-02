@@ -19,6 +19,8 @@ class DetailViewController: UIViewController {
     let soundIdRing : SystemSoundID = 1304
     var timeOver:Bool = false
     
+    var DefaultColor:UIColor?
+    
     /**計算問題用変数**/
     var a1 = Int.random(in: 1 ... 100)
     var b1 = Int.random(in: 1 ... 100)
@@ -73,6 +75,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.navigationItem.title = ""
+        
         self.selectedTextField = textfield1
         
         timecount = UserDefaults.standard.integer(forKey: "TIME") + 1
@@ -92,6 +96,9 @@ class DetailViewController: UIViewController {
         timeLabel.textAlignment = NSTextAlignment.center;//ラベルを中央揃えにする
         timeLabel.font = timeLabel.font.withSize(screen.height/screen_slasher.y*7.5)
         self.view.addSubview(timeLabel)
+        
+        /**********************テキストフィールドの文字の色を保管***************/
+        self.DefaultColor = textfield1.textColor
         
         configureView()
     }
@@ -147,10 +154,17 @@ class DetailViewController: UIViewController {
         
         if (check1 == true && check2 == true && check3 == true && check4 == true && datasendfunc_is_called == false) {
             
+            /**　合格時　**/
+            
             HUD.flash(.labeledSuccess(title: "CLEAR",subtitle: nil),
                       onView: self.view,
                       delay: 2.0
             ) { [self] (_) in
+                
+                if self.timer != nil{
+                    self.timer.invalidate()
+                }
+                
                 dismiss(animated: true, completion: nil)
             }
             
@@ -223,8 +237,8 @@ class DetailViewController: UIViewController {
         button1.layer.cornerRadius = 5
         button1.center = CGPoint(x: screen.width/2, y: screen.height * 1.3 * label_space/screen_slasher.y)//ボタンを中央揃え
         button1.titleLabel?.font = button1.titleLabel?.font.withSize(screen.height/screen_slasher.y*10)//フォントサイズ
-        button1.backgroundColor = UIColor.red//ボタンの色
-        button1.titleLabel?.textColor = UIColor.white//ボタンの文字の色
+        button1.backgroundColor = .red//ボタンの色
+        button1.titleLabel?.textColor = .white//ボタンの文字の色
         button1.addTarget(self, action: #selector(check_ans1), for: .touchUpInside)
         self.view.addSubview(button1)
         
@@ -233,8 +247,8 @@ class DetailViewController: UIViewController {
         button2.layer.cornerRadius = 5
         button2.center = CGPoint(x: screen.width/2, y: screen.height * 2.3 * label_space/screen_slasher.y)//ボタンを中央揃え
         button2.titleLabel?.font = button2.titleLabel?.font.withSize(screen.height/screen_slasher.y*10)//フォントサイズ
-        button2.backgroundColor = UIColor.red//ボタンの色
-        button2.titleLabel?.textColor = UIColor.white//ボタンの文字の色
+        button2.backgroundColor = .red//ボタンの色
+        button2.titleLabel?.textColor = .white//ボタンの文字の色
         button2.addTarget(self, action: #selector(check_ans2), for: .touchUpInside)
         self.view.addSubview(button2)
         
@@ -243,8 +257,8 @@ class DetailViewController: UIViewController {
         button3.layer.cornerRadius = 5
         button3.center = CGPoint(x: screen.width/2, y: screen.height * 3.3 * label_space/screen_slasher.y)//ボタンを中央揃え
         button3.titleLabel?.font = button3.titleLabel?.font.withSize(screen.height/screen_slasher.y*10)//フォントサイズ
-        button3.backgroundColor = UIColor.red//ボタンの色
-        button3.titleLabel?.textColor = UIColor.white//ボタンの文字の色
+        button3.backgroundColor = .red//ボタンの色
+        button3.titleLabel?.textColor = .white//ボタンの文字の色
         button3.addTarget(self, action: #selector(check_ans3), for: .touchUpInside)
         self.view.addSubview(button3)
         
@@ -253,8 +267,8 @@ class DetailViewController: UIViewController {
         button4.layer.cornerRadius = 5
         button4.center = CGPoint(x: screen.width/2, y: screen.height * 4.3 * label_space/screen_slasher.y)//ボタンを中央揃え
         button4.titleLabel?.font = button4.titleLabel?.font.withSize(screen.height/screen_slasher.y*10)//フォントサイズ
-        button4.backgroundColor = UIColor.red//ボタンの色
-        button4.titleLabel?.textColor = UIColor.white//ボタンの文字の色
+        button4.backgroundColor = .red//ボタンの色
+        button4.titleLabel?.textColor = .white//ボタンの文字の色
         button4.addTarget(self, action: #selector(check_ans4), for: .touchUpInside)
         self.view.addSubview(button4)
         
@@ -272,6 +286,7 @@ class DetailViewController: UIViewController {
         textfield1.placeholder = "和（たし算の答え）"
         textfield1.keyboardType = .numberPad
         textfield1.borderStyle = .roundedRect
+        
         textfield1.clearButtonMode = .always
         self.view.addSubview(textfield1)
         textfield1.delegate = self
@@ -358,6 +373,25 @@ extension DetailViewController:UITextFieldDelegate{
     
     /**選択されたテキストフィールドを保存**/
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        /**　不合格時　**/
+        if timeOver == true {
+            
+            /**　音を消す　**/
+            if self.timer != nil {
+                self.timer.invalidate()
+            }
+            
+            /**　バツマークを出す　**/
+            HUD.flash(.labeledError(title: "Fail", subtitle: nil),
+                      onView: self.view,
+                      delay: 2.0
+            ) { [self] (_) in
+                dismiss(animated: true, completion: nil)
+                return
+            }
+        }
+        
         self.selectedTextField = textField
     }
     
@@ -394,18 +428,21 @@ extension DetailViewController{
     // onTouchBeganと同じ
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        /**　音を消す　**/
-        if let WorkingTimer = self.timer {
-            WorkingTimer.invalidate()
-        }
-        
-        /**　バツマークを出す　**/
+        /**　不合格時　**/
         if timeOver == true {
+            
+            /**　音を消す　**/
+            if self.timer != nil {
+                self.timer.invalidate()
+            }
+            
+            /**　バツマークを出す　**/
             HUD.flash(.labeledError(title: "Fail", subtitle: nil),
                       onView: self.view,
                       delay: 2.0
             ) { [self] (_) in
                 dismiss(animated: true, completion: nil)
+                return
             }
         }
         
@@ -415,42 +452,63 @@ extension DetailViewController{
     
     /*************************************答え確認メソッドたち***********************************/
     @objc func check_ans1(sender:UIButton){
+        
+        if let text = self.textfield1.text {
+            if text == "" {
+                return
+            }
+        }
+        
         if Int(textfield1.text!) == a1+b1 {
             button1.setTitle("cleared", for: .normal)
-            button1.backgroundColor = UIColor.blue
+            button1.backgroundColor = .blue
             check1 = true
             textfield1.isUserInteractionEnabled = false
-            textfield1.textColor = UIColor.blue
+            textfield1.textColor = .systemBlue
         }else{
-            textfield1.textColor = UIColor.red
+            textfield1.textColor = .systemRed
         }
         
         data_send_func()
     }
     
     @objc func check_ans2(sender:UIButton){
+        
+        if let text = self.textfield2.text {
+            if text == "" {
+                return
+            }
+        }
+        
         if Int(textfield2.text!) == a2-b2 {
             button2.setTitle("cleared", for: .normal)
-            button2.backgroundColor = UIColor.blue
+            button2.backgroundColor = .blue
             check2 = true
             textfield2.isUserInteractionEnabled = false
-            textfield2.textColor = UIColor.blue
+            textfield2.textColor = .systemBlue
         }else{
-            textfield2.textColor = UIColor.red
+            textfield2.textColor = .systemRed
         }
         
         data_send_func()
     }
 
     @objc func check_ans3(sender:UIButton){
+        
+        if let text = self.textfield3.text {
+            if text == "" {
+                return
+            }
+        }
+        
         if Int(textfield3.text!) == a3*b3 {
             button3.setTitle("cleared", for: .normal)
-            button3.backgroundColor = UIColor.blue
+            button3.backgroundColor = .blue
             check3 = true
             textfield3.isUserInteractionEnabled = false
-            textfield3.textColor = UIColor.blue
+            textfield3.textColor = .systemBlue
         }else{
-            textfield3.textColor = UIColor.red
+            textfield3.textColor = .systemRed
         }
         
         data_send_func()
@@ -460,12 +518,12 @@ extension DetailViewController{
         
         if ((Int(textfield4_sho.text!) == a4/b4 && Int(textfield4_amari.text!) == a4%b4) || (Int(textfield4_sho.text!) == a4/b4 && a4%b4 == 0 )) {/*************************完全正解の場合*************************/
             button4.setTitle("cleared", for: .normal)
-            button4.backgroundColor = UIColor.blue
+            button4.backgroundColor = .blue
             check4 = true
             textfield4_sho.isUserInteractionEnabled = false
-            textfield4_sho.textColor = UIColor.blue
+            textfield4_sho.textColor = .systemBlue
             textfield4_amari.isUserInteractionEnabled = false
-            textfield4_amari.textColor = UIColor.blue
+            textfield4_amari.textColor = .systemBlue
         }else{
             /**********************それ以外の場合**********************/
             
@@ -474,17 +532,25 @@ extension DetailViewController{
 
                     if Int(textfield4_sho_text) == a4/b4 && Int(textfield4_amari_text) != a4%b4 {
                         textfield4_sho.isUserInteractionEnabled = false
-                        textfield4_sho.textColor = UIColor.blue
+                        textfield4_sho.textColor = .systemBlue
 
-                        textfield4_amari.textColor = UIColor.red
+                        textfield4_amari.textColor = .systemRed
                     }else if Int(textfield4_sho_text) != a4/b4 && Int(textfield4_amari_text) == a4%b4 {
                         textfield4_amari.isUserInteractionEnabled = false
-                        textfield4_amari.textColor = UIColor.blue
+                        textfield4_amari.textColor = .systemBlue
 
-                        textfield4_sho.textColor = UIColor.red
+                        textfield4_sho.textColor = .systemRed
                     }else{
-                        textfield4_sho.textColor = UIColor.red
-                        textfield4_amari.textColor = UIColor.red
+                        textfield4_sho.textColor = .systemRed
+                        textfield4_amari.textColor = .systemRed
+                    }
+                    
+                    if textfield4_sho_text == "" {
+                        textfield4_sho.textColor = self.DefaultColor
+                    }
+                    
+                    if textfield4_amari_text == "" {
+                        textfield4_amari.textColor = self.DefaultColor
                     }
 
                 }

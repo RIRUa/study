@@ -7,7 +7,7 @@ target 'study' do
 
   # Pods for study
 
-  pod 'Firebase/Analytics'
+  #pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   

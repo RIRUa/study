@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import PKHUD
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     var selectedTextfield:UITextField?
     
@@ -91,7 +91,7 @@ class SignUpViewController: UIViewController {
             height: Screen_Size.height/screenSlasher.y*textfieldSize
         )
         mailaddressTextfield.placeholder = "メールアドレス"
-        mailaddressTextfield.keyboardType = .alphabet
+        mailaddressTextfield.keyboardType = .emailAddress
         mailaddressTextfield.borderStyle = .roundedRect
         mailaddressTextfield.clearButtonMode = .always
         mailaddressTextfield.textContentType = .emailAddress
@@ -119,13 +119,15 @@ class SignUpViewController: UIViewController {
             height: Screen_Size.height/screenSlasher.y*textfieldSize
         )
         passwordTextfield.placeholder = "パスワード"
-        passwordTextfield.keyboardType = .alphabet
+        passwordTextfield.keyboardType = .asciiCapable
         passwordTextfield.borderStyle = .roundedRect
         passwordTextfield.clearButtonMode = .always
         passwordTextfield.textContentType = .newPassword
+        passwordTextfield.isSecureTextEntry = true
         self.view.addSubview(passwordTextfield)
         
         let height:CGFloat = 530.0
+        
         //利用規約
         term.setTitle("利用規約", for: .normal)
         term.backgroundColor = .purple
@@ -229,13 +231,15 @@ extension SignUpViewController{
                 
                 let datas: [String:Any] = initialData.getUserData()
                 
+                /**　firestoreに情報を登録　**/
                 Firestore.firestore().collection("Users").document(uid).setData(datas) { (errorBy_setData) in
                     
                     /***************************　情報の保存に失敗した場合　**********************/
                     if errorBy_setData != nil{
                         HUD.hide { (_) in
-                            HUD.flash(.labeledError(title: "情報の保存に失敗しました", subtitle: nil),
-                                      delay: 1.0
+                            HUD.flash(
+                                .labeledError(title: "情報の保存に失敗しました", subtitle: nil),
+                                delay: 1.0
                             )
                             return
                         }
@@ -248,7 +252,26 @@ extension SignUpViewController{
                               onView: self.view,
                               delay: 1.0
                     ) { (_) in
-                        //アカウント情報を端末に保存
+                        if #available(iOS 10.0, *) {
+                            
+                            let center = UNUserNotificationCenter.current()
+                            center.requestAuthorization(
+                                options: [.badge, .sound, .alert]
+                            ) { [self] (granted, error) in
+                                
+                                if error != nil {
+                                    return
+                                }
+                                
+                                if granted == true {
+                                    let center = UNUserNotificationCenter.current()
+                                    center.delegate = self
+                                }
+                                
+                                settingNotification()
+                                
+                            }
+                        }
                         dismiss(animated: true, completion: nil)
                         
                     }
@@ -329,8 +352,6 @@ extension SignUpViewController: UITextFieldDelegate{
         if (self.passwordTextfield.isFirstResponder) {
             self.passwordTextfield.resignFirstResponder()
         }
-        
-        
         
     }
     

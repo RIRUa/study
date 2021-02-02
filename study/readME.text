@@ -7,3 +7,15 @@ cell is created 2
 
 
 文字は全て「ヒラギノマルフォント」で統一
+
+Loginフォルダ内のkeyboardTypeは次に対応
+    mailadress  :email
+    password    :ascii
+
+
+自作便利機能       my_objects
+                ├── my_extensions.swift     ←ーーextension用
+                ├── my_functions.swift      ←ーーfunction用
+                ├── my_protocols.swift      ←ーーprotocol用
+                └── my_variables.swift      ←ーーvariable用
+

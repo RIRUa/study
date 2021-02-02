@@ -1,5 +1,5 @@
 //
-//  NewObject.swift
+//  my_variables.swift
 //  study
 //
 //  Created by 渡辺奈央騎 on 2020/07/20.
@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 struct user {
     let userName:String
@@ -16,6 +17,9 @@ struct user {
     let sex:Bool/**True:男, False:女**/
     let tellNo:String
     let userId:String
+    let lastLogin_time:Date     //最終ログイン日時
+    let SleepingTime_hour:Int   //就寝時間(時)
+    let SleepingTime_minute:Int //就寝時間(分)
     
     init(mailaddress:String, userid uid:String) {
         self.userName = ""
@@ -24,16 +28,21 @@ struct user {
         self.sex = true
         self.tellNo = ""
         self.userId = uid
-        
+        self.lastLogin_time = Date()
+        self.SleepingTime_hour = 0
+        self.SleepingTime_minute = 0
     }
     
     init(data:[String:Any]) {
         self.userName = data["userName"] as! String
-        self.mailAddress = data["mailAdress"] as! String
+        self.mailAddress = data["mailAddress"] as! String
         self.age = data["age"] as! Int
         self.sex = data["sex"] as! Bool
         self.tellNo = data["tellNo"] as! String
         self.userId = data["uid"] as! String
+        self.lastLogin_time = (data["lastLoginTime"] as! Timestamp).dateValue()
+        self.SleepingTime_hour = data["Sleep_hour"] as! Int
+        self.SleepingTime_minute = data["Sleep_munite"] as! Int
     }
     
     func getUserData() -> [String:Any] {
@@ -43,7 +52,10 @@ struct user {
             "age":self.age,
             "sex":self.sex,
             "tellNo":self.tellNo,
-            "uid":self.userId
+            "uid":self.userId,
+            "lastLoginTime":Timestamp(date: self.lastLogin_time),
+            "Sleep_hour":self.SleepingTime_hour,
+            "Sleep_munite":self.SleepingTime_minute
         ]
         
         return datas
@@ -68,26 +80,3 @@ enum cell_check: Int {
     case Fail   = 1       //非クリア
     case Clear  = 2      //クリア
 }
-
-protocol send_any_data {
-    func send_data(data:cell_check)
-}
-
-func determine_grade(sliderValue val:Int)-> String{
-    
-    var chugaku:Bool = false
-    var grade = val
-    
-    if grade >= 7 {
-        grade -= 6
-        chugaku = true
-    }
-    
-    if chugaku == true {
-        return "中学" + String(grade) + "年"
-    }
-    
-    return "小学" + String(grade) + "年"
-    
-}
-

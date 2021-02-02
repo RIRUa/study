@@ -36,6 +36,8 @@ class LoginViewController: UIViewController {
         mailAddressTextfield.textContentType = .emailAddress
         passwordTextfield.textContentType = .password
         
+        mailAddressTextfield.keyboardType = .emailAddress
+        passwordTextfield.keyboardType = .asciiCapable
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,8 +45,41 @@ class LoginViewController: UIViewController {
         
         /*************************************　アプリ起動時の画面遷移の書き込み　***************************/
         
-        if Auth.auth().currentUser != nil {
-            GoToMasterVC()
+        if let currentUser = Auth.auth().currentUser {
+            
+            let uid = currentUser.uid
+            
+            Firestore.firestore().collection("Users").document(uid).getDocument { [self](snapshot, error) in
+                
+                if error != nil {
+                    print("[LOG] called 55")
+                    return
+                }
+                
+                guard let data = snapshot?.data() else {
+                    print("[LOG] called 60")
+                    return
+                }
+                
+                let userData = user(data: data)
+                
+                // 最終ログイン日が２日前より最近だったら，最終ログイン日の更新
+                if userData.lastLogin_time.is_RecentDay(day: Date()) == true {
+                    
+                    Firestore.firestore().collection("Users").document(uid).setData(["lastLoginTime": Timestamp(date: Date())], merge: true)
+                    
+                    GoToMasterVC()
+                    return
+                }
+                
+                // 最終ログイン日が２日前より昔だったら，ログアウト
+                do{
+                    try Auth.auth().signOut()
+                } catch {
+                    print(error)
+                }
+            }
+            
         }
         
     }
@@ -114,6 +149,10 @@ class LoginViewController: UIViewController {
                               delay: 1.0
                     ) { (_) in
                         GoToMasterVC()
+                        if let currentUser = Auth.auth().currentUser {
+                            let uid = currentUser.uid
+                            Firestore.firestore().collection("Users").document(uid).setData(["lastLoginTime": Timestamp(date: Date())], merge: true)
+                        }
                     }
                 }
                 

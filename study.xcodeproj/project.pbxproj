@@ -14,13 +14,14 @@
 		5A0E686024C515700095D605 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A0E685E24C515700095D605 /* Main.storyboard */; };
 		5A0E686224C515720095D605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A0E686124C515720095D605 /* Assets.xcassets */; };
 		5A0E686524C515720095D605 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A0E686324C515720095D605 /* LaunchScreen.storyboard */; };
-		5A0E686D24C515FF0095D605 /* NewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E686C24C515FF0095D605 /* NewObject.swift */; };
+		5A0E686D24C515FF0095D605 /* my_variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E686C24C515FF0095D605 /* my_variables.swift */; };
 		5A0E689424C79BA80095D605 /* readME.text in Resources */ = {isa = PBXBuildFile; fileRef = 5A0E689324C79BA80095D605 /* readME.text */; };
 		5A1048AA24E125D90023DDFE /* popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A1048A924E125D90023DDFE /* popup.storyboard */; };
 		5A1048AC24E126790023DDFE /* popupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1048AB24E126790023DDFE /* popupViewController.swift */; };
 		5A1048DF24ECC5270023DDFE /* password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1048DE24ECC5270023DDFE /* password.swift */; };
 		5A151767250359400075E8D8 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A151766250359400075E8D8 /* settingViewController.swift */; };
 		5A18CC322590F99F0016AB5A /* ReadME_for_Resource.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A18CC312590F99F0016AB5A /* ReadME_for_Resource.txt */; };
+		5A26CB1325ACB3990055D429 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A26CB1225ACB3990055D429 /* GoogleService-Info.plist */; };
 		5A297DDF2566F67100CB8192 /* privacy_policyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A297DDE2566F67100CB8192 /* privacy_policyViewController.swift */; };
 		5A297DE22566F6DC00CB8192 /* privacy_policy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A297DE12566F6DC00CB8192 /* privacy_policy.storyboard */; };
 		5A297DEA25678A6400CB8192 /* privacy_policy.html in Resources */ = {isa = PBXBuildFile; fileRef = 5A297DE925678A6400CB8192 /* privacy_policy.html */; };
@@ -30,10 +31,12 @@
 		5A297E0225679B7600CB8192 /* production_philosophy.html in Resources */ = {isa = PBXBuildFile; fileRef = 5A297E0125679B7600CB8192 /* production_philosophy.html */; };
 		5A297E0625679B8600CB8192 /* production_philosophy.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A297E0525679B8600CB8192 /* production_philosophy.css */; };
 		5A711E9D257673AC00E2A6B6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A711E9C257673AC00E2A6B6 /* SignUpViewController.swift */; };
+		5AA2A4F625C84F500033BF8E /* my_extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2A4F525C84F500033BF8E /* my_extensions.swift */; };
+		5AA2A4FB25C84F890033BF8E /* my_functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2A4FA25C84F890033BF8E /* my_functions.swift */; };
+		5AA2A4FE25C84FA70033BF8E /* my_protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2A4FD25C84FA70033BF8E /* my_protocols.swift */; };
 		5AABF88424DBFE5600F096A8 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF88324DBFE5600F096A8 /* CustomPresentationController.swift */; };
 		5ABF907024CF946F00878070 /* study.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF906E24CF946F00878070 /* study.xcdatamodeld */; };
 		5ACD0344250A309E0099E695 /* SETTING.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACD0343250A309E0099E695 /* SETTING.storyboard */; };
-		5ADA0F92259A43DB003236D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ADA0F91259A43DB003236D0 /* GoogleService-Info.plist */; };
 		5AE43DFC2568476600F27F5A /* LogIO.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43DFB2568476600F27F5A /* LogIO.storyboard */; };
 		5AE43DFF2568478300F27F5A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43DFE2568478300F27F5A /* LoginViewController.swift */; };
 		5AE43E06256847E500F27F5A /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43E05256847E500F27F5A /* LogoutViewController.swift */; };
@@ -62,7 +65,7 @@
 		5A0E686124C515720095D605 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A0E686424C515720095D605 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A0E686624C515720095D605 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5A0E686C24C515FF0095D605 /* NewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewObject.swift; sourceTree = "<group>"; };
+		5A0E686C24C515FF0095D605 /* my_variables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = my_variables.swift; sourceTree = "<group>"; };
 		5A0E689324C79BA80095D605 /* readME.text */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readME.text; sourceTree = "<group>"; };
 		5A1048A924E125D90023DDFE /* popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = popup.storyboard; sourceTree = "<group>"; };
 		5A1048AB24E126790023DDFE /* popupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popupViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		5A18CC312590F99F0016AB5A /* ReadME_for_Resource.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadME_for_Resource.txt; sourceTree = "<group>"; };
 		5A26CAD425A103A20055D429 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		5A26CAD525A103A30055D429 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5A26CB1225ACB3990055D429 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A297DDE2566F67100CB8192 /* privacy_policyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacy_policyViewController.swift; sourceTree = "<group>"; };
 		5A297DE12566F6DC00CB8192 /* privacy_policy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = privacy_policy.storyboard; sourceTree = "<group>"; };
 		5A297DE925678A6400CB8192 /* privacy_policy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy_policy.html; sourceTree = "<group>"; };
@@ -80,10 +84,12 @@
 		5A297E0125679B7600CB8192 /* production_philosophy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = production_philosophy.html; sourceTree = "<group>"; };
 		5A297E0525679B8600CB8192 /* production_philosophy.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = production_philosophy.css; sourceTree = "<group>"; };
 		5A711E9C257673AC00E2A6B6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		5AA2A4F525C84F500033BF8E /* my_extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = my_extensions.swift; sourceTree = "<group>"; };
+		5AA2A4FA25C84F890033BF8E /* my_functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = my_functions.swift; sourceTree = "<group>"; };
+		5AA2A4FD25C84FA70033BF8E /* my_protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = my_protocols.swift; sourceTree = "<group>"; };
 		5AABF88324DBFE5600F096A8 /* CustomPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		5ABF906F24CF946F00878070 /* study.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = study.xcdatamodel; sourceTree = "<group>"; };
 		5ACD0343250A309E0099E695 /* SETTING.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SETTING.storyboard; sourceTree = "<group>"; };
-		5ADA0F91259A43DB003236D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5AE43DFB2568476600F27F5A /* LogIO.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIO.storyboard; sourceTree = "<group>"; };
 		5AE43DFE2568478300F27F5A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5AE43E05256847E500F27F5A /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
@@ -153,13 +159,13 @@
 			children = (
 				5A1517632503503C0075E8D8 /* settingPart */,
 				5A15176125034FEB0075E8D8 /* MainPart */,
-				5A0E686C24C515FF0095D605 /* NewObject.swift */,
+				5AA2A50125C84FFB0033BF8E /* my_objects */,
 				5A1048DE24ECC5270023DDFE /* password.swift */,
 				5A0E686124C515720095D605 /* Assets.xcassets */,
 				5A0E686624C515720095D605 /* Info.plist */,
 				5ABF906E24CF946F00878070 /* study.xcdatamodeld */,
 				5A0E689324C79BA80095D605 /* readME.text */,
-				5ADA0F91259A43DB003236D0 /* GoogleService-Info.plist */,
+				5A26CB1225ACB3990055D429 /* GoogleService-Info.plist */,
 			);
 			path = study;
 			sourceTree = "<group>";
@@ -268,6 +274,17 @@
 				5A297DED2567910E00CB8192 /* privacy_policy.css */,
 			);
 			path = privacy_policy;
+			sourceTree = "<group>";
+		};
+		5AA2A50125C84FFB0033BF8E /* my_objects */ = {
+			isa = PBXGroup;
+			children = (
+				5A0E686C24C515FF0095D605 /* my_variables.swift */,
+				5AA2A4F525C84F500033BF8E /* my_extensions.swift */,
+				5AA2A4FA25C84F890033BF8E /* my_functions.swift */,
+				5AA2A4FD25C84FA70033BF8E /* my_protocols.swift */,
+			);
+			path = my_objects;
 			sourceTree = "<group>";
 		};
 		5AE43E48256CF07C00F27F5A /* terms_of_service */ = {
@@ -387,7 +404,7 @@
 				5AE43E61256DB34500F27F5A /* inquiry.css in Resources */,
 				5A297DEE2567910E00CB8192 /* privacy_policy.css in Resources */,
 				5ACD0344250A309E0099E695 /* SETTING.storyboard in Resources */,
-				5ADA0F92259A43DB003236D0 /* GoogleService-Info.plist in Resources */,
+				5A26CB1325ACB3990055D429 /* GoogleService-Info.plist in Resources */,
 				5A1048AA24E125D90023DDFE /* popup.storyboard in Resources */,
 				5AE43DFC2568476600F27F5A /* LogIO.storyboard in Resources */,
 			);
@@ -443,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A0E685B24C515700095D605 /* MasterViewController.swift in Sources */,
+				5AA2A4F625C84F500033BF8E /* my_extensions.swift in Sources */,
 				5A0E685424C515700095D605 /* AppDelegate.swift in Sources */,
 				5A297DDF2566F67100CB8192 /* privacy_policyViewController.swift in Sources */,
 				5A0E685D24C515700095D605 /* DetailViewController.swift in Sources */,
@@ -454,10 +472,12 @@
 				5ABF907024CF946F00878070 /* study.xcdatamodeld in Sources */,
 				5A0E685924C515700095D605 /* SceneDelegate.swift in Sources */,
 				5AE43E4A256CF0C200F27F5A /* terms_of_service_ViewController.swift in Sources */,
-				5A0E686D24C515FF0095D605 /* NewObject.swift in Sources */,
+				5A0E686D24C515FF0095D605 /* my_variables.swift in Sources */,
 				5AABF88424DBFE5600F096A8 /* CustomPresentationController.swift in Sources */,
+				5AA2A4FB25C84F890033BF8E /* my_functions.swift in Sources */,
 				5A1048AC24E126790023DDFE /* popupViewController.swift in Sources */,
 				5A151767250359400075E8D8 /* settingViewController.swift in Sources */,
+				5AA2A4FE25C84FA70033BF8E /* my_protocols.swift in Sources */,
 				5AE43DFF2568478300F27F5A /* LoginViewController.swift in Sources */,
 				5A1048DF24ECC5270023DDFE /* password.swift in Sources */,
 			);
@@ -614,6 +634,7 @@
 				DEVELOPMENT_TEAM = 6TCT6K2UZ5;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = study/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -634,6 +655,7 @@
 				DEVELOPMENT_TEAM = 6TCT6K2UZ5;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = study/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

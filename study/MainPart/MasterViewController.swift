@@ -42,6 +42,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         create_EditButton()
         
+        navigationItem.title = "問題集"
+        
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         navigationItem.rightBarButtonItem = addButton
         

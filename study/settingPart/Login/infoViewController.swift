@@ -20,6 +20,10 @@ class infoViewController: UIViewController {
     let nameLabel = UILabel()
     let nameTextfield = UITextField()
     
+    //メールアドレス
+    let mailaddressLabel = UILabel()
+    let mailaddressTextfield = UITextField()
+    
     //パスワード
     let passwordLabel = UILabel()
     let passwordTextfield = UITextField()
@@ -28,10 +32,6 @@ class infoViewController: UIViewController {
     let ageLabel = UILabel()
     let ageTextField = UITextField()
     
-    //メールアドレス
-    let mailaddressLabel = UILabel()
-    let mailaddressTextfield = UITextField()
-    
     //性別
     let sexLabel = UILabel()
     let sexTextfield = UITextField()
@@ -39,6 +39,18 @@ class infoViewController: UIViewController {
     //電話番号
     let tellNoLabel = UILabel()
     let tellNoTextfield = UITextField()
+    
+    //ユーザーID
+    let userIdLabel = UILabel()
+    
+    //最終ログイン日
+    let Last_Login_DateLabel = UILabel()
+    
+    //就寝時間(通知しない時間)
+    let SleepingTime_hourLabel = UILabel()
+    let SleepingTime_minuteLabel = UILabel()
+    let SleepingTime_hourTextfield = UITextField()
+    let SleepingTime_minuteTextfield = UITextField()
     
     
     
@@ -77,6 +89,16 @@ class infoViewController: UIViewController {
     
     private func Label_and_Textfield_Setting() {
         
+        let space_4_textfield:UIView = UIView(
+            frame:
+                                                CGRect(
+                                                    x: 0,
+                                                    y: 0,
+                                                    width: 13*self.contentView.frame.height/screenSlasher.y,
+                                                    height: 8*self.contentView.frame.height/screenSlasher.y
+                                                )
+        )
+        
         nameLabel.text = "名前"
         nameLabel.font = nameLabel.font.withSize(self.view.frame.height/screenSlasher.y*20)
         nameLabel.sizeToFit()
@@ -85,6 +107,27 @@ class infoViewController: UIViewController {
             y: 10*self.contentView.frame.height/screenSlasher.y
         )
         self.contentView.addSubview(nameLabel)
+        
+        nameTextfield.frame.size = CGSize(
+            width: 200*self.contentView.frame.width/screenSlasher.x,
+            height: 10*self.contentView.frame.height/screenSlasher.y
+        )
+        nameTextfield.frame = CGRect(
+            x: (self.contentView.frame.width - nameTextfield.frame.size.width)/2 ,
+            y: nameLabel.frame.maxY + 30,
+            width: 200*self.contentView.frame.width/screenSlasher.x,
+            height: 10*self.contentView.frame.height/screenSlasher.y
+        )
+        nameTextfield.placeholder = "変更後の名前"
+        nameTextfield.layer.cornerRadius = 5.0
+        nameTextfield.layer.borderWidth = 0.5*self.contentView.frame.height/screenSlasher.y
+        nameTextfield.layer.borderColor = UIColor.lightGray.cgColor
+        nameTextfield.borderStyle = .none
+        nameTextfield.keyboardType = .default
+        nameTextfield.clearButtonMode = .always
+        nameTextfield.leftView = space_4_textfield
+        nameTextfield.leftViewMode = .always
+        self.contentView.addSubview(nameTextfield)
         
     }
     
