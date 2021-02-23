@@ -50,6 +50,27 @@ input#accountName{
     filter: drop-shadow(0px 0px 10px rgb(179, 179, 179));
 }
 
+/*　メールアドレスを入れる箱（input）に対する内容　*/
+input#mailAddress{
+    width: calc( 1.3em * 10 );
+    height: 1.3em;
+    line-height: 1.3em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rebeccapurple;
+    filter: drop-shadow(0px 0px 10px rgb(179, 179, 179));
+}
+
+input#Password{
+    width: calc( 1.3em * 10 );
+    height: 1.3em;
+    line-height: 1.3em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rebeccapurple;
+    filter: drop-shadow(0px 0px 10px rgb(179, 179, 179));
+}
+
 /*　お問い合わせの種類を選択する箱（select）に対する内容　*/
 select#inquiryAbout{
     background-color: white;

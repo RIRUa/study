@@ -15,4 +15,7 @@ target 'study' do
   #送信の成功や失敗を表示するライブラリ
   pod 'PKHUD', '~> 5.0'
 
+  #自作ライブラリ
+  pod 'WN_Library'
+
 end

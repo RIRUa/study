@@ -29,6 +29,7 @@ function changed_inquiryAbout( selectedValue ) {
 
 function put_sendButton() {
 
+    /*　アカウント名　*/
     let accountName = document.getElementById("accountName");
     let value_accountName = accountName.value;
 
@@ -37,6 +38,25 @@ function put_sendButton() {
         return;
     }
 
+    /*　メールアドレス　*/
+    let mailAddress = document.getElementById("mailAddress");
+    let value_mailAddress = mailAddress.value;
+
+    if (value_mailAddress == "") {
+        alert("メールアドレスを入力してください");
+        return;
+    }
+
+    /*　メールアドレスのパスワード　*/
+    let password = document.getElementById("Password");
+    let value_password = password.value;
+
+    if (value_password == "") {
+        alert("パスワードを入力してください");
+        return;
+    }
+
+    /*　お問い合わせの種類　*/
     let inquiryAbout = document.getElementById("inquiryAbout");
     let value_from_inquiryAbout = inquiryAbout.value;
 
@@ -47,6 +67,7 @@ function put_sendButton() {
         return;
     }
 
+    /*　詳細　*/
     let inquiryDetail = document.getElementById("inquiryDetail");
     let value_from_inquiryDetail = inquiryDetail.value;
 
@@ -94,5 +115,7 @@ function put_sendButton() {
         alert("改行文字が含まれているため表示できません");
     }
 
+
+    //メールの送信
     location.href = "mailto:mathlearn.watanaocompany@gmail.com?subject=お問い合わせ&body=アカウント名：" + value_accountName + "%0D%0Aお問い合わせ理由：" + value_from_inquiryAbout + "%0D%0A詳細：" + value_from_inquiryDetail;
 }

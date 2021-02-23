@@ -84,11 +84,9 @@ class SignUpViewController: UIViewController, UNUserNotificationCenterDelegate {
             width: Screen_Size.width - Screen_Size.width/screenSlasher.x*50,
             height: Screen_Size.height/screenSlasher.y*textfieldSize
         )
-        mailaddressTextfield.frame = CGRect(
-            x: (Screen_Size.width - mailaddressTextfield.frame.size.width)/2,
-            y: Screen_Size.height/screenSlasher.y*360,
-            width: Screen_Size.width - Screen_Size.width/screenSlasher.x*50,
-            height: Screen_Size.height/screenSlasher.y*textfieldSize
+        mailaddressTextfield.center = CGPoint(
+            x: Screen_Size.width/2,
+            y: Screen_Size.height/screenSlasher.y*360
         )
         mailaddressTextfield.placeholder = "メールアドレス"
         mailaddressTextfield.keyboardType = .emailAddress
@@ -112,11 +110,9 @@ class SignUpViewController: UIViewController, UNUserNotificationCenterDelegate {
             width: Screen_Size.width - Screen_Size.width/screenSlasher.x*50,
             height: Screen_Size.height/screenSlasher.y*textfieldSize
             )
-        passwordTextfield.frame = CGRect(
-            x: (Screen_Size.width - mailaddressTextfield.frame.size.width)/2,
-            y: Screen_Size.height/screenSlasher.y*460,
-            width: Screen_Size.width - Screen_Size.width/screenSlasher.x*50,
-            height: Screen_Size.height/screenSlasher.y*textfieldSize
+        passwordTextfield.center = CGPoint(
+            x: Screen_Size.width/2,
+            y: Screen_Size.height/screenSlasher.y*460
         )
         passwordTextfield.placeholder = "パスワード"
         passwordTextfield.keyboardType = .asciiCapable
@@ -135,11 +131,9 @@ class SignUpViewController: UIViewController, UNUserNotificationCenterDelegate {
             width: Screen_Size.width/screenSlasher.x*80,
             height: Screen_Size.height/screenSlasher.y*30
         )
-        term.frame = CGRect(
+        term.frame.origin = CGPoint(
             x: (Screen_Size.width/2 - term.frame.width)/2 - 5,
-            y: Screen_Size.height/screenSlasher.y*height,
-            width: Screen_Size.width/screenSlasher.x*80,
-            height: Screen_Size.height/screenSlasher.y*30
+            y: Screen_Size.height/screenSlasher.y*height
         )
         term.layer.cornerRadius = 5
         term.addTarget(self, action: #selector(GotoTermOfService(sender:)), for: .touchUpInside)
@@ -152,11 +146,9 @@ class SignUpViewController: UIViewController, UNUserNotificationCenterDelegate {
             width: Screen_Size.width/screenSlasher.x*200,
             height: Screen_Size.height/screenSlasher.y*30
         )
-        privacy.frame = CGRect(
+        privacy.frame.origin = CGPoint(
             x: term.frame.maxX + 10,
-            y: Screen_Size.height/screenSlasher.y*height,
-            width: Screen_Size.width/screenSlasher.x*200,
-            height: Screen_Size.height/screenSlasher.y*30
+            y: Screen_Size.height/screenSlasher.y*height
         )
         privacy.layer.cornerRadius = 5
         privacy.addTarget(self, action: #selector(GotoPrivacyPolicy(sender:)), for: .touchUpInside)
@@ -170,11 +162,9 @@ class SignUpViewController: UIViewController, UNUserNotificationCenterDelegate {
             width: Screen_Size.width/screenSlasher.x*150,
             height: Screen_Size.height/screenSlasher.y*40
         )
-        authorizeButton.frame = CGRect(
-            x: (Screen_Size.width - authorizeButton.frame.width)/2,
-            y: Screen_Size.height/screenSlasher.y*600,
-            width: Screen_Size.width/screenSlasher.x*150,
-            height: Screen_Size.height/screenSlasher.y*40
+        authorizeButton.center = CGPoint(
+            x: (Screen_Size.width)/2,
+            y: Screen_Size.height/screenSlasher.y*600
         )
         authorizeButton.backgroundColor = .orange
         authorizeButton.layer.cornerRadius = 5

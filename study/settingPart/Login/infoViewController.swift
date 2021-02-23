@@ -112,11 +112,9 @@ class infoViewController: UIViewController {
             width: 200*self.contentView.frame.width/screenSlasher.x,
             height: 10*self.contentView.frame.height/screenSlasher.y
         )
-        nameTextfield.frame = CGRect(
-            x: (self.contentView.frame.width - nameTextfield.frame.size.width)/2 ,
-            y: nameLabel.frame.maxY + 30,
-            width: 200*self.contentView.frame.width/screenSlasher.x,
-            height: 10*self.contentView.frame.height/screenSlasher.y
+        nameTextfield.center = CGPoint(
+            x: self.contentView.frame.width/2 ,
+            y: nameLabel.frame.maxY + 30
         )
         nameTextfield.placeholder = "変更後の名前"
         nameTextfield.layer.cornerRadius = 5.0
