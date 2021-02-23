@@ -48,8 +48,8 @@ open class WNPasswordTextfield: UITextField {
         
         if size.height < 20 || size.width < 50 {
             throw WNError.sizeSmaller
-        } else if size.width > 350 {
-            throw WNError.sizeSmaller
+        } else if size.width > 400 {
+            throw WNError.sizeOver
         }
         
         // 変数に設定

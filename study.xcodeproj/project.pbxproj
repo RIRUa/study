@@ -50,6 +50,9 @@
 		5AE43E68256DB37E00F27F5A /* inquiryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43E67256DB37E00F27F5A /* inquiryViewController.swift */; };
 		5AE43E6B256DB63D00F27F5A /* inquiry.js in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43E6A256DB63D00F27F5A /* inquiry.js */; };
 		5AE43E6E256FA85C00F27F5A /* infoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43E6D256FA85B00F27F5A /* infoViewController.swift */; };
+		5AE5EA7325E4E9D50008C6FC /* touchPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE5EA7025E4E9D50008C6FC /* touchPoint.png */; };
+		5AE5EA7425E4E9D50008C6FC /* openEye.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE5EA7125E4E9D50008C6FC /* openEye.png */; };
+		5AE5EA7525E4E9D50008C6FC /* closeEye.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE5EA7225E4E9D50008C6FC /* closeEye.png */; };
 		E603425F90563AD34A0C28DA /* Pods_study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5263820138CCBC062104038 /* Pods_study.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +106,9 @@
 		5AE43E67256DB37E00F27F5A /* inquiryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inquiryViewController.swift; sourceTree = "<group>"; };
 		5AE43E6A256DB63D00F27F5A /* inquiry.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = inquiry.js; sourceTree = "<group>"; };
 		5AE43E6D256FA85B00F27F5A /* infoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoViewController.swift; sourceTree = "<group>"; };
+		5AE5EA7025E4E9D50008C6FC /* touchPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touchPoint.png; sourceTree = "<group>"; };
+		5AE5EA7125E4E9D50008C6FC /* openEye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openEye.png; sourceTree = "<group>"; };
+		5AE5EA7225E4E9D50008C6FC /* closeEye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeEye.png; sourceTree = "<group>"; };
 		D5263820138CCBC062104038 /* Pods_study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -138,6 +144,7 @@
 		5A0E684724C515700095D605 = {
 			isa = PBXGroup;
 			children = (
+				5AE5EA6F25E4E9B60008C6FC /* pictures */,
 				5A297DE825678A3E00CB8192 /* resource */,
 				5A0E685224C515700095D605 /* study */,
 				5A0E685124C515700095D605 /* Products */,
@@ -324,6 +331,16 @@
 			path = inquiry;
 			sourceTree = "<group>";
 		};
+		5AE5EA6F25E4E9B60008C6FC /* pictures */ = {
+			isa = PBXGroup;
+			children = (
+				5AE5EA7225E4E9D50008C6FC /* closeEye.png */,
+				5AE5EA7125E4E9D50008C6FC /* openEye.png */,
+				5AE5EA7025E4E9D50008C6FC /* touchPoint.png */,
+			);
+			path = pictures;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -385,16 +402,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AE5EA7325E4E9D50008C6FC /* touchPoint.png in Resources */,
 				5A0E689424C79BA80095D605 /* readME.text in Resources */,
 				5AE43E4D256CF10B00F27F5A /* terms_of_service.storyboard in Resources */,
 				5A297E0625679B8600CB8192 /* production_philosophy.css in Resources */,
 				5A297E0225679B7600CB8192 /* production_philosophy.html in Resources */,
+				5AE5EA7525E4E9D50008C6FC /* closeEye.png in Resources */,
 				5A18CC322590F99F0016AB5A /* ReadME_for_Resource.txt in Resources */,
 				5A297DEA25678A6400CB8192 /* privacy_policy.html in Resources */,
 				5AE43E52256CF28D00F27F5A /* terms_of_service.html in Resources */,
 				5AE43E65256DB36500F27F5A /* inquiry.storyboard in Resources */,
 				5AE43E5D256DB33B00F27F5A /* inquiry.html in Resources */,
 				5A297DFD2567988A00CB8192 /* production_philosophy.storyboard in Resources */,
+				5AE5EA7425E4E9D50008C6FC /* openEye.png in Resources */,
 				5A297DE22566F6DC00CB8192 /* privacy_policy.storyboard in Resources */,
 				5A0E686524C515720095D605 /* LaunchScreen.storyboard in Resources */,
 				5A0E686224C515720095D605 /* Assets.xcassets in Resources */,

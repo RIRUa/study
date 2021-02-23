@@ -17,7 +17,7 @@ open class WNtouchViewController: UIViewController {
     private var selectedTextfield:UITextField?
     
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         
         super.viewDidLoad()
         
@@ -34,7 +34,7 @@ open class WNtouchViewController: UIViewController {
         
     }
     
-    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         self.imageView.center = CGPoint(
             x: touches.first!.location(in: self.view).x,
@@ -51,7 +51,7 @@ open class WNtouchViewController: UIViewController {
         
     }
     
-    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         guard let touch = touches.first else {return}
         
@@ -63,7 +63,7 @@ open class WNtouchViewController: UIViewController {
         
     }
     
-    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         imageView.isHidden = true
         

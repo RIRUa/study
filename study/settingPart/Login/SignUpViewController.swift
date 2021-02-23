@@ -9,8 +9,9 @@
 import UIKit
 import Firebase
 import PKHUD
+import WN_Library
 
-class SignUpViewController: UIViewController, UNUserNotificationCenterDelegate {
+class SignUpViewController: WNtouchViewController/*, UNUserNotificationCenterDelegate */{
     
     var selectedTextfield:UITextField?
     
@@ -23,7 +24,7 @@ class SignUpViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     /**パスワード**/
     let passwordLabel = UILabel()
-    let passwordTextfield = UITextField()
+    var passwordTextfield: WNPasswordTextfield! = nil
     
     /**認証ボタン**/
     let authorizeButton = UIButton()
@@ -43,20 +44,13 @@ class SignUpViewController: UIViewController, UNUserNotificationCenterDelegate {
         let backbutton = UIBarButtonItem(barButtonSystemItem: .reply, target: self, action: #selector(pushBackButton(_:)))
         navigationItem.leftBarButtonItem = backbutton
         
-        mailaddressTextfield.delegate = self
-        passwordTextfield.delegate = self
-        
         makeView()
     }
     
     
     private func makeView() {
         let Screen_Size = self.view.frame.size
-        let textfieldSize:CGFloat = 25.0
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(showKeyBoard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyBoard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        let textfieldSize:CGFloat = 30.0
         
         //タイトル：”SignUp”
         titleLabel.text = "アカウント作成"
@@ -94,6 +88,7 @@ class SignUpViewController: UIViewController, UNUserNotificationCenterDelegate {
         mailaddressTextfield.clearButtonMode = .always
         mailaddressTextfield.textContentType = .emailAddress
         self.view.addSubview(mailaddressTextfield)
+        self.addTextfield(textfield: mailaddressTextfield)
         
         
         //パスワード
@@ -106,21 +101,31 @@ class SignUpViewController: UIViewController, UNUserNotificationCenterDelegate {
         )
         self.view.addSubview(passwordLabel)
         
-        passwordTextfield.frame.size = CGSize(
-            width: Screen_Size.width - Screen_Size.width/screenSlasher.x*50,
-            height: Screen_Size.height/screenSlasher.y*textfieldSize
+        do {
+            
+            let Textfieldsize = CGSize(
+                width: Screen_Size.width - Screen_Size.width/screenSlasher.x*50,
+                height: Screen_Size.height/screenSlasher.y*textfieldSize
             )
-        passwordTextfield.center = CGPoint(
-            x: Screen_Size.width/2,
-            y: Screen_Size.height/screenSlasher.y*460
-        )
-        passwordTextfield.placeholder = "パスワード"
-        passwordTextfield.keyboardType = .asciiCapable
-        passwordTextfield.borderStyle = .roundedRect
-        passwordTextfield.clearButtonMode = .always
-        passwordTextfield.textContentType = .newPassword
-        passwordTextfield.isSecureTextEntry = true
-        self.view.addSubview(passwordTextfield)
+            
+            passwordTextfield = try WNPasswordTextfield(TextfieldSize: Textfieldsize)
+            passwordTextfield.frame.size = CGSize(
+                width: Screen_Size.width - Screen_Size.width/screenSlasher.x*50,
+                height: Screen_Size.height/screenSlasher.y*textfieldSize
+            )
+            passwordTextfield.center = CGPoint(
+                x: Screen_Size.width/2,
+                y: Screen_Size.height/screenSlasher.y*460
+            )
+            passwordTextfield.placeholder = "パスワード"
+            passwordTextfield.keyboardType = .asciiCapable
+            passwordTextfield.textContentType = .newPassword
+            self.view.addSubview(passwordTextfield)
+            self.addTextfield(textfield: passwordTextfield)
+            
+        } catch {
+            print(error.localizedDescription)
+        }
         
         let height:CGFloat = 530.0
         
@@ -172,6 +177,7 @@ class SignUpViewController: UIViewController, UNUserNotificationCenterDelegate {
         authorizeButton.addTarget(self, action: #selector(authorize(sender:)), for: .touchUpInside)
         self.view.addSubview(authorizeButton)
         
+        self.register_textfieldDelegate()
     }
     
 }
@@ -290,59 +296,21 @@ extension SignUpViewController{
 }
 
 // MARK:- テキストフィールド関連
-extension SignUpViewController: UITextFieldDelegate{
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    /**選択されたテキストフィールドを保存**/
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.selectedTextfield = textField
-    }
-    
-    // キーボードの表示
-    @objc func showKeyBoard(notification: Notification){
-        let keyboardFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
-        
-        guard let keyboardMinY = keyboardFrame?.minY else{return}
-        
-        var minY_Button_s_MaxY:CGFloat = 0.00
-        
-        if self.selectedTextfield == passwordTextfield{
-            minY_Button_s_MaxY = self.passwordTextfield.frame.maxY
-        } else {
-            return
-        }
-        
-        let distance = minY_Button_s_MaxY - keyboardMinY + 20
-        let tranceform = CGAffineTransform(translationX: 0, y: -distance)
-        
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: {
-            self.view.transform = tranceform
-        })
-    }
-    
-    // キーボードを隠す
-    @objc func hideKeyBoard(notification: Notification){
-        
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: {
-            self.view.transform = .identity
-        })
-    }
+extension SignUpViewController{
     
     // onTouchBeganと同じ
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if (self.mailaddressTextfield.isFirstResponder) {
-            self.mailaddressTextfield.resignFirstResponder()
-        }
+        super.touchesBegan(touches, with: event)
         
-        if (self.passwordTextfield.isFirstResponder) {
-            self.passwordTextfield.resignFirstResponder()
-        }
-        
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
     }
     
 }
