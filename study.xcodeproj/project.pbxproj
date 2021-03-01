@@ -22,12 +22,8 @@
 		5A151767250359400075E8D8 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A151766250359400075E8D8 /* settingViewController.swift */; };
 		5A18CC322590F99F0016AB5A /* ReadME_for_Resource.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5A18CC312590F99F0016AB5A /* ReadME_for_Resource.txt */; };
 		5A26CB1325ACB3990055D429 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A26CB1225ACB3990055D429 /* GoogleService-Info.plist */; };
-		5A297DDF2566F67100CB8192 /* privacy_policyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A297DDE2566F67100CB8192 /* privacy_policyViewController.swift */; };
-		5A297DE22566F6DC00CB8192 /* privacy_policy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A297DE12566F6DC00CB8192 /* privacy_policy.storyboard */; };
 		5A297DEA25678A6400CB8192 /* privacy_policy.html in Resources */ = {isa = PBXBuildFile; fileRef = 5A297DE925678A6400CB8192 /* privacy_policy.html */; };
 		5A297DEE2567910E00CB8192 /* privacy_policy.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A297DED2567910E00CB8192 /* privacy_policy.css */; };
-		5A297DF92567984F00CB8192 /* production_philosophyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A297DF82567984F00CB8192 /* production_philosophyViewController.swift */; };
-		5A297DFD2567988A00CB8192 /* production_philosophy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A297DFC2567988A00CB8192 /* production_philosophy.storyboard */; };
 		5A297E0225679B7600CB8192 /* production_philosophy.html in Resources */ = {isa = PBXBuildFile; fileRef = 5A297E0125679B7600CB8192 /* production_philosophy.html */; };
 		5A297E0625679B8600CB8192 /* production_philosophy.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A297E0525679B8600CB8192 /* production_philosophy.css */; };
 		5A711E9D257673AC00E2A6B6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A711E9C257673AC00E2A6B6 /* SignUpViewController.swift */; };
@@ -40,14 +36,12 @@
 		5AE43DFC2568476600F27F5A /* LogIO.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43DFB2568476600F27F5A /* LogIO.storyboard */; };
 		5AE43DFF2568478300F27F5A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43DFE2568478300F27F5A /* LoginViewController.swift */; };
 		5AE43E06256847E500F27F5A /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43E05256847E500F27F5A /* LogoutViewController.swift */; };
-		5AE43E4A256CF0C200F27F5A /* terms_of_service_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43E49256CF0C200F27F5A /* terms_of_service_ViewController.swift */; };
-		5AE43E4D256CF10B00F27F5A /* terms_of_service.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43E4C256CF10B00F27F5A /* terms_of_service.storyboard */; };
+		5AE43E4A256CF0C200F27F5A /* html.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43E49256CF0C200F27F5A /* html.swift */; };
+		5AE43E4D256CF10B00F27F5A /* html.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43E4C256CF10B00F27F5A /* html.storyboard */; };
 		5AE43E52256CF28D00F27F5A /* terms_of_service.html in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43E51256CF28D00F27F5A /* terms_of_service.html */; };
 		5AE43E55256CF29800F27F5A /* terms_of_service.css in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43E54256CF29800F27F5A /* terms_of_service.css */; };
 		5AE43E5D256DB33B00F27F5A /* inquiry.html in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43E5C256DB33B00F27F5A /* inquiry.html */; };
 		5AE43E61256DB34500F27F5A /* inquiry.css in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43E60256DB34500F27F5A /* inquiry.css */; };
-		5AE43E65256DB36500F27F5A /* inquiry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43E64256DB36500F27F5A /* inquiry.storyboard */; };
-		5AE43E68256DB37E00F27F5A /* inquiryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43E67256DB37E00F27F5A /* inquiryViewController.swift */; };
 		5AE43E6B256DB63D00F27F5A /* inquiry.js in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43E6A256DB63D00F27F5A /* inquiry.js */; };
 		5AE43E6E256FA85C00F27F5A /* infoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43E6D256FA85B00F27F5A /* infoViewController.swift */; };
 		5AE5EA7325E4E9D50008C6FC /* touchPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE5EA7025E4E9D50008C6FC /* touchPoint.png */; };
@@ -78,12 +72,8 @@
 		5A26CAD425A103A20055D429 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		5A26CAD525A103A30055D429 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5A26CB1225ACB3990055D429 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		5A297DDE2566F67100CB8192 /* privacy_policyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacy_policyViewController.swift; sourceTree = "<group>"; };
-		5A297DE12566F6DC00CB8192 /* privacy_policy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = privacy_policy.storyboard; sourceTree = "<group>"; };
 		5A297DE925678A6400CB8192 /* privacy_policy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy_policy.html; sourceTree = "<group>"; };
 		5A297DED2567910E00CB8192 /* privacy_policy.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = privacy_policy.css; sourceTree = "<group>"; };
-		5A297DF82567984F00CB8192 /* production_philosophyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = production_philosophyViewController.swift; sourceTree = "<group>"; };
-		5A297DFC2567988A00CB8192 /* production_philosophy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = production_philosophy.storyboard; sourceTree = "<group>"; };
 		5A297E0125679B7600CB8192 /* production_philosophy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = production_philosophy.html; sourceTree = "<group>"; };
 		5A297E0525679B8600CB8192 /* production_philosophy.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = production_philosophy.css; sourceTree = "<group>"; };
 		5A711E9C257673AC00E2A6B6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -96,14 +86,12 @@
 		5AE43DFB2568476600F27F5A /* LogIO.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIO.storyboard; sourceTree = "<group>"; };
 		5AE43DFE2568478300F27F5A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5AE43E05256847E500F27F5A /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
-		5AE43E49256CF0C200F27F5A /* terms_of_service_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = terms_of_service_ViewController.swift; sourceTree = "<group>"; };
-		5AE43E4C256CF10B00F27F5A /* terms_of_service.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = terms_of_service.storyboard; sourceTree = "<group>"; };
+		5AE43E49256CF0C200F27F5A /* html.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = html.swift; sourceTree = "<group>"; };
+		5AE43E4C256CF10B00F27F5A /* html.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = html.storyboard; sourceTree = "<group>"; };
 		5AE43E51256CF28D00F27F5A /* terms_of_service.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = terms_of_service.html; sourceTree = "<group>"; };
 		5AE43E54256CF29800F27F5A /* terms_of_service.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = terms_of_service.css; sourceTree = "<group>"; };
 		5AE43E5C256DB33B00F27F5A /* inquiry.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = inquiry.html; sourceTree = "<group>"; };
 		5AE43E60256DB34500F27F5A /* inquiry.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = inquiry.css; sourceTree = "<group>"; };
-		5AE43E64256DB36500F27F5A /* inquiry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = inquiry.storyboard; sourceTree = "<group>"; };
-		5AE43E67256DB37E00F27F5A /* inquiryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inquiryViewController.swift; sourceTree = "<group>"; };
 		5AE43E6A256DB63D00F27F5A /* inquiry.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = inquiry.js; sourceTree = "<group>"; };
 		5AE43E6D256FA85B00F27F5A /* infoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoViewController.swift; sourceTree = "<group>"; };
 		5AE5EA7025E4E9D50008C6FC /* touchPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touchPoint.png; sourceTree = "<group>"; };
@@ -193,7 +181,7 @@
 		5A1517632503503C0075E8D8 /* settingPart */ = {
 			isa = PBXGroup;
 			children = (
-				5A297DDC2566F55E00CB8192 /* extras */,
+				5AE43E48256CF07C00F27F5A /* html */,
 				5A297DD62566697200CB8192 /* Login */,
 				5A297DD32566108000CB8192 /* mainpart */,
 			);
@@ -224,17 +212,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		5A297DDC2566F55E00CB8192 /* extras */ = {
-			isa = PBXGroup;
-			children = (
-				5AE43E63256DB35700F27F5A /* inquiry */,
-				5AE43E48256CF07C00F27F5A /* terms_of_service */,
-				5A297DF7256797FF00CB8192 /* production_philosophy */,
-				5A297DF5256797B500CB8192 /* privacy_policy */,
-			);
-			path = extras;
-			sourceTree = "<group>";
-		};
 		5A297DE825678A3E00CB8192 /* resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,24 +222,6 @@
 				5A18CC312590F99F0016AB5A /* ReadME_for_Resource.txt */,
 			);
 			path = resource;
-			sourceTree = "<group>";
-		};
-		5A297DF5256797B500CB8192 /* privacy_policy */ = {
-			isa = PBXGroup;
-			children = (
-				5A297DDE2566F67100CB8192 /* privacy_policyViewController.swift */,
-				5A297DE12566F6DC00CB8192 /* privacy_policy.storyboard */,
-			);
-			path = privacy_policy;
-			sourceTree = "<group>";
-		};
-		5A297DF7256797FF00CB8192 /* production_philosophy */ = {
-			isa = PBXGroup;
-			children = (
-				5A297DF82567984F00CB8192 /* production_philosophyViewController.swift */,
-				5A297DFC2567988A00CB8192 /* production_philosophy.storyboard */,
-			);
-			path = production_philosophy;
 			sourceTree = "<group>";
 		};
 		5A297DFF25679B1B00CB8192 /* production_philosophy */ = {
@@ -294,13 +253,13 @@
 			path = my_objects;
 			sourceTree = "<group>";
 		};
-		5AE43E48256CF07C00F27F5A /* terms_of_service */ = {
+		5AE43E48256CF07C00F27F5A /* html */ = {
 			isa = PBXGroup;
 			children = (
-				5AE43E49256CF0C200F27F5A /* terms_of_service_ViewController.swift */,
-				5AE43E4C256CF10B00F27F5A /* terms_of_service.storyboard */,
+				5AE43E49256CF0C200F27F5A /* html.swift */,
+				5AE43E4C256CF10B00F27F5A /* html.storyboard */,
 			);
-			path = terms_of_service;
+			path = html;
 			sourceTree = "<group>";
 		};
 		5AE43E50256CF27600F27F5A /* terms_of_service */ = {
@@ -318,15 +277,6 @@
 				5AE43E5C256DB33B00F27F5A /* inquiry.html */,
 				5AE43E60256DB34500F27F5A /* inquiry.css */,
 				5AE43E6A256DB63D00F27F5A /* inquiry.js */,
-			);
-			path = inquiry;
-			sourceTree = "<group>";
-		};
-		5AE43E63256DB35700F27F5A /* inquiry */ = {
-			isa = PBXGroup;
-			children = (
-				5AE43E64256DB36500F27F5A /* inquiry.storyboard */,
-				5AE43E67256DB37E00F27F5A /* inquiryViewController.swift */,
 			);
 			path = inquiry;
 			sourceTree = "<group>";
@@ -404,18 +354,15 @@
 			files = (
 				5AE5EA7325E4E9D50008C6FC /* touchPoint.png in Resources */,
 				5A0E689424C79BA80095D605 /* readME.text in Resources */,
-				5AE43E4D256CF10B00F27F5A /* terms_of_service.storyboard in Resources */,
+				5AE43E4D256CF10B00F27F5A /* html.storyboard in Resources */,
 				5A297E0625679B8600CB8192 /* production_philosophy.css in Resources */,
 				5A297E0225679B7600CB8192 /* production_philosophy.html in Resources */,
 				5AE5EA7525E4E9D50008C6FC /* closeEye.png in Resources */,
 				5A18CC322590F99F0016AB5A /* ReadME_for_Resource.txt in Resources */,
 				5A297DEA25678A6400CB8192 /* privacy_policy.html in Resources */,
 				5AE43E52256CF28D00F27F5A /* terms_of_service.html in Resources */,
-				5AE43E65256DB36500F27F5A /* inquiry.storyboard in Resources */,
 				5AE43E5D256DB33B00F27F5A /* inquiry.html in Resources */,
-				5A297DFD2567988A00CB8192 /* production_philosophy.storyboard in Resources */,
 				5AE5EA7425E4E9D50008C6FC /* openEye.png in Resources */,
-				5A297DE22566F6DC00CB8192 /* privacy_policy.storyboard in Resources */,
 				5A0E686524C515720095D605 /* LaunchScreen.storyboard in Resources */,
 				5A0E686224C515720095D605 /* Assets.xcassets in Resources */,
 				5AE43E55256CF29800F27F5A /* terms_of_service.css in Resources */,
@@ -482,16 +429,13 @@
 				5A0E685B24C515700095D605 /* MasterViewController.swift in Sources */,
 				5AA2A4F625C84F500033BF8E /* my_extensions.swift in Sources */,
 				5A0E685424C515700095D605 /* AppDelegate.swift in Sources */,
-				5A297DDF2566F67100CB8192 /* privacy_policyViewController.swift in Sources */,
 				5A0E685D24C515700095D605 /* DetailViewController.swift in Sources */,
 				5AE43E06256847E500F27F5A /* LogoutViewController.swift in Sources */,
 				5AE43E6E256FA85C00F27F5A /* infoViewController.swift in Sources */,
 				5A711E9D257673AC00E2A6B6 /* SignUpViewController.swift in Sources */,
-				5A297DF92567984F00CB8192 /* production_philosophyViewController.swift in Sources */,
-				5AE43E68256DB37E00F27F5A /* inquiryViewController.swift in Sources */,
 				5ABF907024CF946F00878070 /* study.xcdatamodeld in Sources */,
 				5A0E685924C515700095D605 /* SceneDelegate.swift in Sources */,
-				5AE43E4A256CF0C200F27F5A /* terms_of_service_ViewController.swift in Sources */,
+				5AE43E4A256CF0C200F27F5A /* html.swift in Sources */,
 				5A0E686D24C515FF0095D605 /* my_variables.swift in Sources */,
 				5AABF88424DBFE5600F096A8 /* CustomPresentationController.swift in Sources */,
 				5AA2A4FB25C84F890033BF8E /* my_functions.swift in Sources */,

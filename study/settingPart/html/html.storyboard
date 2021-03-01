@@ -1,38 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Terms of service View Controller-->
+        <!--Html View Controller-->
         <scene sceneID="vZX-iv-IwC">
             <objects>
-                <viewController storyboardIdentifier="terms_of_serviceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Apy-M9-hGM" customClass="terms_of_serviceViewController" customModule="study" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="htmlViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Apy-M9-hGM" customClass="htmlViewController" customModule="ますラン" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kst-Hq-N7D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyS-Mi-LVu">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="730"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="irR-GA-Ekj">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="UWy-zJ-iha"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" image="chevron.backward" catalog="system" id="iya-YQ-G69"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tK3-VG-jjl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="irR-GA-Ekj" firstAttribute="top" secondItem="JyS-Mi-LVu" secondAttribute="bottom" id="1lv-mx-SLg"/>
+                            <constraint firstItem="irR-GA-Ekj" firstAttribute="leading" secondItem="JyS-Mi-LVu" secondAttribute="leading" id="8cX-4R-heB"/>
                             <constraint firstItem="JyS-Mi-LVu" firstAttribute="top" secondItem="tK3-VG-jjl" secondAttribute="top" id="CMK-4d-5Oh"/>
+                            <constraint firstItem="irR-GA-Ekj" firstAttribute="bottom" secondItem="tK3-VG-jjl" secondAttribute="bottom" id="GTU-wD-IVK"/>
                             <constraint firstItem="tK3-VG-jjl" firstAttribute="trailing" secondItem="JyS-Mi-LVu" secondAttribute="trailing" id="cD5-8D-SGl"/>
                             <constraint firstItem="JyS-Mi-LVu" firstAttribute="leading" secondItem="tK3-VG-jjl" secondAttribute="leading" id="gBa-il-WVe"/>
-                            <constraint firstItem="tK3-VG-jjl" firstAttribute="bottom" secondItem="JyS-Mi-LVu" secondAttribute="bottom" id="gGg-FH-Ytg"/>
+                            <constraint firstItem="irR-GA-Ekj" firstAttribute="centerX" secondItem="Kst-Hq-N7D" secondAttribute="centerX" id="moM-Cu-04w"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FjS-qt-13D"/>
@@ -42,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAU-mS-wBN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="734.78260869565224" y="-12.053571428571429"/>
+            <point key="canvasLocation" x="630.43478260869574" y="-12.053571428571429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0wG-A5-uce">
@@ -64,6 +76,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

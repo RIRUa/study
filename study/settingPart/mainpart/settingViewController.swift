@@ -106,10 +106,10 @@ class settingViewController:UIViewController{
     
     //プライバシーポリシーへの遷移
     @IBAction func privacy_policyButton(_ sender: Any) {
-        let storyBoard = UIStoryboard(name: "privacy_policy", bundle: nil)
-        let PPVC = storyBoard.instantiateViewController(identifier: "privacy_policyViewController") as! privacy_policyViewController//privacy_policyViewControllerのインスタンスの作成
-        
-        let navVC = UINavigationController(rootViewController: PPVC)
+        let storyBoard = UIStoryboard(name: "html", bundle: nil)
+        let htmlVC = storyBoard.instantiateViewController(identifier: "htmlViewController") as! htmlViewController//privacy_policyViewControllerのインスタンスの作成
+        htmlVC.htmlFile = "privacy_policy"
+        let navVC = UINavigationController(rootViewController: htmlVC)
         
         navVC.modalPresentationStyle = .fullScreen
         
@@ -119,11 +119,11 @@ class settingViewController:UIViewController{
     //制作理念への遷移
     @IBAction func product_philosophyButton(_ sender: Any) {
         
-        let storyBoard = UIStoryboard(name: "production_philosophy", bundle: nil)
-        let PPVC = storyBoard.instantiateViewController(identifier: "production_philosophyViewController") as! production_philosophyViewController//production_philosophyViewControllerのインスタンスの作成
+        let storyBoard = UIStoryboard(name: "html", bundle: nil)
+        let htmlVC = storyBoard.instantiateViewController(identifier: "htmlViewController") as! htmlViewController//production_philosophyViewControllerのインスタンスの作成
+        htmlVC.htmlFile = "production_philosophy"
         
-        let navVC = UINavigationController(rootViewController: PPVC)
-        
+        let navVC = UINavigationController(rootViewController: htmlVC)
         navVC.modalPresentationStyle = .fullScreen
         
         present(navVC, animated: true, completion: nil)
@@ -132,11 +132,11 @@ class settingViewController:UIViewController{
     
     //利用規約への遷移
     @IBAction func terms_of_serviceButton(_ sender: Any) {
-        let storyBoard = UIStoryboard(name: "terms_of_service", bundle: nil)
-        let ToS_VC = storyBoard.instantiateViewController(identifier: "terms_of_serviceViewController") as! terms_of_serviceViewController
+        let storyBoard = UIStoryboard(name: "html", bundle: nil)
+        let htmlVC = storyBoard.instantiateViewController(identifier: "htmlViewController") as! htmlViewController
+        htmlVC.htmlFile = "terms_of_service"
         
-        let navVC = UINavigationController(rootViewController: ToS_VC)
-        
+        let navVC = UINavigationController(rootViewController: htmlVC)
         navVC.modalPresentationStyle = .fullScreen
         
         present(navVC, animated: true, completion: nil)
@@ -145,13 +145,13 @@ class settingViewController:UIViewController{
     
     //お問い合わせへの遷移
     @IBAction func inquiryButton(_ sender: Any) {
-        let storyBoard = UIStoryboard(name: "inquiry", bundle: nil)
+        let storyBoard = UIStoryboard(name: "html", bundle: nil)
+        let htmlVC = storyBoard.instantiateViewController(identifier: "htmlViewController") as! htmlViewController
+        htmlVC.htmlFile = "inquiry"
         
-        let inquiryVC = storyBoard.instantiateViewController(identifier: "inquiryViewController") as! inquiryViewController
-        
-        let navVC = UINavigationController(rootViewController: inquiryVC)
-        
+        let navVC = UINavigationController(rootViewController: htmlVC)
         navVC.modalPresentationStyle = .fullScreen
+        
         present(navVC, animated: true, completion: nil)
         
     }

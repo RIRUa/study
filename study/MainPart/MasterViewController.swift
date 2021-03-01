@@ -292,16 +292,19 @@ extension MasterViewController{
     
     func configureCell(_ cell: UITableViewCell, withData Data: Past_Data) {
         
-        cell.textLabel!.text = "UNCLEARED"
         
-        if Data.enum_CellCheck == 0 {
-            cell.textLabel!.text = "UNCLEARED"
-        }else if Data.enum_CellCheck == 1 {
-            cell.textLabel!.text = "Fail"
-        }else if Data.enum_CellCheck == 2 {
-            cell.textLabel!.text = "CLEARED"
+        let titleText: [String] = [
+            "NOT TRY",
+            "FAIL",
+            "CLEARED"
+        ]
+        
+        cell.setTitleText(Text: titleText[0])
+        
+        if Data.enum_CellCheck == 0 || Data.enum_CellCheck == 1 || Data.enum_CellCheck == 2 {
+            cell.setTitleText(Text: titleText[Int(Data.enum_CellCheck)])
         }else{
-            cell.textLabel!.text = "「ERROR」 OR 「HUCKED NOW」"
+            cell.setTitleText(Text: "「ERROR」 OR 「HUCKED NOW」")
         }
         
     }

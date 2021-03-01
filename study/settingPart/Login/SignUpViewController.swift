@@ -279,17 +279,19 @@ extension SignUpViewController{
     }
     
     @objc func GotoTermOfService(sender: UIButton) {
-        let StoryBoard = UIStoryboard(name: "terms_of_service", bundle: nil)
-        let termVC = StoryBoard.instantiateViewController(identifier: "terms_of_serviceViewController")
-        let navVC = UINavigationController(rootViewController: termVC)
+        let StoryBoard = UIStoryboard(name: "html", bundle: nil)
+        let htmlVC = StoryBoard.instantiateViewController(identifier: "htmlViewController") as! htmlViewController
+        htmlVC.htmlFile = "terms_of_service"
+        let navVC = UINavigationController(rootViewController: htmlVC)
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true, completion: nil)
     }
     
     @objc func GotoPrivacyPolicy(sender:UIButton) {
-        let StoryBoard = UIStoryboard(name: "privacy_policy", bundle: nil)
-        let PPVC = StoryBoard.instantiateViewController(identifier: "privacy_policyViewController")
-        let navVC = UINavigationController(rootViewController: PPVC)
+        let StoryBoard = UIStoryboard(name: "html", bundle: nil)
+        let htmlVC = StoryBoard.instantiateViewController(identifier: "htmlViewController") as! htmlViewController
+        htmlVC.htmlFile = "privacy_policy"
+        let navVC = UINavigationController(rootViewController: htmlVC)
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true, completion: nil)
     }

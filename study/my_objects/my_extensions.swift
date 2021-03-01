@@ -32,3 +32,11 @@ extension Date{
     }
     
 }
+
+extension UITableViewCell {
+    
+    func setTitleText(Text: String) {
+        self.textLabel?.text = Text
+    }
+    
+}
