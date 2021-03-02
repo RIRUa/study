@@ -31,7 +31,16 @@
                                     <constraint firstAttribute="height" constant="44" id="UWy-zJ-iha"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Item" image="chevron.backward" catalog="system" id="iya-YQ-G69"/>
+                                    <barButtonItem title="Item" image="chevron.left" catalog="system" id="iya-YQ-G69">
+                                        <connections>
+                                            <action selector="back_the_webview:" destination="Apy-M9-hGM" id="WQj-d4-Pp5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" image="chevron.right" catalog="system" id="5Ww-rY-wDq">
+                                        <connections>
+                                            <action selector="forword_the_webview:" destination="Apy-M9-hGM" id="qEH-Rb-8vf"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -49,6 +58,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="FjS-qt-13D"/>
                     <connections>
+                        <outlet property="back_webview" destination="iya-YQ-G69" id="S77-4o-jwE"/>
+                        <outlet property="forword_webview" destination="5Ww-rY-wDq" id="SAp-HO-dsh"/>
                         <outlet property="webview" destination="JyS-Mi-LVu" id="TMk-cI-ufc"/>
                     </connections>
                 </viewController>
@@ -59,7 +70,7 @@
         <!--Navigation Controller-->
         <scene sceneID="0wG-A5-uce">
             <objects>
-                <navigationController storyboardIdentifier="terms_of_serviceNavVC" automaticallyAdjustsScrollViewInsets="NO" id="91X-eI-EVu" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="htmlNavVC" automaticallyAdjustsScrollViewInsets="NO" id="91X-eI-EVu" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BRR-N7-2sr">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -76,7 +87,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
