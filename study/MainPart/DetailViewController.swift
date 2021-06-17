@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
     var a4 = Int.random(in: 10 ... 100)
     var b4 = Int.random(in: 1 ... 10)
     
-    var check1:Bool = false
+    var CWjudge1:Bool = false
     var check2:Bool = false
     var check3:Bool = false
     var check4:Bool = false
@@ -152,7 +152,7 @@ class DetailViewController: UIViewController {
     //　masterViewControllerにデータを送るメソッド
     private func data_send_func() {
         
-        if (check1 == true && check2 == true && check3 == true && check4 == true && datasendfunc_is_called == false) {
+        if (CWjudge1 == true && check2 == true && check3 == true && check4 == true && datasendfunc_is_called == false) {
             
             /**　合格時　**/
             
@@ -462,7 +462,7 @@ extension DetailViewController{
         if Int(textfield1.text!) == a1+b1 {
             button1.setTitle("cleared", for: .normal)
             button1.backgroundColor = .blue
-            check1 = true
+            CWjudge1 = true
             textfield1.isUserInteractionEnabled = false
             textfield1.textColor = .systemBlue
         }else{

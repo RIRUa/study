@@ -1,4 +1,12 @@
 
+
+命名規則：
+    関数           ：スネーク形式
+    変数      　  　：
+    クラス名        ：キャメル形式
+
+
+
 MasterViewControllerでのcellの作られ方
 cell is created 0
 cell is created 1

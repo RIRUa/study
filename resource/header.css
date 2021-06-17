@@ -1,0 +1,29 @@
+/***********************************大きな部分***********************************/
+
+/**　ヘッダーに関する内容　**/
+header{
+
+}
+
+
+
+/***********************************小さな部分***********************************/
+
+/*table（id:AccessTable）に関する内容*/
+table#AccessTable{
+    width: 100%;
+    height: 100px;
+    /*background-color: aqua;*/
+    border-collapse: separate;
+}
+
+td.cells{
+    border: solid 1px;
+    text-align: center;
+    width: 50%;
+}
+
+
+div#pictPosition{
+    text-align: center;
+}

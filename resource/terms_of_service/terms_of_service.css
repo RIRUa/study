@@ -1,33 +1,31 @@
 
+@import "../header.css";
+@import "header.css";
+
 /***********************************大きな部分***********************************/
 
 /**　本文に関する内容、　**/
 body{
-    
+    -webkit-text-size-adjust: 100%;
 }
 
-/**　ヘッダーに関する内容　**/
-header{
-
-}
-
-/**　メインに関する内容　**/
+/**　メインに関する内容　
 main{
 
-}
+}**/
 
-/**　フッターに関する内容　**/
+/**　フッターに関する内容　
 footer{
 
-}
+}**/
 
 
-dl{
+/**dl{
 
-}
+}**/
 
 dt{
-
+    font-weight: bold;
 }
 
 dd{
@@ -36,11 +34,19 @@ dd{
 
 /**　h2に関する部分　**/
 h2{
-    /*margin-bottom: 1vh;*/
+    margin-top: 20px;
 }
 
 /***********************************小さな部分***********************************/
 
 strong#privacy_policy{
     color: red;
+}
+
+/*ol#for_personal_user{
+
+}*/
+
+p#end_above{
+    text-align: right;
 }

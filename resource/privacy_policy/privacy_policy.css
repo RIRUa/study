@@ -1,14 +1,14 @@
 
+
+@import "../header.css";
+@import "header.css";
+
+
 /*************************基本設定部*****************************/
 
 /**　bodyについて　**/
 body{
     margin: 10px;
-}
-
-header{
-    height: 50px;
-    background-color: rgb(255, 243, 221);
 }
 
 main{

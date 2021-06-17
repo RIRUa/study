@@ -51,7 +51,11 @@ class htmlViewController: UIViewController, WKNavigationDelegate {
     
     /**　webviewを一つ前に戻す関数　**/
     @IBAction func back_the_webview(_ sender: Any) {
-        self.webview.goBack()
+        
+        if self.webview.canGoBack == true {
+            self.webview.goBack()
+        }
+        
     }
     
     @IBAction func forword_the_webview(_ sender: Any) {
@@ -68,23 +72,30 @@ class htmlViewController: UIViewController, WKNavigationDelegate {
 extension htmlViewController{
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
         /**　ブラウザを一つ前に戻せるかできるか　**/
-        if self.webview.canGoBack == true {
-            self.back_webview.tintColor = nil
-            self.back_webview.isEnabled = true
+        if webview.canGoBack == true {
+            back_webview.tintColor = nil
+            back_webview.isEnabled = true
         } else {
-            self.back_webview.tintColor = .gray
-            self.back_webview.isEnabled = false
+            back_webview.tintColor = .gray
+            back_webview.isEnabled = false
         }
         
         /**　ブラウザを一つ後にできるか　**/
-        if self.webview.canGoForward == true {
-            self.forword_webview.tintColor = nil
-            self.forword_webview.isEnabled = true
+        if webview.canGoForward == true {
+            forword_webview.tintColor = nil
+            forword_webview.isEnabled = true
         } else {
-            self.forword_webview.tintColor = .gray
-            self.forword_webview.isEnabled = false
+            forword_webview.tintColor = .gray
+            forword_webview.isEnabled = false
         }
     }
+    
+    /**　webview.goback()でのブラウザの移動時のUIの動きを改善する　**/
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        webview.reload()
+    }
+    
     
 }

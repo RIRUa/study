@@ -27,12 +27,15 @@
 		5A297E0225679B7600CB8192 /* production_philosophy.html in Resources */ = {isa = PBXBuildFile; fileRef = 5A297E0125679B7600CB8192 /* production_philosophy.html */; };
 		5A297E0625679B8600CB8192 /* production_philosophy.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A297E0525679B8600CB8192 /* production_philosophy.css */; };
 		5A711E9D257673AC00E2A6B6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A711E9C257673AC00E2A6B6 /* SignUpViewController.swift */; };
+		5A9D28AC26163C5200A6DC41 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 5A9D28AB26163C5200A6DC41 /* index.js */; };
+		5A9D28B026163C5E00A6DC41 /* index.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A9D28AF26163C5E00A6DC41 /* index.css */; };
 		5AA2A4F625C84F500033BF8E /* my_extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2A4F525C84F500033BF8E /* my_extensions.swift */; };
 		5AA2A4FB25C84F890033BF8E /* my_functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2A4FA25C84F890033BF8E /* my_functions.swift */; };
 		5AA2A4FE25C84FA70033BF8E /* my_protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2A4FD25C84FA70033BF8E /* my_protocols.swift */; };
 		5AABF88424DBFE5600F096A8 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF88324DBFE5600F096A8 /* CustomPresentationController.swift */; };
 		5ABF907024CF946F00878070 /* study.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF906E24CF946F00878070 /* study.xcdatamodeld */; };
 		5ACD0344250A309E0099E695 /* SETTING.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACD0343250A309E0099E695 /* SETTING.storyboard */; };
+		5ADB6F4426098F3C00FDB3AF /* header.js in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB6F4326098F3C00FDB3AF /* header.js */; };
 		5AE43DFC2568476600F27F5A /* LogIO.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE43DFB2568476600F27F5A /* LogIO.storyboard */; };
 		5AE43DFF2568478300F27F5A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43DFE2568478300F27F5A /* LoginViewController.swift */; };
 		5AE43E06256847E500F27F5A /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE43E05256847E500F27F5A /* LogoutViewController.swift */; };
@@ -47,6 +50,9 @@
 		5AE5EA7325E4E9D50008C6FC /* touchPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE5EA7025E4E9D50008C6FC /* touchPoint.png */; };
 		5AE5EA7425E4E9D50008C6FC /* openEye.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE5EA7125E4E9D50008C6FC /* openEye.png */; };
 		5AE5EA7525E4E9D50008C6FC /* closeEye.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE5EA7225E4E9D50008C6FC /* closeEye.png */; };
+		5AE5EB9126036DF80008C6FC /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5AE5EB9026036DF80008C6FC /* index.html */; };
+		5AE5EB9426036E040008C6FC /* header.css in Resources */ = {isa = PBXBuildFile; fileRef = 5AE5EB9326036E040008C6FC /* header.css */; };
+		5AE5EB97260560140008C6FC /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE5EB96260560140008C6FC /* header.png */; };
 		E603425F90563AD34A0C28DA /* Pods_study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5263820138CCBC062104038 /* Pods_study.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,12 +83,15 @@
 		5A297E0125679B7600CB8192 /* production_philosophy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = production_philosophy.html; sourceTree = "<group>"; };
 		5A297E0525679B8600CB8192 /* production_philosophy.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = production_philosophy.css; sourceTree = "<group>"; };
 		5A711E9C257673AC00E2A6B6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		5A9D28AB26163C5200A6DC41 /* index.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		5A9D28AF26163C5E00A6DC41 /* index.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = index.css; sourceTree = "<group>"; };
 		5AA2A4F525C84F500033BF8E /* my_extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = my_extensions.swift; sourceTree = "<group>"; };
 		5AA2A4FA25C84F890033BF8E /* my_functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = my_functions.swift; sourceTree = "<group>"; };
 		5AA2A4FD25C84FA70033BF8E /* my_protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = my_protocols.swift; sourceTree = "<group>"; };
 		5AABF88324DBFE5600F096A8 /* CustomPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		5ABF906F24CF946F00878070 /* study.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = study.xcdatamodel; sourceTree = "<group>"; };
 		5ACD0343250A309E0099E695 /* SETTING.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SETTING.storyboard; sourceTree = "<group>"; };
+		5ADB6F4326098F3C00FDB3AF /* header.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = header.js; sourceTree = "<group>"; };
 		5AE43DFB2568476600F27F5A /* LogIO.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIO.storyboard; sourceTree = "<group>"; };
 		5AE43DFE2568478300F27F5A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5AE43E05256847E500F27F5A /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +106,9 @@
 		5AE5EA7025E4E9D50008C6FC /* touchPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touchPoint.png; sourceTree = "<group>"; };
 		5AE5EA7125E4E9D50008C6FC /* openEye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openEye.png; sourceTree = "<group>"; };
 		5AE5EA7225E4E9D50008C6FC /* closeEye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeEye.png; sourceTree = "<group>"; };
+		5AE5EB9026036DF80008C6FC /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		5AE5EB9326036E040008C6FC /* header.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = header.css; sourceTree = "<group>"; };
+		5AE5EB96260560140008C6FC /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
 		D5263820138CCBC062104038 /* Pods_study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -220,6 +232,12 @@
 				5A297E0025679B2900CB8192 /* privacy_policy */,
 				5A297DFF25679B1B00CB8192 /* production_philosophy */,
 				5A18CC312590F99F0016AB5A /* ReadME_for_Resource.txt */,
+				5AE5EB9026036DF80008C6FC /* index.html */,
+				5A9D28AB26163C5200A6DC41 /* index.js */,
+				5A9D28AF26163C5E00A6DC41 /* index.css */,
+				5ADB6F4326098F3C00FDB3AF /* header.js */,
+				5AE5EB9326036E040008C6FC /* header.css */,
+				5AE5EB96260560140008C6FC /* header.png */,
 			);
 			path = resource;
 			sourceTree = "<group>";
@@ -352,14 +370,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ADB6F4426098F3C00FDB3AF /* header.js in Resources */,
 				5AE5EA7325E4E9D50008C6FC /* touchPoint.png in Resources */,
 				5A0E689424C79BA80095D605 /* readME.text in Resources */,
 				5AE43E4D256CF10B00F27F5A /* html.storyboard in Resources */,
 				5A297E0625679B8600CB8192 /* production_philosophy.css in Resources */,
 				5A297E0225679B7600CB8192 /* production_philosophy.html in Resources */,
 				5AE5EA7525E4E9D50008C6FC /* closeEye.png in Resources */,
+				5AE5EB9426036E040008C6FC /* header.css in Resources */,
 				5A18CC322590F99F0016AB5A /* ReadME_for_Resource.txt in Resources */,
 				5A297DEA25678A6400CB8192 /* privacy_policy.html in Resources */,
+				5A9D28B026163C5E00A6DC41 /* index.css in Resources */,
+				5A9D28AC26163C5200A6DC41 /* index.js in Resources */,
+				5AE5EB97260560140008C6FC /* header.png in Resources */,
 				5AE43E52256CF28D00F27F5A /* terms_of_service.html in Resources */,
 				5AE43E5D256DB33B00F27F5A /* inquiry.html in Resources */,
 				5AE5EA7425E4E9D50008C6FC /* openEye.png in Resources */,
@@ -372,6 +395,7 @@
 				5A297DEE2567910E00CB8192 /* privacy_policy.css in Resources */,
 				5ACD0344250A309E0099E695 /* SETTING.storyboard in Resources */,
 				5A26CB1325ACB3990055D429 /* GoogleService-Info.plist in Resources */,
+				5AE5EB9126036DF80008C6FC /* index.html in Resources */,
 				5A1048AA24E125D90023DDFE /* popup.storyboard in Resources */,
 				5AE43DFC2568476600F27F5A /* LogIO.storyboard in Resources */,
 			);
